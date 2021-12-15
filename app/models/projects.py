@@ -15,8 +15,8 @@ class Project(db.Model):
     # Relationships
     users = db.relationship('User', back_populates='users')
     categories = db.relationship('Category', back_populates='categories')
-    images = db.relationship('Image', back_populates='images')
-    comments = db.relationship('Comment', back_populates='comments')
+    images = db.relationship('Image', back_populates='images', cascade='all, delete')
+    comments = db.relationship('Comment', back_populates='comments', cascade='all, delete')
 
     def to_dict(self):
         return {
