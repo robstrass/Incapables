@@ -8,7 +8,7 @@ class Category(db.Model):
     category = db.Column(db.String, nullable=False)
 
     # Relationships
-    projects = db.relationship('Project', back_populates='projects')
+    projects = db.relationship('Project', back_populates='categories')
 
     def to_dict(self):
         return {

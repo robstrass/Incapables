@@ -11,7 +11,7 @@ def seed_images():
         '''
     )
 
-    img1 = Image(
+    img2 = Image(
         project_id=1,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632018/olive-oil_tjuhn2.jpg',
         content='''
@@ -22,7 +22,7 @@ def seed_images():
         '''
     )
 
-    img1 = Image(
+    img3 = Image(
         project_id=2,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632285/birb-feeder_fqotbb.jpg',
         content='''
@@ -32,7 +32,7 @@ def seed_images():
         '''
     )
 
-    img1 = Image(
+    img4 = Image(
         project_id=2,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632292/squirrel-feeder_jxdgjq.jpg',
         content='''
@@ -42,7 +42,7 @@ def seed_images():
         '''
     )
 
-    img1 = Image(
+    img5 = Image(
         project_id=3,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632823/windex_oq8lry.jpg',
         content='''
@@ -52,7 +52,7 @@ def seed_images():
         '''
     )
 
-    img1 = Image(
+    img6 = Image(
         project_id=3,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632818/broken-window_e5nhwg.jpg',
         content='''
@@ -62,7 +62,7 @@ def seed_images():
         '''
     )
 
-    img1 = Image(
+    img7 = Image(
         project_id=4,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639633709/spaghetti_dnzwu2.jpg',
         content='''
@@ -72,7 +72,7 @@ def seed_images():
         '''
     )
 
-    img1 = Image(
+    img8 = Image(
         project_id=4,
         image='',
         content='''
