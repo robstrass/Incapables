@@ -1,14 +1,16 @@
 from app.api.auth_routes import validation_errors_to_error_messages
+from app.forms.edit_project_form import EditProjectForm
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Project
 from app.forms import NewProjectForm
+from app.forms import EditProjectForm
+
 
 project_routes = Blueprint('projects', __name__)
 
 # All projects
 @project_routes.route('/')
-@login_required
 def all_projects():
     projects = Project.query.all()
     print('asndlasnd', projects)
@@ -23,13 +25,29 @@ def new_project():
 
     if form.validate_on_submit():
         project = Project(
-            user_id=current_user,
+            user_id=current_user.id,
             category_id=form.data['category_id'],
             title=form.data['title'],
             content=form.data['content']
         )
 
         db.session.add(project)
+        db.session.commit()
+        return project.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+@project_routes.route('/<int:projectId>', methods=['PUT'])
+# @login_required
+def edit_project(projectId):
+    form = EditProjectForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    project = Project.query.get(int(projectId))
+
+    if form.validate_on_submit() and project.user_id == current_user.id:
+        project.title = form.data['title']
+        project.content = form.data['content']
+        project.category_id = form.data['category_id']
+
         db.session.commit()
         return project.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400

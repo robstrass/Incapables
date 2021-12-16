@@ -74,7 +74,7 @@ def seed_images():
 
     img8 = Image(
         project_id=4,
-        image='',
+        image='https://res.cloudinary.com/depdd11lz/image/upload/v1639633704/uncooked-spaghetti_qezw8p.jpg',
         content='''
             To prevent overcooking, don't even bother boiling
             your water. Place your noodles in the pot while you
