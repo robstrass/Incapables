@@ -64,3 +64,18 @@ def seed_comments():
             How is this a thing?
         '''
     )
+
+    db.session.add(com1)
+    db.session.add(com2)
+    db.session.add(com3)
+    db.session.add(com4)
+    db.session.add(com5)
+    db.session.add(com6)
+    db.session.add(com7)
+    db.session.add(com8)
+
+    db.session.commit()
+
+def undo_comments():
+    db.session.execute('TRUNCATE comments RESTART IDENTITY CASCADE;')
+    db.session.commit()

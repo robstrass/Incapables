@@ -80,6 +80,21 @@ def seed_images():
             your water. Place your noodles in the pot while you
             cook your sauce and meat, then when you're done,
             simply remove the noodles and pour your sauce over
-            them. 
+            them.
         '''
     )
+
+    db.session.add(img1)
+    db.session.add(img2)
+    db.session.add(img3)
+    db.session.add(img4)
+    db.session.add(img5)
+    db.session.add(img6)
+    db.session.add(img7)
+    db.session.add(img8)
+
+    db.session.commit()
+
+def undo_images():
+    db.session.execute('TRUNCATE images RESTART IDENTITY CASCADE;')
+    db.session.commit()

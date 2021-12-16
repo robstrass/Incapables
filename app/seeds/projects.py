@@ -29,3 +29,14 @@ def seed_projects():
         title='Spaghetti',
         content='Better than yo mama\'s'
     )
+
+    db.session.add(project1)
+    db.session.add(project2)
+    db.session.add(project3)
+    db.session.add(project4)
+
+    db.session.commit()
+
+def undo_projects():
+    db.session.execute('TRUNCATE projects RESTART IDENTITY CASCADE;')
+    db.session.commit()
