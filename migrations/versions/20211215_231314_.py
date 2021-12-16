@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: e8ae8b282f70
-Revises: ffdc0a98111c
-Create Date: 2021-12-15 13:00:12.467567
+Revision ID: 6c142b846769
+Revises: 
+Create Date: 2021-12-15 23:13:14.252066
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e8ae8b282f70'
-down_revision = 'ffdc0a98111c'
+revision = '6c142b846769'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -23,14 +23,23 @@ def upgrade():
     sa.Column('category', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('users',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('username', sa.String(length=40), nullable=False),
+    sa.Column('email', sa.String(length=255), nullable=False),
+    sa.Column('hashed_password', sa.String(length=255), nullable=False),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('email'),
+    sa.UniqueConstraint('username')
+    )
     op.create_table('projects',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('category_id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
     sa.Column('content', sa.Text(), nullable=False),
-    sa.Column('createdAt', sa.DateTime(), nullable=False),
-    sa.Column('updatedAt', sa.DateTime(), nullable=False),
+    sa.Column('createdAt', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+    sa.Column('updatedAt', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
     sa.ForeignKeyConstraint(['category_id'], ['categories.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -40,8 +49,8 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('project_id', sa.Integer(), nullable=False),
     sa.Column('content', sa.Text(), nullable=False),
-    sa.Column('createdAt', sa.DateTime(), nullable=False),
-    sa.Column('updatedAt', sa.DateTime(), nullable=False),
+    sa.Column('createdAt', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+    sa.Column('updatedAt', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
     sa.ForeignKeyConstraint(['project_id'], ['projects.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -62,5 +71,6 @@ def downgrade():
     op.drop_table('images')
     op.drop_table('comments')
     op.drop_table('projects')
+    op.drop_table('users')
     op.drop_table('categories')
     # ### end Alembic commands ###

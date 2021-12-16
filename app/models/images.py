@@ -10,7 +10,7 @@ class Image(db.Model):
     content = db.Column(db.Text)
 
     # Relationship
-    projects = db.relationship('Project', back_populates='projects')
+    projects = db.relationship('Project', back_populates='images')
 
     def to_dict(self):
         return {
