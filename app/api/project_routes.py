@@ -13,9 +13,15 @@ project_routes = Blueprint('projects', __name__)
 @project_routes.route('/')
 def all_projects():
     projects = Project.query.all()
-    print('asndlasnd', projects)
 
     return { 'projects': [project.to_dict() for project in projects] }
+
+# Single Project
+@project_routes.route('/<int:projectId>')
+def one_project(projectId):
+    project = Project.query.get(int(projectId))
+
+    return project.to_dict()
 
 @project_routes.route('/', methods=['POST'])
 @login_required
@@ -37,7 +43,7 @@ def new_project():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 @project_routes.route('/<int:projectId>', methods=['PUT'])
-# @login_required
+@login_required
 def edit_project(projectId):
     form = EditProjectForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -51,3 +57,13 @@ def edit_project(projectId):
         db.session.commit()
         return project.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+@project_routes.route('/<int:projectId>', methods=['DELETE'])
+@login_required
+def delete_project(projectId):
+    project = Project.query.get(int(projectId))
+    if project.user_id == current_user.id:
+        db.session.delete(project)
+        db.session.commit()
+        return project.to_dict()
+    return {'errors': 'You cannot delete someone else\'s projects'}
