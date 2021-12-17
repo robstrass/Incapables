@@ -1,5 +1,4 @@
 from app.api.auth_routes import validation_errors_to_error_messages
-from app.forms.edit_project_form import EditProjectForm
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Project
