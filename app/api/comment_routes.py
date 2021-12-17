@@ -4,7 +4,9 @@ from app.models import db, Comment
 
 comment_routes = Blueprint('comments', __name__)
 
-# All comments for a
-# @comment_routes.route('/<int:projectId')
-# def all_comments():
-#     comments = Comment.query
+# Single Comment
+@comment_routes.route('/<int:commentId>')
+def all_comments(commentId):
+    comment = Comment.query.get(int(commentId))
+
+    return comment.to_dict()
