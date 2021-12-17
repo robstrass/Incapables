@@ -5,3 +5,4 @@ from .edit_project_form import EditProjectForm
 from .new_comment_form import NewCommentForm
 from .edit_comment_form import EditCommentForm
 from .new_image_form import NewImageForm
+from .edit_image_form import EditImageForm

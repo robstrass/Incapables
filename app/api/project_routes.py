@@ -1,8 +1,8 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.api.auth_routes import validation_errors_to_error_messages
+from app.api.auth_routes import login, validation_errors_to_error_messages
 from app.models import db, Project, Comment, Image
-from app.forms import NewProjectForm, EditProjectForm, NewCommentForm, EditCommentForm, NewImageForm
+from app.forms import NewProjectForm, EditProjectForm, NewCommentForm, EditCommentForm, NewImageForm, EditImageForm
 
 
 project_routes = Blueprint('projects', __name__)
@@ -105,13 +105,13 @@ def edit_comment(projectId, commentId):
 
 # Add Image
 @project_routes.route('/<int:projectId>/images', methods=['POST'])
-# @login_required
+@login_required
 def add_image(projectId):
     form = NewImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     project = Project.query.get(int(projectId))
 
-    if form.validate_on_submit() and project.id == current_user.id:
+    if form.validate_on_submit() and project.user_id == current_user.id:
         image = Image(
             image = form.data['image'],
             content = form.data['content'],
@@ -120,6 +120,25 @@ def add_image(projectId):
         )
 
         db.session.add(image)
+        db.session.commit()
+        return image.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+# Edit Image
+@project_routes.route('/<int:projectId>/images/<int:imageId>', methods=['PUT'])
+# @login_required
+def edit_image(projectId, imageId):
+    form = EditImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    image = Image.query.get(int(imageId))
+
+    if form.validate_on_submit() and image.user_id == 1: #current_user.id:
+        image.image = form.data['image']
+        image.content = form.data['content']
+        image.project_id = projectId
+        image.user_id = 1 #current_user.id
+
         db.session.commit()
         return image.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
