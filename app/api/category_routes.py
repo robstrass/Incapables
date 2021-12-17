@@ -1,5 +1,4 @@
-from flask import Blueprint, request
-from flask_login import login_required, current_user
+from flask import Blueprint
 from app.models import db, Category
 
 category_routes = Blueprint('categories', __name__)

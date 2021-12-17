@@ -26,6 +26,7 @@ class Project(db.Model):
             'title': self.title,
             'content': self.content,
             'images': [image.image for image in self.images],
+            'comments': [comment.to_dict() for comment in self.comments],
             'createdAt': self.createdAt,
             'updatedAt': self.updatedAt
         }
