@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import TextField
+from wtforms import TextAreaField
 from wtforms.validators import DataRequired
 
 class NewCommentForm(FlaskForm):
-    content = TextField('content', validators=[DataRequired()])
+    content = TextAreaField('content', validators=[DataRequired()])

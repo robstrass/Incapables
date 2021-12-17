@@ -3,6 +3,7 @@ from app.models import db, Image
 def seed_images():
     img1 = Image(
         project_id=1,
+        user_id=1,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632019/oil-pressure_f6w7ve.jpg',
         content='''
             Cars need oil changes regularly. Every 20-30k
@@ -13,6 +14,7 @@ def seed_images():
 
     img2 = Image(
         project_id=1,
+        user_id=1,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632018/olive-oil_tjuhn2.jpg',
         content='''
             Stop wasting your time picking up synthetic
@@ -24,6 +26,7 @@ def seed_images():
 
     img3 = Image(
         project_id=2,
+        user_id=1,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632285/birb-feeder_fqotbb.jpg',
         content='''
             Many people have their bird feeders locked away
@@ -34,6 +37,7 @@ def seed_images():
 
     img4 = Image(
         project_id=2,
+        user_id=1,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632292/squirrel-feeder_jxdgjq.jpg',
         content='''
             Bird feeders need to be open like this so that
@@ -44,6 +48,7 @@ def seed_images():
 
     img5 = Image(
         project_id=3,
+        user_id=2,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632823/windex_oq8lry.jpg',
         content='''
             Windex is the go to window cleaner for obvious reasons.
@@ -54,6 +59,7 @@ def seed_images():
 
     img6 = Image(
         project_id=3,
+        user_id=2,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639632818/broken-window_e5nhwg.jpg',
         content='''
             You can solve your streaky windows by simply taking the
@@ -64,6 +70,7 @@ def seed_images():
 
     img7 = Image(
         project_id=4,
+        user_id=1,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639633709/spaghetti_dnzwu2.jpg',
         content='''
             Making spaghetti is fairly trivial, but often done
@@ -74,6 +81,7 @@ def seed_images():
 
     img8 = Image(
         project_id=4,
+        user_id=1,
         image='https://res.cloudinary.com/depdd11lz/image/upload/v1639633704/uncooked-spaghetti_qezw8p.jpg',
         content='''
             To prevent overcooking, don't even bother boiling

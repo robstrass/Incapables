@@ -1,8 +1,8 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.api.auth_routes import validation_errors_to_error_messages
-from app.models import db, Project, Comment
-from app.forms import NewProjectForm, EditProjectForm, NewCommentForm, EditCommentForm
+from app.models import db, Project, Comment, Image
+from app.forms import NewProjectForm, EditProjectForm, NewCommentForm, EditCommentForm, NewImageForm
 
 
 project_routes = Blueprint('projects', __name__)
@@ -66,6 +66,7 @@ def delete_project(projectId):
         return project.to_dict()
     return {'errors': 'You cannot delete someone else\'s projects'}
 
+# Add Comment
 @project_routes.route('/<int:projectId>/comments', methods=['POST'])
 @login_required
 def add_comment(projectId):
@@ -84,6 +85,7 @@ def add_comment(projectId):
         return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
+# Edit Comment
 @project_routes.route('/<int:projectId>/comments/<int:commentId>', methods=['PUT'])
 @login_required
 def edit_comment(projectId, commentId):
@@ -99,4 +101,23 @@ def edit_comment(projectId, commentId):
 
         db.session.commit()
         return comment.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+# Add Image
+@project_routes.route('/<int:projectId>/images', methods=['POST'])
+# @login_required
+def add_image(projectId):
+    form = NewImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        image = Image(
+            image = form.data['image'],
+            content = form.data['content'],
+            project_id = projectId
+        )
+
+        db.session.add(image)
+        db.session.commit()
+        return image.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
