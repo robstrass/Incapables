@@ -109,12 +109,14 @@ def edit_comment(projectId, commentId):
 def add_image(projectId):
     form = NewImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    project = Project.query.get(int(projectId))
 
-    if form.validate_on_submit():
+    if form.validate_on_submit() and project.id == current_user.id:
         image = Image(
             image = form.data['image'],
             content = form.data['content'],
-            project_id = projectId
+            project_id = projectId,
+            user_id = current_user.id
         )
 
         db.session.add(image)
