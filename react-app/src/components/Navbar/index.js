@@ -17,6 +17,13 @@ const NavBar = () => {
         >
           <span class="material-icons-outlined">home</span>
         </NavLink>
+        <div className={style.navCategory}>Workshop</div>
+        <div className={style.navCategory}>Gardening</div>
+        <div className={style.navCategory}>Living</div>
+        <div className={style.navCategory}>Outside</div>
+        <div className={style.navCategory}>Craft</div>
+        <div className={style.navCategory}>Cooking</div>
+        <div className={style.navCategory}>Miscellaneous</div>
       </div>
       <div className={style.rightside}>
         {sessionUser ?
@@ -26,40 +33,27 @@ const NavBar = () => {
               <span class="material-icons">person</span>
             </div>
           </div>
-        : null}
+        :
+          <div className={style.profileDiv}>
+            <NavLink
+              className={style.navLogin}
+              to='/login'
+            >
+              Login
+            </NavLink>
+            <div className={style.navRightPipe}>|</div>
+            <NavLink
+              className={style.navSignup}
+              to='/sign-up'
+            >
+              Sign Up
+            </NavLink>
+          </div>
+        }
         <LogoutButton />
       </div>
     </nav>
   )
-  // return (
-  //   <nav>
-  //     <ul>
-  //       <li>
-  //         <NavLink to='/' exact={true} activeClassName='active'>
-  //           Home
-  //         </NavLink>
-  //       </li>
-  //       <li>
-  //         <NavLink to='/login' exact={true} activeClassName='active'>
-  //           Login
-  //         </NavLink>
-  //       </li>
-  //       <li>
-  //         <NavLink to='/sign-up' exact={true} activeClassName='active'>
-  //           Sign Up
-  //         </NavLink>
-  //       </li>
-  //       <li>
-  //         <NavLink to='/users' exact={true} activeClassName='active'>
-  //           Users
-  //         </NavLink>
-  //       </li>
-  //       <li>
-  //         <LogoutButton />
-  //       </li>
-  //     </ul>
-  //   </nav>
-  // );
 }
 
 export default NavBar;

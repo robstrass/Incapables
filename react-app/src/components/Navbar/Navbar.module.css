@@ -4,3 +4,28 @@
     align-items: center;
     background-color: rgb(85,85,85);
 }
+
+.leftside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+}
+
+.navCategory {
+    font-size: 12px;
+    margin: 0 0.5rem;
+}
+
+.rightside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+}
+
+.profileDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
