@@ -10,3 +10,5 @@ def all_comments(commentId):
     comment = Comment.query.get(int(commentId))
 
     return comment.to_dict()
+
+

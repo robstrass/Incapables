@@ -1,9 +1,8 @@
 from app.api.auth_routes import validation_errors_to_error_messages
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Project
-from app.forms import NewProjectForm
-from app.forms import EditProjectForm
+from app.models import db, Project, Comment
+from app.forms import NewProjectForm, EditProjectForm, NewCommentForm
 
 
 project_routes = Blueprint('projects', __name__)
@@ -66,3 +65,21 @@ def delete_project(projectId):
         db.session.commit()
         return project.to_dict()
     return {'errors': 'You cannot delete someone else\'s projects'}
+
+@project_routes.route('/<int:projectId>/comments', methods=['POST'])
+# @login_required
+def add_comment(projectId):
+    form = NewCommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        comment = Comment (
+            content = form.data['content'],
+            project_id = projectId,
+            user_id = 2
+        )
+
+        db.session.add(comment)
+        db.session.commit()
+        return comment.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
