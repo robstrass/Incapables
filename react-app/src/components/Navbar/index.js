@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 
 import style from './Navbar.module.css';
 
 const NavBar = () => {
+  const sessionUser = useSelector(state => state.session.user)
+
   return (
     <nav className={style.navbar}>
       <div className={style.leftside}>
@@ -14,6 +17,17 @@ const NavBar = () => {
         >
           <span class="material-icons-outlined">home</span>
         </NavLink>
+      </div>
+      <div className={style.rightside}>
+        {sessionUser ?
+          <div className={style.profileDiv}>
+            <div className={style.username}>username</div>
+            <div className={style.profileIcon}>
+              <span class="material-icons">person</span>
+            </div>
+          </div>
+        : null}
+        <LogoutButton />
       </div>
     </nav>
   )
