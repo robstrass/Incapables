@@ -25,6 +25,9 @@ class Project(db.Model):
             'category_id': self.category_id,
             'title': self.title,
             'content': self.content,
+            'images': [image.image for image in self.images],
+            'comments': [comment.to_dict() for comment in self.comments],
+            'images': [image.to_dict() for image in self.images],
             'createdAt': self.createdAt,
             'updatedAt': self.updatedAt
         }
