@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 1rem;
     background-color: rgb(85,85,85);
 }
 
@@ -9,23 +10,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+}
+
+.navHomeButton {
+    margin-top: 0.25rem;
+    text-decoration: none;
+    color: white;
+}
+
+.material-icons {
+    color: white
 }
 
 .navCategory {
     font-size: 12px;
     margin: 0 0.5rem;
+    color: white;
 }
 
 .rightside {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
 }
 
 .profileDiv {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.navLogin,
+.navRightPipe,
+.navSignup {
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.navRightPipe {
+    margin: 0 0.5rem;
 }

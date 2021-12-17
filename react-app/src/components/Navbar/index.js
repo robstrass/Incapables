@@ -12,10 +12,10 @@ const NavBar = () => {
     <nav className={style.navbar}>
       <div className={style.leftside}>
         <NavLink
-          className={style.homeButton}
+          className={style.navHomeButton}
           to='/'
         >
-          <span class="material-icons-outlined">home</span>
+          <span className="material-icons">home</span>
         </NavLink>
         <div className={style.navCategory}>Workshop</div>
         <div className={style.navCategory}>Gardening</div>
