@@ -1,6 +1,7 @@
 .homeContainer {
-    min-height: 800px;
-    background-color: olive;
+    /* min-height: 800px; */
+    display: flex;
+    flex-direction: column;
 }
 
 .homeFeatured {
@@ -13,6 +14,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 1.5rem 0;
+    background-color: olive;
 }
 
 .homeInfoSingleDiv {
@@ -21,11 +23,19 @@
     background-color: aquamarine;
 }
 
-.homeInfoTitle {
+.homeInfoTitle,
+.homeCategoriesTitle {
     font-size: 34px;
     font-weight: 400;
 }
 
 .homeInfoContent {
     font-size: 18px;
+}
+
+.homeCategoriesContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    background-color: salmon;
 }

@@ -37,6 +37,67 @@ export default function HomePage() {
                     </p>
                 </div>
             </div>
+            <div className={style.homeCategoriesContainer}>
+                <h2 className={style.homeCategoriesTitle}>
+                    EXPLORE PROJECTS
+                </h2>
+                <div className={style.homeCategoriesDiv}>
+                    <div className={style.homeSingleCategoryTitle}>
+                        Workshop
+                    </div>
+                    <div className={style.homeCategoryProjectsHolder}>
+                        Projects Container
+                    </div>
+                </div>
+                <div className={style.homeCategoriesDiv}>
+                    <div className={style.homeSingleCategoryTitle}>
+                        Gardening
+                    </div>
+                    <div className={style.homeCategoryProjectsHolder}>
+                        Projects Container
+                    </div>
+                </div>
+                <div className={style.homeCategoriesDiv}>
+                    <div className={style.homeSingleCategoryTitle}>
+                        Living
+                    </div>
+                    <div className={style.homeCategoryProjectsHolder}>
+                        Projects Container
+                    </div>
+                </div>
+                <div className={style.homeCategoriesDiv}>
+                    <div className={style.homeSingleCategoryTitle}>
+                        Outside
+                    </div>
+                    <div className={style.homeCategoryProjectsHolder}>
+                        Projects Container
+                    </div>
+                </div>
+                <div className={style.homeCategoriesDiv}>
+                    <div className={style.homeSingleCategoryTitle}>
+                        Craft
+                    </div>
+                    <div className={style.homeCategoryProjectsHolder}>
+                        Projects Container
+                    </div>
+                </div>
+                <div className={style.homeCategoriesDiv}>
+                    <div className={style.homeSingleCategoryTitle}>
+                        Cooking
+                    </div>
+                    <div className={style.homeCategoryProjectsHolder}>
+                        Projects Container
+                    </div>
+                </div>
+                <div className={style.homeCategoriesDiv}>
+                    <div className={style.homeSingleCategoryTitle}>
+                        Miscellaneous
+                    </div>
+                    <div className={style.homeCategoryProjectsHolder}>
+                        Projects Container
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
