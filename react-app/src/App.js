@@ -5,6 +5,7 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import HomePage from './components/HomePage';
 import NavBar from './components/Navbar';
+import SubNav from './components/SubNav';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -27,6 +28,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <SubNav />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

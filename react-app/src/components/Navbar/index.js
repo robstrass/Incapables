@@ -6,7 +6,7 @@ import LogoutButton from '../auth/LogoutButton';
 import style from './Navbar.module.css';
 
 const NavBar = () => {
-  const sessionUser = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user)
 
   return (
     <nav className={style.navbar}>
@@ -26,7 +26,7 @@ const NavBar = () => {
         <div className={style.navCategory}>Miscellaneous</div>
       </div>
       <div className={style.rightside}>
-        {sessionUser ?
+        {user ?
           <div className={style.profileDiv}>
             <div className={style.username}>username</div>
             <div className={style.profileIcon}>
