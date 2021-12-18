@@ -1,0 +1,82 @@
+.subNavContainer {
+    background-color: rgb(238,238,238);
+}
+
+.subNavContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.subNavLeft,
+.subNavRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subNavHomeHolder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+}
+
+.subNavLogo {
+    height: 72px;
+    width: auto;
+}
+
+.subNavTitle {
+    font-weight: 700;
+    font-size: 22px;
+    margin-left: 0.25rem;
+    margin-right: 1rem;
+}
+
+.subNavProjects {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid rgb(210,210,210);
+    border-radius: 4px;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+
+.subNavCreateProject {
+    margin-right: 0.5rem;
+    color: rgb(85,85,85);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.subNavCreateProject:hover {
+    text-decoration: underline;
+}
+
+.subNavSearchDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid rgb(210,210,210);
+    background-color: white;
+    margin-left: 0.5rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.subNavSearchDiv:focus-within {
+    border: 1px solid rgb(115,182,235);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+}
+
+.subNavSearch {
+    border: none;
+}
+
+.subNavSearch:focus {
+    outline: none;
+}
