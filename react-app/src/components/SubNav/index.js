@@ -38,11 +38,14 @@ export default function SubNav() {
                 >
                     P U B L I S H
                 </NavLink>
-                <input
-                    className={style.subNavSearch}
-                    type='text'
-                    placeholder="Let's Make..."
-                />
+                <div className={style.subNavSearchDiv}>
+                    <input
+                        className={style.subNavSearch}
+                        type='text'
+                        placeholder="Let's Make..."
+                    />
+                    <span class="material-icons">search</span>
+                </div>
             </div>
         </div>
     )
