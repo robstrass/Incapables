@@ -1,1 +1,4 @@
-
+.projectsContainer {
+    min-height: 400px;
+    background-color: chartreuse;
+}

@@ -44,7 +44,7 @@ export default function SubNav() {
                         type='text'
                         placeholder="Let's Make..."
                     />
-                    <span class="material-icons">search</span>
+                    <span className="material-icons">search</span>
                 </div>
             </div>
         </div>
