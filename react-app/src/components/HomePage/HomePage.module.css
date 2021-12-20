@@ -39,3 +39,25 @@
     padding: 1rem 2rem;
     background-color: salmon;
 }
+
+.homeCategoriesDiv {
+    margin: 1rem 0;
+    background-color: chartreuse;
+}
+
+.homeCategoryProjectsHolder {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.homeCategorySingleCategoryHolder {
+    background-color: red;
+    width: 300px;
+}
+
+.homeCategorySingleCategoryImg {
+    max-height: 12rem;
+    width: 100%;
+    object-fit: cover;
+}

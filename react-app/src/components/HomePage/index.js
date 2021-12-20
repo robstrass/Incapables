@@ -59,9 +59,14 @@ export default function HomePage() {
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
                             >
-                                <img src={allCategories[1]?.projects[0].images[0].image}/>
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[1]?.projects[0].images[0].image}
+                                />
                                 <div className={style.homeCategorySingleCategoryInfo}>
-                                    <p>{allCategories[1]?.projects[0].title}</p>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[1]?.projects[0].title}
+                                    </p>
                                 </div>
                             </div>
                         ))) : null }
@@ -77,9 +82,14 @@ export default function HomePage() {
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
                             >
-                                <img src={allCategories[2]?.projects[0].images[0].image}/>
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[2]?.projects[0].images[0].image}
+                                />
                                 <div className={style.homeCategorySingleCategoryInfo}>
-                                    <p>{allCategories[2]?.projects[0].title}</p>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[2]?.projects[0].title}
+                                    </p>
                                 </div>
                             </div>
                         ))) : null }
@@ -95,9 +105,14 @@ export default function HomePage() {
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
                             >
-                                <img src={allCategories[3]?.projects[0].images[0].image}/>
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[3]?.projects[0].images[0].image}
+                                />
                                 <div className={style.homeCategorySingleCategoryInfo}>
-                                    <p>{allCategories[3]?.projects[0].title}</p>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[3]?.projects[0].title}
+                                    </p>
                                 </div>
                             </div>
                         ))) : null }
@@ -113,9 +128,14 @@ export default function HomePage() {
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
                             >
-                                <img src={allCategories[4]?.projects[0].images[0].image}/>
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[4]?.projects[0].images[0].image}
+                                />
                                 <div className={style.homeCategorySingleCategoryInfo}>
-                                    <p>{allCategories[4]?.projects[0].title}</p>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[4]?.projects[0].title}
+                                    </p>
                                 </div>
                             </div>
                         ))) : null }
@@ -131,9 +151,14 @@ export default function HomePage() {
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
                             >
-                                <img src={allCategories[5]?.projects[0].images[0].image}/>
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[5]?.projects[0].images[0].image}
+                                />
                                 <div className={style.homeCategorySingleCategoryInfo}>
-                                    <p>{allCategories[5]?.projects[0].title}</p>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[5]?.projects[0].title}
+                                    </p>
                                 </div>
                             </div>
                         ))) : null }
@@ -149,9 +174,14 @@ export default function HomePage() {
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
                             >
-                                <img src={allCategories[6]?.projects[0].images[0].image}/>
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[6]?.projects[0].images[0].image}
+                                />
                                 <div className={style.homeCategorySingleCategoryInfo}>
-                                    <p>{allCategories[6]?.projects[0].title}</p>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[6]?.projects[0].title}
+                                    </p>
                                 </div>
                             </div>
                         ))) : null }
@@ -167,9 +197,14 @@ export default function HomePage() {
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
                             >
-                                <img src={allCategories[7]?.projects[0].images[0].image}/>
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[7]?.projects[0].images[0].image}
+                                />
                                 <div className={style.homeCategorySingleCategoryInfo}>
-                                    <p>{allCategories[7]?.projects[0].title}</p>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[7]?.projects[0].title}
+                                    </p>
                                 </div>
                             </div>
                         ))) : null }
