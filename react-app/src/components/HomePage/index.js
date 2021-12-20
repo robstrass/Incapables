@@ -2,14 +2,16 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import style from './HomePage.module.css';
-import * as categoriesStuff from '../../store/categories';
+import * as categoriesActions from '../../store/categories';
 
 export default function HomePage() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
+    const allCategories = useSelector(state => state.categories)
+    console.log('categories', allCategories)
 
     useEffect(() => {
-        dispatch(categoriesStuff.oneCategoryThunk(1))
+        dispatch(categoriesActions.allCategoriesThunk())
     }, [dispatch])
 
     return (
@@ -52,7 +54,17 @@ export default function HomePage() {
                         Workshop
                     </div>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[1]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img src={allCategories[1]?.projects[0].images[0].image}/>
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p>{allCategories[1]?.projects[0].title}</p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
@@ -60,7 +72,17 @@ export default function HomePage() {
                         Gardening
                     </div>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[2]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img src={allCategories[2]?.projects[0].images[0].image}/>
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p>{allCategories[2]?.projects[0].title}</p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
@@ -68,7 +90,17 @@ export default function HomePage() {
                         Living
                     </div>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[3]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img src={allCategories[3]?.projects[0].images[0].image}/>
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p>{allCategories[3]?.projects[0].title}</p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
@@ -76,7 +108,17 @@ export default function HomePage() {
                         Outside
                     </div>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[4]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img src={allCategories[4]?.projects[0].images[0].image}/>
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p>{allCategories[4]?.projects[0].title}</p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
@@ -84,7 +126,17 @@ export default function HomePage() {
                         Craft
                     </div>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[5]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img src={allCategories[5]?.projects[0].images[0].image}/>
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p>{allCategories[5]?.projects[0].title}</p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
@@ -92,7 +144,17 @@ export default function HomePage() {
                         Cooking
                     </div>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[6]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img src={allCategories[6]?.projects[0].images[0].image}/>
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p>{allCategories[6]?.projects[0].title}</p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
@@ -100,7 +162,17 @@ export default function HomePage() {
                         Miscellaneous
                     </div>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[7]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img src={allCategories[7]?.projects[0].images[0].image}/>
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p>{allCategories[7]?.projects[0].title}</p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
             </div>
