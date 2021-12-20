@@ -1,10 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import style from './HomePage.module.css';
+import * as categoriesActions from '../../store/categories';
 
 export default function HomePage() {
+    const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
+    const allCategories = useSelector(state => state.categories)
+    console.log('categories', allCategories)
+
+    useEffect(() => {
+        dispatch(categoriesActions.allCategoriesThunk())
+    }, [dispatch])
 
     return (
         <div className={style.homeContainer}>
@@ -42,59 +51,185 @@ export default function HomePage() {
                     EXPLORE PROJECTS
                 </h2>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/workshop'}
+                    >
                         Workshop
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[1]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[1]?.projects[0].images[0].image}
+                                />
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[1]?.projects[0].title}
+                                    </p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/gardening'}
+                    >
                         Gardening
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[2]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[2]?.projects[0].images[0].image}
+                                />
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[2]?.projects[0].title}
+                                    </p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/living'}
+                    >
                         Living
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[3]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[3]?.projects[0].images[0].image}
+                                />
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[3]?.projects[0].title}
+                                    </p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/outside'}
+                    >
                         Outside
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[4]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[4]?.projects[0].images[0].image}
+                                />
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[4]?.projects[0].title}
+                                    </p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/craft'}
+                    >
                         Craft
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[5]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[5]?.projects[0].images[0].image}
+                                />
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[5]?.projects[0].title}
+                                    </p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/cooking'}
+                    >
                         Cooking
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[6]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[6]?.projects[0].images[0].image}
+                                />
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[6]?.projects[0].title}
+                                    </p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/miscellaneous'}
+                    >
                         Miscellaneous
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        Projects Container
+                        { allCategories ? (allCategories[7]?.projects.slice(0, 3).map(project => (
+                            <div
+                                key={project.id}
+                                className={style.homeCategorySingleCategoryHolder}
+                            >
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={allCategories[7]?.projects[0].images[0].image}
+                                />
+                                <div className={style.homeCategorySingleCategoryInfo}>
+                                    <p className={style.homeCategoryTitleP}>
+                                        {allCategories[7]?.projects[0].title}
+                                    </p>
+                                </div>
+                            </div>
+                        ))) : null }
                     </div>
                 </div>
             </div>

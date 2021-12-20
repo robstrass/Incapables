@@ -39,3 +39,39 @@
     padding: 1rem 2rem;
     background-color: salmon;
 }
+
+.homeCategoriesDiv {
+    margin: 1rem 0;
+    background-color: chartreuse;
+}
+
+.homeCategoryProjectsHolder {
+    display: flex;
+    justify-content: space-between;
+    background-color: cyan;
+}
+
+.homeCategorySingleCategoryHolder {
+    background-color: red;
+    width: 300px;
+    border: 1px solid rgb(230,230,230);
+    border-radius: 4px;
+}
+
+.homeCategorySingleCategoryImg {
+    max-height: 12rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.homeCategorySingleCategoryInfo {
+    display: flex;
+    justify-content: center;
+}
+
+.homeCategoryTitleP {
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
