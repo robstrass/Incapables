@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import style from './HomePage.module.css';
 import * as categoriesActions from '../../store/categories';
@@ -50,9 +51,12 @@ export default function HomePage() {
                     EXPLORE PROJECTS
                 </h2>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/workshop'}
+                    >
                         Workshop
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
                         { allCategories ? (allCategories[1]?.projects.slice(0, 3).map(project => (
                             <div
@@ -73,9 +77,12 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/gardening'}
+                    >
                         Gardening
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
                         { allCategories ? (allCategories[2]?.projects.slice(0, 3).map(project => (
                             <div
@@ -96,9 +103,12 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/living'}
+                    >
                         Living
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
                         { allCategories ? (allCategories[3]?.projects.slice(0, 3).map(project => (
                             <div
@@ -119,9 +129,12 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/outside'}
+                    >
                         Outside
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
                         { allCategories ? (allCategories[4]?.projects.slice(0, 3).map(project => (
                             <div
@@ -142,9 +155,12 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/craft'}
+                    >
                         Craft
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
                         { allCategories ? (allCategories[5]?.projects.slice(0, 3).map(project => (
                             <div
@@ -165,9 +181,12 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/cooking'}
+                    >
                         Cooking
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
                         { allCategories ? (allCategories[6]?.projects.slice(0, 3).map(project => (
                             <div
@@ -188,9 +207,12 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={style.homeCategoriesDiv}>
-                    <div className={style.homeSingleCategoryTitle}>
+                    <NavLink
+                        className={style.homeSingleCategoryTitle}
+                        to={'/categories/miscellaneous'}
+                    >
                         Miscellaneous
-                    </div>
+                    </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
                         { allCategories ? (allCategories[7]?.projects.slice(0, 3).map(project => (
                             <div
