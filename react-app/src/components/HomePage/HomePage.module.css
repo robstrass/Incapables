@@ -48,16 +48,30 @@
 .homeCategoryProjectsHolder {
     display: flex;
     justify-content: space-between;
-    background-color: white;
+    background-color: cyan;
 }
 
 .homeCategorySingleCategoryHolder {
     background-color: red;
     width: 300px;
+    border: 1px solid rgb(230,230,230);
+    border-radius: 4px;
 }
 
 .homeCategorySingleCategoryImg {
     max-height: 12rem;
     width: 100%;
     object-fit: cover;
+}
+
+.homeCategorySingleCategoryInfo {
+    display: flex;
+    justify-content: center;
+}
+
+.homeCategoryTitleP {
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
 }
