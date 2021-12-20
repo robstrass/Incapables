@@ -30,7 +30,7 @@ const NavBar = () => {
           <div className={style.profileDiv}>
             <div className={style.username}>username</div>
             <div className={style.profileIcon}>
-              <span class="material-icons">person</span>
+              <span className="material-icons">person</span>
             </div>
           </div>
         :

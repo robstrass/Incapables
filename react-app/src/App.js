@@ -6,6 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import HomePage from './components/HomePage';
 import NavBar from './components/Navbar';
 import SubNav from './components/SubNav';
+import Projects from './components/Projects';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -38,6 +39,9 @@ function App() {
         </Route>
         <Route exact path='/'>
             <HomePage />
+        </Route>
+        <Route path='/projects'>
+          <Projects />
         </Route>
       </Switch>
     </BrowserRouter>
