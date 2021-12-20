@@ -15,7 +15,7 @@ const oneCategory = (category) => ({
 
 // thunks
 export const allCategoriesThunk = () => async (dispatch) => {
-    const response = await fetch('/api/categories');
+    const response = await fetch('/api/categories/');
     const data = await response.json();
     dispatch(allCategories(data.categories));
     return data;
