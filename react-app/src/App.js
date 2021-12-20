@@ -40,7 +40,7 @@ function App() {
         <Route exact path='/'>
             <HomePage />
         </Route>
-        <Route path='/projects'>
+        <Route exact path='/projects'>
           <Projects />
         </Route>
       </Switch>
