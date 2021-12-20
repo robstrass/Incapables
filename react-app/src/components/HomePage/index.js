@@ -1,10 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import style from './HomePage.module.css';
+import * as categoriesStuff from '../../store/categories';
 
 export default function HomePage() {
+    const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
+
+    useEffect(() => {
+        dispatch(categoriesStuff.oneCategoryThunk(1))
+    }, [dispatch])
 
     return (
         <div className={style.homeContainer}>
