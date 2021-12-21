@@ -28,6 +28,28 @@ export default function SingleProject() {
                 <p className={style.singleProjContent}>
                     {project ? project.content : null}
                 </p>
+                { user ?
+                    <div className={style.singleProjOwnerButtons}>
+                        <div>Edit</div>
+                        <div>Delete</div>
+                    </div>
+                : null }
+            </div>
+            <div className={style.singleProjSteps}>
+                { project ? project.images?.map(image => (
+                    <div
+                        key={image.id}
+                        className={style.singleProjSingleStep}
+                    >
+                        <img
+                            className={style.singleProjImage}
+                            src={image.image}
+                        />
+                        <p className={style.singleProjStepContent}>
+                            {image.content}
+                        </p>
+                    </div>
+                )) : null}
             </div>
         </div>
     )

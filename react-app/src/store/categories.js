@@ -39,6 +39,7 @@ export default function categoriesReducer (state = initialState, action) {
                 newState.current = {}
                 newState.all[category.id] = category;
             }
+            newState.all = { ...newState.all }
             return newState;
         case GET_CATEGORY:
             newState.current = action.category
