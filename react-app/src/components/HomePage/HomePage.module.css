@@ -45,6 +45,23 @@
     background-color: chartreuse;
 }
 
+.homeSingleCategoryTitle {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.homeSingleCategoryTitle:hover {
+    text-decoration: underline;
+}
+
+.material-icons {
+    color: rgb(174,174,174) !important;
+}
+
 .homeCategoryProjectsHolder {
     display: flex;
     justify-content: space-between;
@@ -56,6 +73,10 @@
     width: 300px;
     border: 1px solid rgb(230,230,230);
     border-radius: 4px;
+    /* margin: 1rem 1rem; */
+    gap: 1rem;
+    text-decoration: none;
+    color: black;
 }
 
 .homeCategorySingleCategoryImg {
@@ -74,4 +95,5 @@
     font-weight: 500;
     width: 100%;
     text-align: center;
+    padding: 0.5rem;
 }
