@@ -15,7 +15,7 @@ const oneProject = project => ({
 
 // thunks
 export const allProjectsThunk = () => async (dispatch) => {
-    const response = await fetch('/api/projects');
+    const response = await fetch('/api/projects/');
     const data = await response.json();
     dispatch(allProjects(data.projects));
     return data;
