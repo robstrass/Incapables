@@ -30,7 +30,9 @@ export default function Projects() {
                         <p
                             className={style.projectsTitle}
                         >
-                            {project.title}
+                            {project.title} <span className={style.projectsAuthor}>
+                                by {project.author.username}
+                            </span>
                         </p>
                     </div>
                 </NavLink>
