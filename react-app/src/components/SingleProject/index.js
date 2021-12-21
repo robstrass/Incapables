@@ -36,7 +36,7 @@ export default function SingleProject() {
                 : null }
             </div>
             <div className={style.singleProjSteps}>
-                { project ? project.images?.map(image => (
+                { project ? project.images?.map((image, index) => (
                     <div
                         key={image.id}
                         className={style.singleProjSingleStep}
@@ -45,6 +45,9 @@ export default function SingleProject() {
                             className={style.singleProjImage}
                             src={image.image}
                         />
+                        <h2 className={style.singleProjStepCount}>
+                            Step #{index + 1}
+                        </h2>
                         <p className={style.singleProjStepContent}>
                             {image.content}
                         </p>
