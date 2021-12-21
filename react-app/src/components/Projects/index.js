@@ -31,7 +31,7 @@ export default function Projects() {
                             className={style.projectsTitle}
                         >
                             {project.title} <span className={style.projectsAuthor}>
-                                by {project.author.username}
+                                by {project.author?.username}
                             </span>
                         </p>
                     </div>

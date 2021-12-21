@@ -71,7 +71,7 @@ export default function HomePage() {
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
                                         {allCategories[1]?.projects[0].title} <span className={style.homeCategoryAuthor}>
-                                            by {project.author.username}
+                                            by {project.author?.username}
                                         </span>
                                     </p>
                                 </div>
@@ -100,7 +100,7 @@ export default function HomePage() {
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
                                         {allCategories[2]?.projects[0].title} <span className={style.homeCategoryAuthor}>
-                                            by {project.author.username}
+                                            by {project.author?.username}
                                         </span>
                                     </p>
                                 </div>
@@ -129,7 +129,7 @@ export default function HomePage() {
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
                                         {allCategories[3]?.projects[0].title} <span className={style.homeCategoryAuthor}>
-                                            by {project.author.username}
+                                            by {project.author?.username}
                                         </span>
                                     </p>
                                 </div>
@@ -158,7 +158,7 @@ export default function HomePage() {
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
                                         {allCategories[4]?.projects[0].title} <span className={style.homeCategoryAuthor}>
-                                            by {project.author.username}
+                                            by {project.author?.username}
                                         </span>
                                     </p>
                                 </div>
@@ -187,7 +187,7 @@ export default function HomePage() {
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
                                         {allCategories[5]?.projects[0].title} <span className={style.homeCategoryAuthor}>
-                                            by {project.author.username}
+                                            by {project.author?.username}
                                         </span>
                                     </p>
                                 </div>
@@ -216,7 +216,7 @@ export default function HomePage() {
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
                                         {allCategories[6]?.projects[0].title} <span className={style.homeCategoryAuthor}>
-                                            by {project.author.username}
+                                            by {project.author?.username}
                                         </span>
                                     </p>
                                 </div>
@@ -245,7 +245,7 @@ export default function HomePage() {
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
                                         {allCategories[7]?.projects[0].title} <span className={style.homeCategoryAuthor}>
-                                            by {project.author.username}
+                                            by {project.author?.username}
                                         </span>
                                     </p>
                                 </div>
