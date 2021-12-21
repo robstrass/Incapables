@@ -37,12 +37,10 @@
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
-    background-color: salmon;
 }
 
 .homeCategoriesDiv {
     margin: 1rem 0;
-    background-color: chartreuse;
 }
 
 .homeSingleCategoryTitle {
@@ -69,7 +67,7 @@
 }
 
 .homeCategorySingleCategoryHolder {
-    background-color: red;
+    background-color: white;
     width: 300px;
     border: 1px solid rgb(230,230,230);
     border-radius: 4px;
@@ -96,4 +94,8 @@
     width: 100%;
     text-align: center;
     padding: 0.5rem;
+}
+
+.homeCategoryTitleP:hover {
+    text-decoration: underline;
 }
