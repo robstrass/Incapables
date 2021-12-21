@@ -28,16 +28,21 @@ export const oneCategoryThunk = (categoryId) => async (dispatch) => {
     return data;
 }
 
-export default function categoriesReducer (state = {}, action) {
+const initialState = { all: {}, current: {} }
+
+// reducah
+export default function categoriesReducer (state = initialState, action) {
     const newState = { ...state };
     switch (action.type) {
         case GET_CATEGORIES:
             for (let category of action.categories) {
-                newState[category.id] = category;
+                newState.current = {}
+                newState.all[category.id] = category;
             }
+            newState.all = { ...newState.all }
             return newState;
         case GET_CATEGORY:
-            newState[action.category.id] = action.category
+            newState.current = action.category
             return newState;
         default:
             return newState;

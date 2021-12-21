@@ -1,0 +1,43 @@
+.singleProjContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: seagreen;
+}
+
+.singleProjHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: salmon;
+}
+
+.singleProjOwnerButtons {
+    display: flex;
+    background-color: skyblue;
+}
+
+.singleProjSteps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.singleProjSingleStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background-color: blueviolet;
+}
+
+.singleProjImage {
+    max-height: 12rem;
+    width: 300px;
+    object-fit: cover;
+}
+
+.singleProjStepContent {
+    text-align: center;
+}

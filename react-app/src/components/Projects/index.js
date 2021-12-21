@@ -7,7 +7,7 @@ import * as projectsActions from '../../store/projects';
 
 export default function Projects() {
     const dispatch = useDispatch();
-    const allProjects = useSelector(state => Object.values(state.projects));
+    const allProjects = useSelector(state => Object.values(state.projects.all));
     console.log('projects', allProjects);
 
     useEffect(() => {
@@ -30,7 +30,9 @@ export default function Projects() {
                         <p
                             className={style.projectsTitle}
                         >
-                            {project.title}
+                            {project.title} <span className={style.projectsAuthor}>
+                                by {project.author.username}
+                            </span>
                         </p>
                     </div>
                 </NavLink>

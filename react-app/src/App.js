@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import NavBar from './components/Navbar';
 import SubNav from './components/SubNav';
 import Projects from './components/Projects';
+import SingleProject from './components/SingleProject';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -42,6 +43,9 @@ function App() {
         </Route>
         <Route exact path='/projects'>
           <Projects />
+        </Route>
+        <Route path='/projects/:projectId'>
+          <SingleProject />
         </Route>
       </Switch>
     </BrowserRouter>
