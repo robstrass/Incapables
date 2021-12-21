@@ -8,6 +8,7 @@ import * as projectsActions from '../../store/projects';
 export default function SingleProject() {
     const dispatch = useDispatch();
     const { projectId } = useParams();
+    const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current)
     console.log('singleproject', project);
 
@@ -19,8 +20,14 @@ export default function SingleProject() {
         <div className={style.singleProjContainer}>
             <div className={style.singleProjHolder}>
                 <h1 className={style.singleProjTitle}>
-                    {project ? project?.title : null}
+                    {project ? project.title : null}
                 </h1>
+                <p className={style.singleProjAuthor}>
+                    by {project ? project.author?.username : null}
+                </p>
+                <p className={style.singleProjContent}>
+                    {project ? project.content : null}
+                </p>
             </div>
         </div>
     )

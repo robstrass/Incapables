@@ -8,7 +8,7 @@ import * as categoriesActions from '../../store/categories';
 export default function HomePage() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
-    const allCategories = useSelector(state => state.categories)
+    const allCategories = useSelector(state => state.categories.all)
     console.log('categories', allCategories)
 
     useEffect(() => {
