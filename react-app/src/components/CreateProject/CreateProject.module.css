@@ -1,3 +1,4 @@
+/* Modal Styling */
 .createProjectModalBackground {
     position: fixed;
     height: 100%;
@@ -7,5 +8,72 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
+}
 
+.createProjectModalContainer {
+    position: fixed;
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+}
+
+/* Page Styling */
+.createProjectContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('https://res.cloudinary.com/depdd11lz/image/upload/v1640135493/crafts-table_jjkmpe.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.createProjectHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: salmon; */
+    min-height: 1000px;
+    width: 90%;
+    height: 90%;
+    margin: 1rem;
+}
+
+.createProjectTitle {
+    font-weight: 500;
+    font-size: 42px;
+    margin: 1rem 0;
+    color: white;
+    /* background-color: sandybrown; */
+}
+
+.createProjectSubheading {
+    padding: 0 1rem;
+    margin: 1rem 0;
+    /* background-color: aquamarine; */
+}
+
+.createProjectDescription {
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0.25rem 0;
+}
+
+.createProjectButton {
+    margin: 1rem 0;
+    padding: 12px 20px;
+    color: white;
+    font-size: 17.5px;
+    border-radius: 6px;
+    background-color: rgb(251,171,23);
+}
+
+.createProjectButton:hover {
+    cursor: pointer;
+    box-shadow: 0 0 4px rgb(0 0 0 / 60%);
 }
