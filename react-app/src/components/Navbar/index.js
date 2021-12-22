@@ -28,7 +28,7 @@ const NavBar = () => {
       <div className={style.rightside}>
         {user ?
           <div className={style.profileDiv}>
-            <div className={style.username}>username</div>
+            <div className={style.username}>{user.username}</div>
             <div className={style.profileIcon}>
               <span className="material-icons">person</span>
             </div>
