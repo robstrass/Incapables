@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import style from './CreateProject.module.css';
 import CreateProjectModal from './CreateProjectModal';
 
 export default function CreateProject() {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
 
     const [createProject, setCreateProject] = useState(false);
+
+    if (!user) {
+        return <Redirect to='/login' />
+    }
 
     return (
         <>
