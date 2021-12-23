@@ -1,0 +1,114 @@
+.editProjBackground {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.editProjContainer {
+    position: fixed;
+    height: fit-content;
+    width: 600px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+}
+
+.editProjImg {
+    width: 100%;
+}
+
+.editProjForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.editProjDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    margin: 1rem 0;
+}
+
+.editProjLabel {
+    font-size: 18px;
+    margin-bottom: 0.25rem;
+}
+
+.editProjErrors {
+    color: red;
+    font-style: italic;
+}
+
+.editProjInput {
+    color: rgb(170,170,170);
+    font-size: 18px;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgb(239,239,239);
+    border-bottom: 1px solid rgb(201,201,201);
+    width: 75%;
+}
+
+.editProjInput:focus {
+    outline: none;
+    border-top: none;
+}
+
+.editProjTextArea {
+    color: rgb(170,170,170);
+    font-size: 18px;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgb(239,239,239);
+    border-bottom: 1px solid rgb(201,201,201);
+    width: 75%;
+    resize: none;
+}
+
+.editProjTextArea:focus {
+    outline: none;
+    border-top: none;
+}
+
+select {
+    color: rgb(170,170,170);
+    font-size: 18px;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgb(239,239,239);
+    border-bottom: 1px solid rgb(201,201,201);
+    text-align: center;
+    width: 75%;
+}
+
+select:focus {
+    outline: none;
+    border-top: none;
+}
+
+.editProjSubmit {
+    margin: 1rem 0;
+    padding: 12px 20px;
+    color: white;
+    font-size: 17.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(251,171,23);
+}
+
+.editProjSubmit:hover {
+    cursor: pointer;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
+}

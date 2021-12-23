@@ -31,7 +31,7 @@ export default function EditProject({ setEditModal }) {
     return (
         <>
             <div
-                className={style.editProjbackground}
+                className={style.editProjBackground}
                 onClick={() => setEditModal(false)}
             ></div>
             <div className={style.editProjContainer}>
