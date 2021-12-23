@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import style from './SingleProject.module.css';
 import * as projectsActions from '../../store/projects';
 import EditProject from '../EditProject';
+import { deleteProjectThunk } from '../../store/projects';
 
 export default function SingleProject() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { projectId } = useParams();
     const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current)
@@ -21,6 +23,13 @@ export default function SingleProject() {
     }, [dispatch]);
 
     const deleteProject = () => {
+        const handleDelete = () => {
+            if (user.id === project.user_id) {
+                dispatch(deleteProjectThunk(projectId))
+                history.push('/projects')
+            }
+        }
+
         return (
             <>
                 <div
@@ -34,6 +43,7 @@ export default function SingleProject() {
                     <div className={style.singleProjDeleteButtons}>
                         <div
                             className={style.singleProjDeleteSubmit}
+                            onClick={() => handleDelete()}
                         >
                             Confirm
                         </div>

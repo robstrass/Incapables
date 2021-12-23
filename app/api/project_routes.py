@@ -26,7 +26,7 @@ def one_project(projectId):
 def new_project():
     form = NewProjectForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    
+
     if form.validate_on_submit():
         project = Project(
             user_id=current_user.id,
