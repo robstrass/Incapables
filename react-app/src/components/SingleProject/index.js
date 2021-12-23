@@ -20,6 +20,35 @@ export default function SingleProject() {
         dispatch(projectsActions.oneProjectThunk(projectId))
     }, [dispatch]);
 
+    const deleteProject = () => {
+        return (
+            <>
+                <div
+                    className={style.singleProjDeleteBackground}
+                    onClick={() => setDeleteModal(false)}
+                ></div>
+                <div className={style.singleProjDeleteContainer}>
+                    <h3 className={style.singleProjDeleteTitle}>
+                        Are you sure?
+                    </h3>
+                    <div className={style.singleProjDeleteButtons}>
+                        <div
+                            className={style.singleProjDeleteSubmit}
+                        >
+                            Confirm
+                        </div>
+                        <div
+                            className={style.singleProjDeleteCancel}
+                            onClick={() => setDeleteModal(false)}
+                        >
+                            Cancel
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
             {editModal && (
@@ -27,6 +56,7 @@ export default function SingleProject() {
                     setEditModal={setEditModal}
                 />
             )}
+            {deleteModal && deleteProject()}
             <div className={style.singleProjContainer}>
                 <div className={style.singleProjHolder}>
                     <h1 className={style.singleProjTitle}>

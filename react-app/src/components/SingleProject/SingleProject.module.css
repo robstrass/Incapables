@@ -1,3 +1,4 @@
+/* Single Project Styling */
 .singleProjContainer {
     display: flex;
     flex-direction: column;
@@ -73,4 +74,27 @@
 
 .singleProjStepContent {
     text-align: center;
+}
+
+/* Delete Modal Styling */
+.singleProjDeleteBackground {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.singleProjDeleteContainer {
+    position: fixed;
+    height: fit-content;
+    width: 300px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
 }
