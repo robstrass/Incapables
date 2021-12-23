@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 
@@ -10,7 +10,14 @@ export default function SingleProject() {
     const { projectId } = useParams();
     const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current)
-    console.log('singleproject', project);
+    console.log('singleproject', project, user);
+
+    const [editModal, setEditModal] = useState(false);
+    const [deleteModal, setDeleteModal] = useState(false);
+
+    const ownerVerify = (user, project) => {
+        return user.id === project.user_id;
+    }
 
     useEffect(() => {
         dispatch(projectsActions.oneProjectThunk(projectId))
@@ -28,12 +35,17 @@ export default function SingleProject() {
                 <p className={style.singleProjContent}>
                     {project ? project.content : null}
                 </p>
-                { user ?
+                { ownerVerify && (
                     <div className={style.singleProjOwnerButtons}>
-                        <div>Edit</div>
-                        <div>Delete</div>
+                        <div
+                            className={style.singleProjEdit}
+                            onClick={() => setEditModal(true)}
+                        >
+                            Edit
+                        </div>
+                        <div className={style.singleProjDelete}>Delete</div>
                     </div>
-                : null }
+                )}
             </div>
             <div className={style.singleProjSteps}>
                 { project ? project.images?.map((image, index) => (
