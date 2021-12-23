@@ -2,6 +2,7 @@
 const GET_PROJECTS = 'projects/GET_PROJECTS';
 const GET_PROJECT = 'projects/GET_PROJECT';
 const POST_PROJECT = 'projects/POST_PROJECT';
+const EDIT_PROJECT = 'projects/EDIT_PROJECT';
 
 // action creators
 const allProjects = projects => ({
@@ -16,6 +17,11 @@ const oneProject = project => ({
 
 const postProject = project => ({
     type: POST_PROJECT,
+    project
+});
+
+const editProject = project => ({
+    type: EDIT_PROJECT,
     project
 });
 
@@ -52,6 +58,24 @@ export const postProjectThunk = (project) => async (dispatch) => {
     return data;
 }
 
+export const editProjectThunk = (project) => async (dispatch) => {
+    const { title, content, categoryId, projectId } = project;
+    const response = await fetch(`/api/projects/${projectId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            title,
+            content,
+            category_id: categoryId
+        })
+    });
+    const data = await response.json();
+    dispatch(editProject(data));
+    return data;
+}
+
 const initialState = { all: {}, current: {} }
 
 // reducah
@@ -68,6 +92,9 @@ export default function projectsReducer (state = initialState, action) {
             newState.current = action.project;
             return newState;
         case POST_PROJECT:
+            newState.all[action.project.id] = action.project;
+            return newState;
+        case EDIT_PROJECT:
             newState.all[action.project.id] = action.project;
             return newState;
         default:

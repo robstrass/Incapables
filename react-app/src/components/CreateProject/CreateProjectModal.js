@@ -37,7 +37,6 @@ export default function CreateProjectModal({ setCreateProject }) {
         const errors = validate();
 
         if (errors && errors.length > 0) {
-            console.log('penis')
             return setErrors(errors);
         }
 
@@ -71,7 +70,7 @@ export default function CreateProjectModal({ setCreateProject }) {
                             className={style.createProjectModalLabel}
                             htmlFor='projectTitle'
                         >
-                            I made a project called: 
+                            I made a project called:
                             <span className={style.createProjectModalErrors}>
                                 {errors.length > 0 && errors.map(error => (
                                     error.includes('project')

@@ -4,15 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from './EditProject.module.css';
 import header from '../../assets/Instructables-Create-Header.png';
 import { allCategoriesThunk } from '../../store/categories';
+import { editProjectThunk } from '../../store/projects';
 
 export default function EditProject({ setEditModal }) {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current);
     const allCategories = useSelector(state => Object.values(state.categories.all));
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [categoryId, setCategoryId] = useState(1);
+    const [title, setTitle] = useState(project?.title);
+    const [content, setContent] = useState(project?.content);
+    const [categoryId, setCategoryId] = useState(project?.category_id);
     const [errors, setErrors] = useState([]);
 
     const validate = () => {
@@ -22,6 +24,29 @@ export default function EditProject({ setEditModal }) {
         if (!categoryId) validation.push('Please choose a category.');
 
         return validation;
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (user.id === project.user_id) {
+            const errors = validate();
+            console.log('inside submit')
+            if (errors && errors.length > 0) {
+                console.log('errors')
+                return setErrors(errors);
+            }
+
+            const editedProject = {
+                title,
+                content,
+                categoryId,
+                projectId: project.id
+            }
+
+            dispatch(editProjectThunk(editedProject));
+            setEditModal(false)
+        }
     }
 
     useEffect(() => {
@@ -41,6 +66,7 @@ export default function EditProject({ setEditModal }) {
                 />
                 <form
                     className={style.editProjForm}
+                    onSubmit={handleSubmit}
                 >
                     <div className={style.editProjDiv}>
                         <label

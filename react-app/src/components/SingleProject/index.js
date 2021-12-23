@@ -16,10 +16,6 @@ export default function SingleProject() {
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
 
-    const ownerVerify = (user, project) => {
-        return user.id === project.user_id;
-    }
-
     useEffect(() => {
         dispatch(projectsActions.oneProjectThunk(projectId))
     }, [dispatch]);
@@ -42,7 +38,7 @@ export default function SingleProject() {
                     <p className={style.singleProjContent}>
                         {project ? project.content : null}
                     </p>
-                    { ownerVerify && (
+                    { user.id === project?.user_id ? (
                         <div className={style.singleProjOwnerButtons}>
                             <div
                                 className={style.singleProjEdit}
@@ -57,7 +53,7 @@ export default function SingleProject() {
                                 Delete
                             </div>
                         </div>
-                    )}
+                    ) : null }
                 </div>
                 <div className={style.singleProjSteps}>
                     { project ? project.images?.map((image, index) => (
