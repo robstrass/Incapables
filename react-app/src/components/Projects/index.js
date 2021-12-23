@@ -24,7 +24,7 @@ export default function Projects() {
                 >
                     <img
                         className={style.projectsImg}
-                        src={project.images[0].image}
+                        src={project.images[0]?.image}
                     />
                     <div className={style.projectsContentDiv}>
                         <p

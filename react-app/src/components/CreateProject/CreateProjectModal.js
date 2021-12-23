@@ -47,8 +47,6 @@ export default function CreateProjectModal({ setCreateProject }) {
             categoryId
         }
 
-        console.log('xxxxxxxxx', newProject)
-
         const createdProject = await dispatch(postProjectThunk(newProject));
         history.push(`/projects/${createdProject.id}`)
     }
@@ -90,7 +88,7 @@ export default function CreateProjectModal({ setCreateProject }) {
                             Project description:
                         </label>
                         <textarea
-                            className={style.createProjectModalInput}
+                            className={style.createProjectModalTextArea}
                             id='projectContent'
                             value={content}
                             onChange={(e) => setContent(e.target.value)}

@@ -12,7 +12,7 @@
 
 .createProjectModalContainer {
     position: fixed;
-    height: 500px;
+    height: fit-content;
     width: 500px;
     background-color: white;
     top: 50%;
@@ -29,7 +29,84 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: salmon;
+}
+
+.createProjectModalDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    margin: 1rem 0;
+}
+
+.createProjectModalLabel {
+    font-size: 18px;
+    margin-bottom: 0.25rem;
+}
+
+.createProjectModalInput {
+    color: rgb(170,170,170);
+    font-size: 18px;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgb(239,239,239);
+    border-bottom: 1px solid rgb(201,201,201);
+    width: 75%;
+}
+
+.createProjectModalInput:focus {
+    outline: none;
+    border-top: none;
+}
+
+.createProjectModalTextArea {
+    color: rgb(170,170,170);
+    font-size: 18px;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgb(239,239,239);
+    border-bottom: 1px solid rgb(201,201,201);
+    width: 75%;
+    resize: none;
+}
+
+.createProjectModalTextArea:focus {
+    outline: none;
+    border-top: none;
+}
+
+select {
+    color: rgb(170,170,170);
+    font-size: 18px;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgb(239,239,239);
+    border-bottom: 1px solid rgb(201,201,201);
+    text-align: center;
+    width: 75%;
+}
+
+select:focus {
+    outline: none;
+    border-top: none;
+}
+
+.createProjectSubmit {
+    margin: 1rem 0;
+    padding: 12px 20px;
+    color: white;
+    font-size: 17.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(251,171,23);
+}
+
+.createProjectSubmit:hover {
+    cursor: pointer;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
 }
 
 /* Page Styling */
