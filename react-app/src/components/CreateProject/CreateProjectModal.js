@@ -21,7 +21,7 @@ export default function CreateProjectModal({ setCreateProject }) {
     const validate = () => {
         const validation = [];
         if (!title) validation.push('Please name your project.');
-        if (!content) validation.push('Please provide a description for your project.');
+        if (!content) validation.push('Please provide a description.');
         if (!categoryId) validation.push('Please choose a category.');
 
         return validation;
@@ -71,7 +71,13 @@ export default function CreateProjectModal({ setCreateProject }) {
                             className={style.createProjectModalLabel}
                             htmlFor='projectTitle'
                         >
-                            I made a project called:
+                            I made a project called: 
+                            <span className={style.createProjectModalErrors}>
+                                {errors.length > 0 && errors.map(error => (
+                                    error.includes('project')
+                                )) ? errors.map(error => error.includes('project') ?
+                                `${error}` : null) : null}
+                            </span>
                         </label>
                         <input
                             className={style.createProjectModalInput}
@@ -86,6 +92,12 @@ export default function CreateProjectModal({ setCreateProject }) {
                             htmlFor='projectContent'
                         >
                             Project description:
+                            <span className={style.createProjectModalErrors}>
+                                {errors.length > 0 && errors.map(error => (
+                                    error.includes('description')
+                                )) ? errors.map(error => error.includes('description') ?
+                                `${error}` : null) : null}
+                            </span>
                         </label>
                         <textarea
                             className={style.createProjectModalTextArea}
@@ -100,6 +112,12 @@ export default function CreateProjectModal({ setCreateProject }) {
                             htmlFor='projectSelect'
                         >
                             Select a category for your project:
+                            <span className={style.createProjectModalErrors}>
+                                {errors.length > 0 && errors.map(error => (
+                                    error.includes('category')
+                                )) ? errors.map(error => error.includes('category') ?
+                                `${error}` : null) : null}
+                            </span>
                         </label>
                         <select
                             id='projectSelect'

@@ -44,6 +44,11 @@
     margin-bottom: 0.25rem;
 }
 
+.createProjectModalErrors {
+    color: red;
+    font-style: italic;
+}
+
 .createProjectModalInput {
     color: rgb(170,170,170);
     font-size: 18px;
