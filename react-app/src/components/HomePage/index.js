@@ -64,13 +64,19 @@ export default function HomePage() {
                                 className={style.homeCategorySingleCategoryHolder}
                                 to={`/projects/${project.id}`}
                             >
+                                {project.images[0]?.image ?
                                 <img
                                     className={style.homeCategorySingleCategoryImg}
-                                    src={allCategories[1]?.projects[0].images[0].image}
+                                    src={project.images[0]?.image}
                                 />
+                                :
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={'https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png'}
+                                />}
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
-                                        {allCategories[1]?.projects[0].title} <span className={style.homeCategoryAuthor}>
+                                        {project.title} <span className={style.homeCategoryAuthor}>
                                             by {project.author?.username}
                                         </span>
                                     </p>
@@ -93,13 +99,19 @@ export default function HomePage() {
                                 className={style.homeCategorySingleCategoryHolder}
                                 to={`/projects/${project.id}`}
                             >
+                                {project.images[0]?.image ?
                                 <img
                                     className={style.homeCategorySingleCategoryImg}
-                                    src={allCategories[2]?.projects[0].images[0].image}
+                                    src={project.images[0]?.image}
                                 />
+                                :
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={'https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png'}
+                                />}
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
-                                        {allCategories[2]?.projects[0].title} <span className={style.homeCategoryAuthor}>
+                                        {project.title} <span className={style.homeCategoryAuthor}>
                                             by {project.author?.username}
                                         </span>
                                     </p>
@@ -122,13 +134,19 @@ export default function HomePage() {
                                 className={style.homeCategorySingleCategoryHolder}
                                 to={`/projects/${project.id}`}
                             >
+                                {project.images[0]?.image ?
                                 <img
                                     className={style.homeCategorySingleCategoryImg}
-                                    src={allCategories[3]?.projects[0].images[0].image}
+                                    src={project.images[0]?.image}
                                 />
+                                :
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={'https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png'}
+                                />}
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
-                                        {allCategories[3]?.projects[0].title} <span className={style.homeCategoryAuthor}>
+                                        {project.title} <span className={style.homeCategoryAuthor}>
                                             by {project.author?.username}
                                         </span>
                                     </p>
@@ -151,13 +169,19 @@ export default function HomePage() {
                                 className={style.homeCategorySingleCategoryHolder}
                                 to={`/projects/${project.id}`}
                             >
+                                {project.images[0]?.image ?
                                 <img
                                     className={style.homeCategorySingleCategoryImg}
-                                    src={allCategories[4]?.projects[0].images[0].image}
+                                    src={project.images[0]?.image}
                                 />
+                                :
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={'https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png'}
+                                />}
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
-                                        {allCategories[4]?.projects[0].title} <span className={style.homeCategoryAuthor}>
+                                        {project.title} <span className={style.homeCategoryAuthor}>
                                             by {project.author?.username}
                                         </span>
                                     </p>
@@ -180,13 +204,19 @@ export default function HomePage() {
                                 className={style.homeCategorySingleCategoryHolder}
                                 to={`/projects/${project.id}`}
                             >
+                                {project.images[0]?.image ?
                                 <img
                                     className={style.homeCategorySingleCategoryImg}
-                                    src={allCategories[5]?.projects[0].images[0].image}
+                                    src={project.images[0]?.image}
                                 />
+                                :
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={'https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png'}
+                                />}
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
-                                        {allCategories[5]?.projects[0].title} <span className={style.homeCategoryAuthor}>
+                                        {project.title} <span className={style.homeCategoryAuthor}>
                                             by {project.author?.username}
                                         </span>
                                     </p>
@@ -209,13 +239,19 @@ export default function HomePage() {
                                 className={style.homeCategorySingleCategoryHolder}
                                 to={`/projects/${project.id}`}
                             >
+                                {project.images[0]?.image ?
                                 <img
                                     className={style.homeCategorySingleCategoryImg}
-                                    src={allCategories[6]?.projects[0].images[0].image}
+                                    src={project.images[0]?.image}
                                 />
+                                :
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={'https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png'}
+                                />}
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
-                                        {allCategories[6]?.projects[0].title} <span className={style.homeCategoryAuthor}>
+                                        {project.title} <span className={style.homeCategoryAuthor}>
                                             by {project.author?.username}
                                         </span>
                                     </p>
@@ -238,13 +274,19 @@ export default function HomePage() {
                                 className={style.homeCategorySingleCategoryHolder}
                                 to={`/projects/${project.id}`}
                             >
+                                {project.images[0]?.image ?
                                 <img
                                     className={style.homeCategorySingleCategoryImg}
-                                    src={allCategories[7]?.projects[0].images[0].image}
+                                    src={project.images[0]?.image}
                                 />
+                                :
+                                <img
+                                    className={style.homeCategorySingleCategoryImg}
+                                    src={'https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png'}
+                                />}
                                 <div className={style.homeCategorySingleCategoryInfo}>
                                     <p className={style.homeCategoryTitleP}>
-                                        {allCategories[7]?.projects[0].title} <span className={style.homeCategoryAuthor}>
+                                        {project.title} <span className={style.homeCategoryAuthor}>
                                             by {project.author?.username}
                                         </span>
                                     </p>
