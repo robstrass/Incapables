@@ -1,3 +1,4 @@
+/* Single Project Styling */
 .singleProjContainer {
     display: flex;
     flex-direction: column;
@@ -9,12 +10,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 80%;
+    margin: 1rem;
+    padding: 1rem;
     background-color: salmon;
 }
 
 .singleProjOwnerButtons {
     display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width: 30%;
     background-color: skyblue;
+}
+
+.singleProjEdit,
+.singleProjDelete {
+    margin: 1rem 0;
+    padding: 12px 20px;
+    min-width: 100px;
+    color: white;
+    text-align: center;
+    font-size: 17.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(251,171,23);
+}
+
+.singleProjEdit:hover,
+.singleProjDelete:hover {
+    cursor: pointer;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
+}
+
+.singleProjDelete {
+    background-color: rgb(238,238,238);
+    color: black;
+    border: 1px solid rgb(210,210,210);
 }
 
 .singleProjSteps {
@@ -29,6 +61,8 @@
     flex-direction: column;
     align-items: center;
     width: 80%;
+    margin: 1rem 0;
+    padding: 1rem;
     background-color: blueviolet;
 }
 
@@ -40,4 +74,66 @@
 
 .singleProjStepContent {
     text-align: center;
+}
+
+/* Delete Modal Styling */
+.singleProjDeleteBackground {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.singleProjDeleteContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: fit-content;
+    width: 300px;
+    background-color: rgb(245, 245, 245);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    z-index: 101;
+}
+
+.singleProjDeleteTitle {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.singleProjDeleteButtons {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0.5rem 0;
+}
+
+.singleProjDeleteSubmit,
+.singleProjDeleteCancel {
+    margin: 1rem 0;
+    padding: 12px 20px;
+    color: white;
+    font-size: 17.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(251,171,23);
+}
+
+.singleProjDeleteSubmit:hover,
+.singleProjDeleteCancel:hover {
+    cursor: pointer;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
+}
+
+.singleProjDeleteCancel {
+    background-color: rgb(238,238,238);
+    color: black;
+    border: 1px solid rgb(210,210,210);
 }

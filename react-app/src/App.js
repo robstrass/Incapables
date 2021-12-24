@@ -8,6 +8,7 @@ import NavBar from './components/Navbar';
 import SubNav from './components/SubNav';
 import Projects from './components/Projects';
 import SingleProject from './components/SingleProject';
+import CreateProject from './components/CreateProject';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -46,6 +47,9 @@ function App() {
         </Route>
         <Route path='/projects/:projectId'>
           <SingleProject />
+        </Route>
+        <Route path='/create'>
+          <CreateProject />
         </Route>
       </Switch>
     </BrowserRouter>

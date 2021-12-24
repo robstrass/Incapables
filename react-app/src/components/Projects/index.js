@@ -22,16 +22,22 @@ export default function Projects() {
                     className={style.projectsNavLink}
                     to={`/projects/${project.id}`}
                 >
+                    {project.images[0]?.image ?
                     <img
                         className={style.projectsImg}
-                        src={project.images[0].image}
+                        src={project.images[0]?.image}
                     />
+                    :
+                    <img
+                        className={style.projectsImg}
+                        src={'https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png'}
+                    />}
                     <div className={style.projectsContentDiv}>
                         <p
                             className={style.projectsTitle}
                         >
                             {project.title} <span className={style.projectsAuthor}>
-                                by {project.author.username}
+                                by {project.author?.username}
                             </span>
                         </p>
                     </div>
