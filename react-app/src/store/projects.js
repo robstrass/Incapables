@@ -114,12 +114,9 @@ export default function projectsReducer (state = initialState, action) {
             newState.all[action.project.id] = action.project;
             return newState;
         case DELETE_PROJECT:
-            console.log('action project', action.project.id)
-            newState.all = { ...newState.all }
-            delete newState.all[[action.project.id]];
+            delete newState.all[action.project.id];
             delete newState.current[action.project.id];
-            console.log('before', newState)
-            console.log('after', newState)
+            newState.all = { ...newState.all }
             return newState;
         default:
             return newState;

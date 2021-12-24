@@ -23,9 +23,9 @@ export default function SingleProject() {
     }, [dispatch]);
 
     const deleteProject = () => {
-        const handleDelete = () => {
+        const handleDelete = async () => {
             if (user.id === project.user_id) {
-                dispatch(deleteProjectThunk(projectId))
+                await dispatch(deleteProjectThunk(projectId))
                 history.push('/projects')
             }
         }
