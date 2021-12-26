@@ -5,7 +5,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import style from './SingleProject.module.css';
 import * as projectsActions from '../../store/projects';
 import EditProject from '../EditProject';
-import { deleteProjectThunk } from '../../store/projects';
+import AddImage from '../AddImage';
+// import { deleteProjectThunk } from '../../store/projects';
 
 export default function SingleProject() {
     const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export default function SingleProject() {
     const deleteProject = () => {
         const handleDelete = async () => {
             if (user.id === project.user_id) {
-                await dispatch(deleteProjectThunk(projectId))
+                await dispatch(projectsActions.deleteProjectThunk(projectId))
                 history.push('/projects')
             }
         }
@@ -78,7 +79,7 @@ export default function SingleProject() {
                     <p className={style.singleProjContent}>
                         {project ? project.content : null}
                     </p>
-                    { user.id === project?.user_id ? (
+                    { user?.id === project?.user_id ? (
                         <div className={style.singleProjOwnerButtons}>
                             <div
                                 className={style.singleProjEdit}
@@ -115,6 +116,9 @@ export default function SingleProject() {
                     )) : null}
                 </div>
             </div>
+            {user?.id === project.user_id && (
+                <AddImage />
+            )}
         </>
     )
 }
