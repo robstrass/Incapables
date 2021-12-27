@@ -12,7 +12,7 @@ def one_image(imageId):
     return image.to_dict()
 
 @image_routes.route('/<int:imageId>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_image(imageId):
     image = Image.query.get(int(imageId))
     if image.user_id == 1: #current_user.id:

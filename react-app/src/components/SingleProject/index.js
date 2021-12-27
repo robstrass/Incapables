@@ -23,6 +23,7 @@ export default function SingleProject() {
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const [deleteImageModal, setDeleteImageModal] = useState(false);
+    const [imageId, setImageId] = useState('');
 
     useEffect(() => {
         dispatch(projectsActions.oneProjectThunk(projectId))
@@ -77,7 +78,8 @@ export default function SingleProject() {
             {deleteImageModal && (
                 <DeleteImage
                     setDeleteImageModal={setDeleteImageModal}
-                    projectId={projectId}
+                    imageId={imageId}
+                    project={project}
                 />
             )}
             <div className={style.singleProjContainer}>
@@ -127,7 +129,11 @@ export default function SingleProject() {
                             {user?.id === project.user_id && (
                                 <div
                                     className={style.singleProjDeleteImage}
-                                    onClick={() => setDeleteImageModal(true)}
+                                    onClick={() => {
+                                        setDeleteImageModal(true)
+                                        setImageId(image.id)
+                                    }
+                                    }
                                 >
                                     Delete Step
                                 </div>

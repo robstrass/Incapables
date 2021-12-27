@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import style from './DeleteImage.module.css';
 import * as imageActions from '../../store/images'
 
-export default function DeleteImage({ setDeleteImageModal, projectId }) {
+export default function DeleteImage({ setDeleteImageModal, imageId, project }) {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
+    console.log('imageId xxxxxxx', imageId)
+    const handleSubmit = async (e) => {
+        if (user.id === project.user_id) {
+            await dispatch(imageActions.deleteImageThunk(imageId));
+            setDeleteImageModal(false);
+        }
+    }
 
     return (
         <>
@@ -21,7 +29,7 @@ export default function DeleteImage({ setDeleteImageModal, projectId }) {
                 <div className={style.deleteImageButtons}>
                     <div
                         className={style.deleteImageSubmit}
-                        onClick={() => console.log('hello')}
+                        onClick={handleSubmit}
                     >
                         Confirm
                     </div>
