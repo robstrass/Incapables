@@ -24,6 +24,12 @@
     align-items: center;
 }
 
+.addImageLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .addImagePreview {
     max-height: 12rem;
     width: 300px;

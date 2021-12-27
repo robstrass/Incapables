@@ -19,7 +19,7 @@ const postImage = image => ({
 // }
 
 export const postImageThunk = (image) => async (dispatch) => {
-    const { projectId } = image;
+    const projectId = image.get('projectId');
     const response = await fetch(`/api/projects/${projectId}/images`, {
         method: 'POST',
         body: image
@@ -33,7 +33,7 @@ export default function imagesReducer (state = {}, action) {
     const newState = { ...state };
     switch (action.type) {
         case POST_IMAGE:
-            newState[action.project.id] = action.project;
+            newState[action.image.id] = action.image;
             return newState
         default:
             return newState;

@@ -8,6 +8,7 @@ import * as imageActions from '../../store/images';
 export default function AddImage() {
     const dispatch = useDispatch();
     const { projectId } = useParams();
+    console.log('projectId', projectId);
 
     const [imageFile, setImageFile] = useState('');
     const [savedImageFile, setSavedImageFile] = useState('');
@@ -56,7 +57,9 @@ export default function AddImage() {
         formData.append('content', imageContent);
         formData.append('image', imageFile);
         formData.append('projectId', projectId);
+        console.log('XXXXXXXXXX', formData.get('projectId'))
 
+        dispatch(imageActions.postImageThunk(formData));
     }
 
     return (
@@ -83,6 +86,16 @@ export default function AddImage() {
                         >
                             cloud_upload
                         </span>}
+                        <div className={style.addImageError}>
+                        {errors.length > 0 &&
+                            errors.map((error) => error.includes("image"))
+                                ? errors.map((error) =>
+                                    error.includes("image")
+                                    ? `${error.split(":")[1]}`
+                                    : null
+                                )
+                                : null}
+                        </div>
                     </label>
                     <input
                         className={style.addImageInput}
@@ -93,9 +106,21 @@ export default function AddImage() {
                     />
                 </div>
                 <div className={style.addImageInputDiv}>
+                    <div className={style.addImageError}>
+                    {errors.length > 0 &&
+                        errors.map((error) => error.includes("content"))
+                            ? errors.map((error) =>
+                                error.includes("content")
+                                ? `${error.split(":")[1]}`
+                                : null
+                            )
+                            : null}
+                    </div>
                     <textarea
                         className={style.addImageTextArea}
                         placeholder='Add a step...'
+                        value={imageContent}
+                        onChange={(e) => setImageContent(e.target.value)}
                     />
                 </div>
                 <button
