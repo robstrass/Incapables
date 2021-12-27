@@ -15,7 +15,7 @@ export default function SingleProject() {
     const { projectId } = useParams();
     const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current)
-    const images = useSelector(state => state.images);
+    const images = useSelector(state => Object.values(state.images));
     console.log('singleproject', project, user);
     console.log('images', images);
 
@@ -101,7 +101,7 @@ export default function SingleProject() {
                     ) : null }
                 </div>
                 <div className={style.singleProjSteps}>
-                    { project ? project.images?.map((image, index) => (
+                    { images ? images?.map((image, index) => (
                         <div
                             key={image.id}
                             className={style.singleProjSingleStep}
