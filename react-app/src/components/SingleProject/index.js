@@ -74,6 +74,12 @@ export default function SingleProject() {
                 />
             )}
             {deleteModal && deleteProject()}
+            {deleteImageModal && (
+                <DeleteImage
+                    setDeleteImageModal={setDeleteImageModal}
+                    projectId={projectId}
+                />
+            )}
             <div className={style.singleProjContainer}>
                 <div className={style.singleProjHolder}>
                     <h1 className={style.singleProjTitle}>
@@ -119,10 +125,12 @@ export default function SingleProject() {
                                 {image.content}
                             </p>
                             {user?.id === project.user_id && (
-                                <DeleteImage
-                                    deleteImageModal={deleteImageModal}
-                                    projectId={projectId}
-                                />
+                                <div
+                                    className={style.singleProjDeleteImage}
+                                    onClick={() => setDeleteImageModal(true)}
+                                >
+                                    Delete Step
+                                </div>
                             )}
                         </div>
                     )) : null}

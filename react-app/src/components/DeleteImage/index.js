@@ -10,7 +10,7 @@ export default function DeleteImage({ setDeleteImageModal, projectId }) {
     return (
         <>
             <div
-                className={style.deleteImageContainer}
+                className={style.deleteImageBackground}
                 onClick={() => setDeleteImageModal(false)}
             >
             </div>
