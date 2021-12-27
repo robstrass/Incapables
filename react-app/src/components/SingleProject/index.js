@@ -7,6 +7,7 @@ import * as projectsActions from '../../store/projects';
 import * as imageActions from '../../store/images';
 import EditProject from '../EditProject';
 import AddImage from '../AddImage';
+import DeleteImage from '../DeleteImage';
 // import { deleteProjectThunk } from '../../store/projects';
 
 export default function SingleProject() {
@@ -21,6 +22,7 @@ export default function SingleProject() {
 
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
+    const [deleteImageModal, setDeleteImageModal] = useState(false);
 
     useEffect(() => {
         dispatch(projectsActions.oneProjectThunk(projectId))
@@ -116,6 +118,12 @@ export default function SingleProject() {
                             <p className={style.singleProjStepContent}>
                                 {image.content}
                             </p>
+                            {user?.id === project.user_id && (
+                                <DeleteImage
+                                    deleteImageModal={deleteImageModal}
+                                    projectId={projectId}
+                                />
+                            )}
                         </div>
                     )) : null}
                 </div>

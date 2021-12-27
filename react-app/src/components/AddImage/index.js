@@ -42,7 +42,7 @@ export default function AddImage() {
         return validateErrors;
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const errors = validate();
@@ -57,9 +57,11 @@ export default function AddImage() {
         formData.append('content', imageContent);
         formData.append('image', imageFile);
         formData.append('projectId', projectId);
-        console.log('XXXXXXXXXX', formData.get('projectId'))
 
-        dispatch(imageActions.postImageThunk(formData));
+        await dispatch(imageActions.postImageThunk(formData));
+        setImageContent('');
+        setImageFile('');
+        setImagePreview('');
     }
 
     return (
