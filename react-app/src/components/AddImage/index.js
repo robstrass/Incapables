@@ -11,6 +11,8 @@ export default function AddImage() {
     const [savedImageFile, setSavedImageFile] = useState('');
     const [imagePreview, setImagePreview] = useState('');
     const [savedImagePreview, setSavedImagePreview] = useState('');
+    const [imageContent, setImageContent] = useState('');
+    const [errors, setErrors] = useState('');
 
     const setImage = (e) => {
         let file = e.target.files[0];
@@ -28,8 +30,26 @@ export default function AddImage() {
         }
     }
 
+    const validate = () => {
+        const validateErrors = [];
+
+        if (!imageFile) validateErrors.push('image : Please select an image.');
+        if (!imageContent) validateErrors.push('content : Please explain your step.');
+
+        return validateErrors;
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const errors = validate();
+
+        if (errors && errors.length > 0) {
+            console.log(errors)
+            return setErrors(errors);
+        }
+
+
     }
 
     return (
@@ -52,7 +72,7 @@ export default function AddImage() {
                             className={style.addImagePreview}
                         />
                         : <span className="material-icons addImagePreviewSpan"
-                            style={{'font-size':'48px'}}
+                            style={{'fontSize':'48px'}}
                         >
                             cloud_upload
                         </span>}
