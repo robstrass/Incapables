@@ -3,5 +3,23 @@
     flex-direction: column;
     align-items: center;
     min-height: 500px;
-    background-color: darkcyan;
+    background-color: rgb(238,238,238);
+}
+
+.addImageForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background-color: darkolivegreen;
+}
+
+.addImageTitle {
+    font-weight: 500;
+}
+
+.addImageInputDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
