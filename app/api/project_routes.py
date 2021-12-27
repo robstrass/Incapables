@@ -104,6 +104,13 @@ def edit_comment(projectId, commentId):
         return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
+# All Images
+@project_routes.route('/<int:projectId>/images')
+def all_images(projectId):
+    images = Image.query.filter(projectId == Image.project_id).all()
+
+    return { 'images': [image.to_dict() for image in images] }
+
 # Add Image
 @project_routes.route('/<int:projectId>/images', methods=['POST'])
 @login_required
