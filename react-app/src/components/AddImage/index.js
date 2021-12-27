@@ -3,9 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import style from './AddImage.module.css';
+import * as imageActions from '../../store/images';
 
 export default function AddImage() {
     const dispatch = useDispatch();
+    const { projectId } = useParams();
 
     const [imageFile, setImageFile] = useState('');
     const [savedImageFile, setSavedImageFile] = useState('');
@@ -49,6 +51,11 @@ export default function AddImage() {
             return setErrors(errors);
         }
 
+        const formData = new FormData();
+
+        formData.append('content', imageContent);
+        formData.append('image', imageFile);
+        formData.append('projectId', projectId);
 
     }
 

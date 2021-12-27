@@ -19,5 +19,23 @@ const postImage = image => ({
 // }
 
 export const postImageThunk = (image) => async (dispatch) => {
-    const response = await fetch();
+    const { projectId } = image;
+    const response = await fetch(`/api/projects/${projectId}/images`, {
+        method: 'POST',
+        body: image
+    });
+    const data = await response.json();
+    dispatch(postImage(data));
+    return data;
+}
+
+export default function imagesReducer (state = {}, action) {
+    const newState = { ...state };
+    switch (action.type) {
+        case POST_IMAGE:
+            newState[action.project.id] = action.project;
+            return newState
+        default:
+            return newState;
+    }
 }
