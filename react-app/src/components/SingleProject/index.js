@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 
 import style from './SingleProject.module.css';
 import * as projectsActions from '../../store/projects';
+import * as imageActions from '../../store/images';
 import EditProject from '../EditProject';
 import AddImage from '../AddImage';
 // import { deleteProjectThunk } from '../../store/projects';
@@ -14,13 +15,16 @@ export default function SingleProject() {
     const { projectId } = useParams();
     const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current)
+    const images = useSelector(state => state.images);
     console.log('singleproject', project, user);
+    console.log('images', images);
 
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
 
     useEffect(() => {
         dispatch(projectsActions.oneProjectThunk(projectId))
+        dispatch(imageActions.allImagesThunk(projectId));
     }, [dispatch]);
 
     const deleteProject = () => {

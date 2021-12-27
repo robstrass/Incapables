@@ -14,9 +14,13 @@ const postImage = image => ({
 });
 
 // thunks
-// export const allImagesThunk = () => async (dispatch) => {
-//     const response = await fetch('')
-// }
+export const allImagesThunk = (projectId) => async (dispatch) => {
+    const response = await fetch(`/api/projects/${projectId}/images`);
+    const data = await response.json();
+    console.log('response', data);
+    dispatch(allImages(data.images));
+    return data;
+}
 
 export const postImageThunk = (image) => async (dispatch) => {
     const projectId = image.get('projectId');
@@ -32,6 +36,12 @@ export const postImageThunk = (image) => async (dispatch) => {
 export default function imagesReducer (state = {}, action) {
     const newState = { ...state };
     switch (action.type) {
+        case GET_IMAGES:
+            console.log('reducer', action.images)
+            for (let image of action.images) {
+                newState[image.id] = image;
+            }
+            return newState;
         case POST_IMAGE:
             newState[action.image.id] = action.image;
             return newState
