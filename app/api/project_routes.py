@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.api.auth_routes import login, validation_errors_to_error_messages
 from app.models import db, Project, Comment, Image
 from app.forms import NewProjectForm, EditProjectForm, NewCommentForm, EditCommentForm, NewImageForm, EditImageForm
+from app.aws_upload import (upload_file_to_s3, allowed_file, get_unique_filename)
 
 
 project_routes = Blueprint('projects', __name__)
@@ -103,6 +104,13 @@ def edit_comment(projectId, commentId):
         return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
+# All Images
+@project_routes.route('/<int:projectId>/images')
+def all_images(projectId):
+    images = Image.query.filter(projectId == Image.project_id).all()
+
+    return { 'images': [image.to_dict() for image in images] }
+
 # Add Image
 @project_routes.route('/<int:projectId>/images', methods=['POST'])
 @login_required
@@ -111,9 +119,26 @@ def add_image(projectId):
     form['csrf_token'].data = request.cookies['csrf_token']
     project = Project.query.get(int(projectId))
 
+    if "image" not in form.data:
+        return {"errors": "image required"}, 400
+
+    image = form.data["image"]
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        return upload, 400
+
+    url = upload["url"]
+
     if form.validate_on_submit() and project.user_id == current_user.id:
         image = Image(
-            image = form.data['image'],
+            image = url,
             content = form.data['content'],
             project_id = projectId,
             user_id = current_user.id
@@ -126,7 +151,7 @@ def add_image(projectId):
 
 # Edit Image
 @project_routes.route('/<int:projectId>/images/<int:imageId>', methods=['PUT'])
-# @login_required
+@login_required
 def edit_image(projectId, imageId):
     form = EditImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']

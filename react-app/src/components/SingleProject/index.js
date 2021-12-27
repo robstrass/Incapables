@@ -4,8 +4,11 @@ import { useHistory, useParams } from 'react-router-dom';
 
 import style from './SingleProject.module.css';
 import * as projectsActions from '../../store/projects';
+import * as imageActions from '../../store/images';
 import EditProject from '../EditProject';
-import { deleteProjectThunk } from '../../store/projects';
+import AddImage from '../AddImage';
+import DeleteImage from '../DeleteImage';
+// import { deleteProjectThunk } from '../../store/projects';
 
 export default function SingleProject() {
     const dispatch = useDispatch();
@@ -13,19 +16,24 @@ export default function SingleProject() {
     const { projectId } = useParams();
     const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current)
+    const images = useSelector(state => Object.values(state.images));
     console.log('singleproject', project, user);
+    console.log('images', images);
 
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
+    const [deleteImageModal, setDeleteImageModal] = useState(false);
+    const [imageId, setImageId] = useState('');
 
     useEffect(() => {
         dispatch(projectsActions.oneProjectThunk(projectId))
+        dispatch(imageActions.allImagesThunk(projectId));
     }, [dispatch]);
 
     const deleteProject = () => {
         const handleDelete = async () => {
             if (user.id === project.user_id) {
-                await dispatch(deleteProjectThunk(projectId))
+                await dispatch(projectsActions.deleteProjectThunk(projectId))
                 history.push('/projects')
             }
         }
@@ -67,6 +75,13 @@ export default function SingleProject() {
                 />
             )}
             {deleteModal && deleteProject()}
+            {deleteImageModal && (
+                <DeleteImage
+                    setDeleteImageModal={setDeleteImageModal}
+                    imageId={imageId}
+                    project={project}
+                />
+            )}
             <div className={style.singleProjContainer}>
                 <div className={style.singleProjHolder}>
                     <h1 className={style.singleProjTitle}>
@@ -78,7 +93,7 @@ export default function SingleProject() {
                     <p className={style.singleProjContent}>
                         {project ? project.content : null}
                     </p>
-                    { user.id === project?.user_id ? (
+                    { user?.id === project?.user_id ? (
                         <div className={style.singleProjOwnerButtons}>
                             <div
                                 className={style.singleProjEdit}
@@ -96,7 +111,7 @@ export default function SingleProject() {
                     ) : null }
                 </div>
                 <div className={style.singleProjSteps}>
-                    { project ? project.images?.map((image, index) => (
+                    { images ? images?.map((image, index) => (
                         <div
                             key={image.id}
                             className={style.singleProjSingleStep}
@@ -111,10 +126,25 @@ export default function SingleProject() {
                             <p className={style.singleProjStepContent}>
                                 {image.content}
                             </p>
+                            {user?.id === project.user_id && (
+                                <div
+                                    className={style.singleProjDeleteImage}
+                                    onClick={() => {
+                                        setDeleteImageModal(true)
+                                        setImageId(image.id)
+                                    }
+                                    }
+                                >
+                                    Delete Step
+                                </div>
+                            )}
                         </div>
                     )) : null}
                 </div>
             </div>
+            {user?.id === project.user_id && (
+                <AddImage />
+            )}
         </>
     )
 }

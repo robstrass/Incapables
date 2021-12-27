@@ -103,6 +103,7 @@ export default function projectsReducer (state = initialState, action) {
                 newState.current = {}
                 newState.all[project.id] = project
             }
+            newState.all = { ...newState.all }
             return newState;
         case GET_PROJECT:
             newState.current = action.project;
