@@ -21,7 +21,7 @@ const NavBar = () => {
           <div className={style.profileModalNavLink}>
             Profile
           </div>
-          <LogoutButton />
+          <LogoutButton setProfileModal={setProfileModal}/>
         </div>
       </>
     )
@@ -109,7 +109,6 @@ const NavBar = () => {
               </NavLink>
             </div>
           }
-          <LogoutButton />
         </div>
       </nav>
     </>
