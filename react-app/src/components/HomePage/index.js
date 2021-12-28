@@ -26,7 +26,10 @@ export default function HomePage() {
                         STEP-BY-STEP
                     </h2>
                     <p className={style.homeInfoContent}>
-                        Content
+                        We make it easy for you to follow the wrong way
+                        to do simple at-home projects. Whether it be
+                        changing your oil to building a gingerbread,
+                        we don't have you covered.
                     </p>
                 </div>
                 <div className={style.homeInfoSingleDiv}>
@@ -34,7 +37,11 @@ export default function HomePage() {
                         CURATED BY YOUR PEERS
                     </h2>
                     <p className={style.homeInfoContent}>
-                        Content
+                        Incapables are created by you, the
+                        community. We all have skills and
+                        knowledge, but no one wants to share
+                        that. Join the community today to
+                        share how NOT to complete your project.
                     </p>
                 </div>
                 <div className={style.homeInfoSingleDiv}>
@@ -42,7 +49,10 @@ export default function HomePage() {
                         FAMILY FRIENDLY
                     </h2>
                     <p className={style.homeInfoContent}>
-                        Content
+                        Sarcasm is one of our core principles.
+                        This community is meant to be light-hearted
+                        and all in good taste. Find your happy place
+                        here to fulfill all your satirical needs. 
                     </p>
                 </div>
             </div>
