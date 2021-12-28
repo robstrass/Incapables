@@ -17,13 +17,48 @@ const NavBar = () => {
         >
           <span className="material-icons">home</span>
         </NavLink>
-        <div className={style.navCategory}>Workshop</div>
-        <div className={style.navCategory}>Gardening</div>
-        <div className={style.navCategory}>Living</div>
-        <div className={style.navCategory}>Outside</div>
-        <div className={style.navCategory}>Craft</div>
-        <div className={style.navCategory}>Cooking</div>
-        <div className={style.navCategory}>Miscellaneous</div>
+        <NavLink
+          className={style.navCategory}
+          to='/categories/1'
+        >
+          Workshop
+        </NavLink>
+        <NavLink
+          className={style.navCategory}
+          to='/categories/2'
+        >
+          Gardening
+        </NavLink>
+        <NavLink
+          className={style.navCategory}
+          to='/categories/3'
+        >
+          Living
+        </NavLink>
+        <NavLink
+          className={style.navCategory}
+          to='/categories/4'
+        >
+          Outside
+        </NavLink>
+        <NavLink
+          className={style.navCategory}
+          to='/categories/5'
+        >
+          Craft
+        </NavLink>
+        <NavLink
+          className={style.navCategory}
+          to='/categories/6'
+        >
+          Cooking
+        </NavLink>
+        <NavLink
+          className={style.navCategory}
+          to='/categories/7'
+        >
+          Miscellaneous
+        </NavLink>
       </div>
       <div className={style.rightside}>
         {user ?

@@ -26,6 +26,11 @@
     font-size: 12px;
     margin: 0 0.5rem;
     color: rgb(204,204,204);
+    text-decoration: none;
+}
+
+.navCategory:hover {
+    text-decoration: underline;
 }
 
 .rightside {

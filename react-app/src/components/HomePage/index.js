@@ -52,7 +52,7 @@ export default function HomePage() {
                         Sarcasm is one of our core principles.
                         This community is meant to be light-hearted
                         and all in good taste. Find your happy place
-                        here to fulfill all your satirical needs. 
+                        here to fulfill all your satirical needs.
                     </p>
                 </div>
             </div>
@@ -63,7 +63,7 @@ export default function HomePage() {
                 <div className={style.homeCategoriesDiv}>
                     <NavLink
                         className={style.homeSingleCategoryTitle}
-                        to={'/categories/workshop'}
+                        to={'/categories/1'}
                     >
                         Workshop<span className="material-icons">chevron_right</span>
                     </NavLink>
@@ -98,7 +98,7 @@ export default function HomePage() {
                 <div className={style.homeCategoriesDiv}>
                     <NavLink
                         className={style.homeSingleCategoryTitle}
-                        to={'/categories/gardening'}
+                        to={'/categories/2'}
                     >
                         Gardening<span className="material-icons">chevron_right</span>
                     </NavLink>
@@ -133,7 +133,7 @@ export default function HomePage() {
                 <div className={style.homeCategoriesDiv}>
                     <NavLink
                         className={style.homeSingleCategoryTitle}
-                        to={'/categories/living'}
+                        to={'/categories/3'}
                     >
                         Living<span className="material-icons">chevron_right</span>
                     </NavLink>
@@ -168,7 +168,7 @@ export default function HomePage() {
                 <div className={style.homeCategoriesDiv}>
                     <NavLink
                         className={style.homeSingleCategoryTitle}
-                        to={'/categories/outside'}
+                        to={'/categories/4'}
                     >
                         Outside<span className="material-icons">chevron_right</span>
                     </NavLink>
@@ -203,7 +203,7 @@ export default function HomePage() {
                 <div className={style.homeCategoriesDiv}>
                     <NavLink
                         className={style.homeSingleCategoryTitle}
-                        to={'/categories/craft'}
+                        to={'/categories/5'}
                     >
                         Craft<span className="material-icons">chevron_right</span>
                     </NavLink>
@@ -238,7 +238,7 @@ export default function HomePage() {
                 <div className={style.homeCategoriesDiv}>
                     <NavLink
                         className={style.homeSingleCategoryTitle}
-                        to={'/categories/cooking'}
+                        to={'/categories/6'}
                     >
                         Cooking<span className="material-icons">chevron_right</span>
                     </NavLink>
@@ -273,7 +273,7 @@ export default function HomePage() {
                 <div className={style.homeCategoriesDiv}>
                     <NavLink
                         className={style.homeSingleCategoryTitle}
-                        to={'/categories/miscellaneous'}
+                        to={'/categories/7'}
                     >
                         Miscellaneous<span className="material-icons">chevron_right</span>
                     </NavLink>
