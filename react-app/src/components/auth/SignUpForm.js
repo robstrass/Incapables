@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { Redirect, NavLink } from 'react-router-dom';
 
 import style from './Auth.module.css';
+import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -65,7 +65,6 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className={style.signupInputDiv}>
-          <label>Email</label>
           <input
             type='text'
             name='email'
@@ -95,13 +94,18 @@ const SignUpForm = () => {
             placeholder='Repeat Password'
           ></input>
         </div>
-        <button type='submit'>Sign Up</button>
+        <button
+          type='submit'
+          className={style.signupSubmit}
+        >
+          Sign Up
+        </button>
         <div className={style.signupInputDiv}>
           <NavLink
             className={style.signupNavLink}
             to='/login'
           >
-            Already have an account? Login here.
+            Already have an account? Login
           </NavLink>
         </div>
       </form>

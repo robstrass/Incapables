@@ -1,5 +1,6 @@
 /* Login */
-.loginContainer {
+.loginContainer,
+.signupContainer {
     display: flex;
     flex-direction: column;
     background: url('https://res.cloudinary.com/depdd11lz/image/upload/v1640135493/crafts-table_jjkmpe.jpg');
@@ -8,7 +9,8 @@
     height: 100vh;
 }
 
-.loginForm {
+.loginForm,
+.signupForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,12 +22,14 @@
     backdrop-filter: blur(5px);
 }
 
-.loginInputDiv {
+.loginInputDiv,
+.signupInputDiv {
     margin: 0.5rem;
     width: 80%;
 }
 
-.loginInput {
+.loginInput,
+.signupInput {
     width: 100%;
     border-radius: 6px;
     padding: 6px 12px;
@@ -33,12 +37,14 @@
     outline: none;
 }
 
-.loginInput:focus {
+.loginInput:focus,
+.signupInput:focus {
     border: 1px solid rgb(115,182,235);
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
 }
 
-.loginSubmit {
+.loginSubmit,
+.signupSubmit {
     margin: 1rem 0;
     padding: 8px 20px;
     color: white;
@@ -48,7 +54,8 @@
     background-color: rgb(251,171,23);
 }
 
-.loginSubmit:hover {
+.loginSubmit:hover,
+.signupSubmit:hover {
     cursor: pointer;
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
 }
@@ -70,14 +77,15 @@
     text-decoration: underline;
 }
 
-.loginNavLink {
+.loginNavLink,
+.signupNavLink {
     margin: 0.5rem;
     color: white;
 }
 
-.loginNavLink:hover {
+.loginNavLink:hover,
+.signupNavLink:hover {
     text-decoration: none;
 }
 
 /* Signup */
-
