@@ -1,0 +1,33 @@
+/* Login */
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    background: url('https://res.cloudinary.com/depdd11lz/image/upload/v1640135493/crafts-table_jjkmpe.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: 100vh;
+    margin: 0 4rem;
+    padding: 4rem 0;
+    background-color: rgb(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.loginInputDiv {
+    margin: 0.5rem;
+    width: 80%;
+}
+
+.loginInput {
+    width: 100%;
+    border-radius: 6px;
+    padding: 6px 12px;
+    border: none;
+}
