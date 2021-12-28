@@ -56,3 +56,24 @@
 .navRightPipe {
     margin: 0 0.5rem;
 }
+
+/* Profile Modal */
+.profileModalBackground {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    /* background: rgba(0, 0, 0, 0.8); */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.profileModalContainer {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    padding: 12px 30px;
+    background: rgb(255, 255, 255);
+    z-index: 101;
+}

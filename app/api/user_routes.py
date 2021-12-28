@@ -21,7 +21,7 @@ def user(id):
 
 # Get User's Projects
 @user_routes.route('/<int:id>/projects')
-# @login_required
+@login_required
 def user_projects(id):
     projects = Project.query.filter(Project.user_id == id).all()
 
