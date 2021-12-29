@@ -1,134 +1,216 @@
-# Flask React Project
+# Incapables
+*By Rob Strasser - [Visit Incapables](https://incapables.herokuapp.com/)*
 
-This is the starter for the Flask React project.
+**Table of Contents**
+* [Incapables Overview](#incapables-overview)
+* [Technologies Used](#technologies-used)
+* [Backend Technology](#backend-technology)
+* [Frontend Technology](#frontend-technology)
+* [Conclusion](#conclusion)
 
-## Getting started
+## Incapables Overview
+Incapables is a fullstack app written in Python, React and Node that allows users to write satirical DIY guides for different projects that they have.
 
-1. Clone this repository (only this branch)
+Users can view the current projects hosted on the site using the featured section, sorted by category, or by every project on the site.
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+##### Incapables Homepage
+![Incapables Homepage](https://i.ibb.co/SRB43nq/incapables-homepage.png)
 
-2. Install dependencies
+##### Incapables utilizes AWS for Image Upload
+![Incapables AWS](https://i.ibb.co/z62dFFT/Incapables-upload.png)
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+## Technologies Used
+Incapables utilizes Python on the backend, with SQLAlchemy and Flask, and Docker to hold the container for the app. The database is made with PostgreSQL. Additionally, AWS S3 is used for image hosting to allow users to easily upload images from their computers.
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+Javascript is used on the frontend in conjunction with React for seemless rendering and Redux for state management.
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+### Backend Technology
+* [Python](https://docs.python.org/3/)
+* [SQLAlchemy](https://docs.sqlalchemy.org/en/14/)
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [WTForms](https://wtforms.readthedocs.io/en/2.3.x/)
+* [Docker](https://docs.docker.com/)
+* [PostgreSQL](https://www.postgresql.org/docs/13/)
 
-   ```bash
-   pipenv shell
-   ```
+#### Code for Integrating AWS Upload
+```js
+@project_routes.route('/<int:projectId>/images', methods=['POST'])
+@login_required
+def add_image(projectId):
+    form = NewImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    project = Project.query.get(int(projectId))
 
-   ```bash
-   flask db upgrade
-   ```
+    if "image" not in form.data:
+        return {"errors": "image required"}, 400
 
-   ```bash
-   flask seed all
-   ```
+    image = form.data["image"]
 
-   ```bash
-   flask run
-   ```
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+    image.filename = get_unique_filename(image.filename)
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+    upload = upload_file_to_s3(image)
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+    if "url" not in upload:
+        return upload, 400
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
+    url = upload["url"]
 
-## Deploy to Heroku
+    if form.validate_on_submit() and project.user_id == current_user.id:
+        image = Image(
+            image = url,
+            content = form.data['content'],
+            project_id = projectId,
+            user_id = current_user.id
+        )
 
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
+        db.session.add(image)
+        db.session.commit()
+        return image.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+```
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+### Frontend Technology
+* [React](https://v5.reactrouter.com/web/guides/quick-start)
+* [Redux](https://react-redux.js.org/)
+* [Node.js](https://nodejs.org/docs/latest-v12.x/api/)
 
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
+#### Code For Uploading an Image to Steps
+```js
+export default function AddImage() {
+    const dispatch = useDispatch();
+    const { projectId } = useParams();
+    console.log('projectId', projectId);
 
-   ```bash
-   heroku login
-   ```
+    const [imageFile, setImageFile] = useState('');
+    const [savedImageFile, setSavedImageFile] = useState('');
+    const [imagePreview, setImagePreview] = useState('');
+    const [savedImagePreview, setSavedImagePreview] = useState('');
+    const [imageContent, setImageContent] = useState('');
+    const [errors, setErrors] = useState('');
 
-6. Login to the heroku container registry
+    const setImage = (e) => {
+        let file = e.target.files[0];
 
-   ```bash
-   heroku container:login
-   ```
+        setImageFile(e.target.files[0]);
+        if (file) {
+            setSavedImageFile(file);
 
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
+            file = URL.createObjectURL(file);
+            setImagePreview(file);
+            setSavedImagePreview(file)
+        } else {
+            setImageFile(savedImageFile);
+            setImagePreview(savedImagePreview);
+        }
+    }
 
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
+    const validate = () => {
+        const validateErrors = [];
 
-9. Release your docker container to heroku
+        if (!imageFile) validateErrors.push('image : Please select an image.');
+        if (!imageContent) validateErrors.push('content : Please explain your step.');
 
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
+        return validateErrors;
+    }
 
-10. set up your database
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
+        const errors = validate();
 
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
+        if (errors && errors.length > 0) {
+            console.log(errors)
+            return setErrors(errors);
+        }
 
-12. profit
+        const formData = new FormData();
 
-### For M1 Mac users
+        formData.append('content', imageContent);
+        formData.append('image', imageFile);
+        formData.append('projectId', projectId);
 
-(Replaces **Step 8**)
+        await dispatch(imageActions.postImageThunk(formData));
+        setImageContent('');
+        setImageFile('');
+        setImagePreview('');
+    }
 
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
+    return (
+        <div className={style.addImageContainer}>
+            <form
+                className={style.addImageForm}
+                onSubmit={handleSubmit}
+            >
+                <h2 className={style.addImageTitle}>
+                    Add a Step
+                </h2>
+                <div className={style.addImageInputDiv}>
+                    <label
+                        className={style.addImageLabel}
+                        htmlFor='addImageFile'
+                    >
+                        {imagePreview ?
+                        <img
+                            src={imagePreview}
+                            className={style.addImagePreview}
+                        />
+                        : <span className="material-icons addImagePreviewSpan"
+                            style={{'fontSize':'48px'}}
+                        >
+                            cloud_upload
+                        </span>}
+                        <div className={style.addImageError}>
+                        {errors.length > 0 &&
+                            errors.map((error) => error.includes("image"))
+                                ? errors.map((error) =>
+                                    error.includes("image")
+                                    ? `${error.split(":")[1]}`
+                                    : null
+                                )
+                                : null}
+                        </div>
+                    </label>
+                    <input
+                        className={style.addImageInput}
+                        id='addImageFile'
+                        type='file'
+                        accept='.jpg, .jpeg, .png, .gif'
+                        onChange={setImage}
+                    />
+                </div>
+                <div className={style.addImageInputDiv}>
+                    <div className={style.addImageError}>
+                    {errors.length > 0 &&
+                        errors.map((error) => error.includes("content"))
+                            ? errors.map((error) =>
+                                error.includes("content")
+                                ? `${error.split(":")[1]}`
+                                : null
+                            )
+                            : null}
+                    </div>
+                    <textarea
+                        className={style.addImageTextArea}
+                        placeholder='Add a step...'
+                        value={imageContent}
+                        onChange={(e) => setImageContent(e.target.value)}
+                    />
+                </div>
+                <button
+                    className={style.addImageButton}
+                >
+                    Add Step
+                </button>
+            </form>
+        </div>
+    )
+}
+```
 
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
+## Conclusion
+On a personal note, Incapables was a super fun project to build. I'm an extremely sarcastic person, so being able to build a project around sarcasm was a great way to bring in my own personal flare.
 
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+I fell in love with Javascript as I began learning it, but I really wanted to challenge myself on this project. Python was a difficult shift for me coming from Javascript, so I wanted to build out the backend for Incapables in Python to better understand what Python was capable of. 
