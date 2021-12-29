@@ -47,22 +47,28 @@ export const deleteImageThunk = (imageId) => async (dispatch) => {
     return data;
 }
 
+const initialState = { all: {}, current: {} }
 
 // Reducah
-export default function imagesReducer (state = {}, action) {
+export default function imagesReducer (state = initialState, action) {
     const newState = { ...state };
     switch (action.type) {
         case GET_IMAGES:
             console.log('reducer', action.images)
+            newState.all = {}
             for (let image of action.images) {
-                newState[image.id] = image;
+                newState.current = {}
+                newState.all[image.id] = image;
             }
+            newState.all = { ...newState.all }
             return newState;
         case POST_IMAGE:
-            newState[action.image.id] = action.image;
+            newState.all[action.image.id] = action.image;
             return newState;
         case DELETE_IMAGE:
-            delete newState[action.image.id];
+            delete newState.all[action.image.id];
+            delete newState.current[action.image.id];
+            newState.all = { ...newState.all }
             return newState
         default:
             return newState;

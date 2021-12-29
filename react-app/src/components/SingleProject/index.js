@@ -16,7 +16,7 @@ export default function SingleProject() {
     const { projectId } = useParams();
     const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current)
-    const images = useSelector(state => Object.values(state.images));
+    const images = useSelector(state => Object.values(state.images.all));
     console.log('singleproject', project, user);
     console.log('images', images);
 
