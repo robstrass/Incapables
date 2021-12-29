@@ -24,6 +24,12 @@ export default function Profile() {
                 <p className={style.profileEmail}>
                     Email: {user?.email}
                 </p>
+                <NavLink
+                    className={style.profileCreateLink}
+                    to={'/create'}
+                >
+                    New Incapable
+                </NavLink>
             </div>
             <div className={style.profileProjects}>
                 { projects ? projects?.map(project => (
