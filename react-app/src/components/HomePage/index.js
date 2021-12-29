@@ -31,7 +31,10 @@ export default function HomePage() {
                         className={style.homeFeatureImg}
                         src={projects[randomNum]?.images[0]?.image}
                     />
-                    <div className={style.homeFeatureContent}>
+                    <NavLink
+                        className={style.homeFeatureContent}
+                        to={`/projects/${projects[randomNum].id}`}
+                    >
                         <h1 className={style.homeFeatureTitle}>
                             {projects[randomNum]?.title}
                         </h1>
@@ -41,7 +44,7 @@ export default function HomePage() {
                         <p className={style.homeFeatureContent}>
                             {projects[randomNum]?.content}
                         </p>
-                    </div>
+                    </NavLink>
                 </div>
                 : null
                 : null }
