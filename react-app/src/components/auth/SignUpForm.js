@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
+
+import style from './Auth.module.css';
 import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
@@ -43,51 +45,71 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    <div className={style.signupContainer}>
+      <form
+        className={style.signupForm}
+        onSubmit={onSignUp}>
+        <div className={style.signupErrors}>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
+        <div className={style.signupInputDiv}>
+          <input
+            type='text'
+            name='username'
+            onChange={updateUsername}
+            value={username}
+            placeholder='Username'
+            className={style.signupInput}
+          ></input>
+        </div>
+        <div className={style.signupInputDiv}>
+          <input
+            type='text'
+            name='email'
+            onChange={updateEmail}
+            value={email}
+            className={style.signupInput}
+            placeholder='Email'
+          ></input>
+        </div>
+        <div className={style.signupInputDiv}>
+          <input
+            type='password'
+            name='password'
+            onChange={updatePassword}
+            value={password}
+            className={style.signupInput}
+            placeholder='Password'
+          ></input>
+        </div>
+        <div className={style.signupInputDiv}>
+          <input
+            type='password'
+            name='repeat_password'
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            className={style.signupInput}
+            placeholder='Repeat Password'
+          ></input>
+        </div>
+        <button
+          type='submit'
+          className={style.signupSubmit}
+        >
+          Sign Up
+        </button>
+        <div className={style.signupInputDiv}>
+          <NavLink
+            className={style.signupNavLink}
+            to='/login'
+          >
+            Already have an account? Login
+          </NavLink>
+        </div>
+      </form>
+    </div>
   );
 };
 

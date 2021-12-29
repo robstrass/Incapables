@@ -26,6 +26,11 @@
     font-size: 12px;
     margin: 0 0.5rem;
     color: rgb(204,204,204);
+    text-decoration: none;
+}
+
+.navCategory:hover {
+    text-decoration: underline;
 }
 
 .rightside {
@@ -40,6 +45,20 @@
     justify-content: center;
 }
 
+.profileDiv:hover {
+    cursor: pointer;
+}
+
+.username {
+    margin: 0 0.25rem;
+    color: rgb(204,204,204);
+}
+
+.profileIcon {
+    margin: 0 0.25rem;
+    color: rgb(204,204,204);
+}
+
 .navLogin,
 .navRightPipe,
 .navSignup {
@@ -50,4 +69,41 @@
 
 .navRightPipe {
     margin: 0 0.5rem;
+}
+
+/* Profile Modal */
+.profileModalBackground {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.profileModalContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 60px;
+    right: 25px;
+    padding: 12px 30px;
+    width: 200px;
+    border: 1px solid rgba(197,197,197);
+    border-radius: 4px;
+    background: rgb(255, 255, 255, 0.3);
+    z-index: 101;
+    backdrop-filter: blur(5px);
+    gap: 1rem;
+}
+
+.profileModalNavLink {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.profileModalNavLink:hover {
+    color: rgb(136,136,136)
 }

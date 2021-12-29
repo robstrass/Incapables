@@ -9,6 +9,8 @@ import SubNav from './components/SubNav';
 import Projects from './components/Projects';
 import SingleProject from './components/SingleProject';
 import CreateProject from './components/CreateProject';
+import SingleCategory from './components/SingleCategory';
+import Profile from './components/Profile';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -50,6 +52,12 @@ function App() {
         </Route>
         <Route path='/create'>
           <CreateProject />
+        </Route>
+        <Route path='/categories/:categoryId'>
+          <SingleCategory />
+        </Route>
+        <Route path='/profile'>
+          <Profile />
         </Route>
       </Switch>
     </BrowserRouter>

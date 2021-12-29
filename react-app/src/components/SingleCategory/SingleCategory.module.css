@@ -1,0 +1,38 @@
+.singleCategoryContainer {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 400px;
+}
+
+.singleCategoryNavLinks {
+    width: 300px;
+    height: fit-content;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 4px;
+    margin: 1rem 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.singleCategoryImage {
+    max-height: 12rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.singleCategoryContentDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.singleCategoryTitle {
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.singleCategoryTitle:hover {
+    text-decoration: underline;
+}

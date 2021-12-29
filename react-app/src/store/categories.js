@@ -24,6 +24,7 @@ export const allCategoriesThunk = () => async (dispatch) => {
 export const oneCategoryThunk = (categoryId) => async (dispatch) => {
     const response = await fetch(`/api/categories/${categoryId}`);
     const data = await response.json();
+    console.log('XXXXXXX datat', data)
     dispatch(oneCategory(data));
     return data;
 }
@@ -43,6 +44,7 @@ export default function categoriesReducer (state = initialState, action) {
             return newState;
         case GET_CATEGORY:
             newState.current = action.category
+            console.log('xxxxxx state', newState.current)
             return newState;
         default:
             return newState;
