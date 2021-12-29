@@ -28,6 +28,11 @@
     width: 80%;
 }
 
+.loginErrors {
+    font-style: italic;
+    color: red;
+}
+
 .loginInput,
 .signupInput {
     width: 100%;

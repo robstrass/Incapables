@@ -38,14 +38,19 @@ const LoginForm = () => {
         onSubmit={onLogin}
         className={style.loginForm}
       >
-        <div className={style.loginErrors}>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
         <div className={style.loginInputDiv}>
+          <label
+            htmlFor='loginEmail'
+            className={style.loginErrors}
+          >
+            {errors.length > 0 && errors.map(error => (
+              error.includes('email')
+            )) ? errors.map(error => error.includes('email') ?
+              `${error.split(':')[1]}` : null) : null}
+          </label>
           <input
             className={style.loginInput}
+            id='loginEmail'
             name='email'
             type='text'
             placeholder='Email'
@@ -54,6 +59,15 @@ const LoginForm = () => {
           />
         </div>
         <div className={style.loginInputDiv}>
+          <label
+            htmlFor='loginPassword'
+            className={style.loginErrors}
+          >
+            {errors.length > 0 && errors.map(error => (
+              error.includes('password')
+            )) ? errors.map(error => error.includes('password') ?
+              `${error.split(':')[1]}` : null) : null}
+          </label>
           <input
             className={style.loginInput}
             name='password'
