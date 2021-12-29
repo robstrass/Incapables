@@ -1,6 +1,7 @@
 // constants
 const GET_PROJECTS = 'projects/GET_PROJECTS';
 const GET_PROJECT = 'projects/GET_PROJECT';
+const USER_PROJECTS = 'projects/USER_PROJECTS'
 const POST_PROJECT = 'projects/POST_PROJECT';
 const EDIT_PROJECT = 'projects/EDIT_PROJECT';
 const DELETE_PROJECT = 'projects/DELETE_PROJECT';
@@ -29,6 +30,11 @@ const editProject = project => ({
 const deleteProject = project => ({
     type: DELETE_PROJECT,
     project
+});
+
+const userProjects = projects => ({
+    type: USER_PROJECTS,
+    projects
 });
 
 // thunks
@@ -87,12 +93,18 @@ export const deleteProjectThunk = (projectId) => async (dispatch) => {
         method: 'DELETE',
     });
     const data = await response.json();
-    console.log('data', data)
     dispatch(deleteProject(data));
     return data;
 }
 
-const initialState = { all: {}, current: {} }
+export const userProjectThunk = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/projects`);
+    const data = await response.json();
+    dispatch(userProjects(data.projects));
+    return data.projects;
+}
+
+const initialState = { all: {}, userProjects: {}, current: {} }
 
 // reducah
 export default function projectsReducer (state = initialState, action) {
@@ -118,6 +130,13 @@ export default function projectsReducer (state = initialState, action) {
             delete newState.all[action.project.id];
             delete newState.current[action.project.id];
             newState.all = { ...newState.all }
+            return newState;
+        case USER_PROJECTS:
+            for (let project of action.projects) {
+                newState.current = {}
+                newState.userProjects[project.id] = project
+            }
+            console.log('xxxxxxx', newState)
             return newState;
         default:
             return newState;
