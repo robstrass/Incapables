@@ -4,21 +4,49 @@ import { NavLink } from 'react-router-dom';
 
 import style from './HomePage.module.css';
 import * as categoriesActions from '../../store/categories';
+import * as projectActions from '../../store/projects';
 
 export default function HomePage() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     const allCategories = useSelector(state => state.categories.all)
+    const projects = useSelector(state => Object.values(state.projects.all));
     console.log('categories', allCategories)
+    console.log('projects', projects)
+
+    const randomProject = () => Math.floor(Math.random() * 4 + 1);
+
+    console.log('random num', randomProject())
 
     useEffect(() => {
-        dispatch(categoriesActions.allCategoriesThunk())
+        dispatch(categoriesActions.allCategoriesThunk());
+        dispatch(projectActions.allProjectsThunk());
     }, [dispatch])
 
     return (
         <div className={style.homeContainer}>
             <div className={style.homeFeatured}>
-                Featured Projects
+                {() => console.log('image', projects[randomProject()]?.images[0]?.image)}
+                { projects ? projects[randomProject()]?.images[0]?.image ?
+                <div className={style.homeFeatureDiv}>
+                    <img
+                        className={style.homeFeatureImg}
+                        src={projects[randomProject()]?.images[0]?.image}
+                    />
+                    <div className={style.homeFeatureContent}>
+                        <h1 className={style.homeFeatureTitle}>
+                            {projects[randomProject()]?.title}
+                        </h1>
+                        <h3 className={style.homeFeatureAuthor}>
+                            by {projects[randomProject()]?.author.username}
+                        </h3>
+                        <p className={style.homeFeatureContent}>
+                            {projects[randomProject()]?.content}
+                        </p>
+                    </div>
+                </div>
+                : 'penis'
+                : 'ballsack' }
             </div>
             <div className={style.homeInfoContainer}>
                 <div className={style.homeInfoSingleDiv}>

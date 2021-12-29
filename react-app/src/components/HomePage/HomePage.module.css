@@ -5,8 +5,29 @@
 }
 
 .homeFeatured {
+    display: flex;
+    justify-content: center;
     min-height: 400px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+}
+
+.homeFeatureDiv {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    /* background-color: darkviolet; */
+}
+
+.homeFeatureImg {
+    height: 400px;
+}
+
+.homeFeatureContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .homeInfoContainer {
@@ -14,7 +35,8 @@
     justify-content: space-around;
     align-items: center;
     padding: 1.5rem 0;
-    background-color: olive;
+    border-top: 1px solid rgb(204,204,204);
+    /* background-color: olive; */
 }
 
 .homeInfoSingleDiv {
@@ -22,7 +44,7 @@
     height: 300px;
     width: 300px;
     margin: 0 1rem;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
 .homeInfoTitle,
