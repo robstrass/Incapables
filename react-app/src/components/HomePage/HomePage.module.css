@@ -28,6 +28,12 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.homeFeatureContent:hover {
+    text-decoration: underline;
 }
 
 .homeInfoContainer {
