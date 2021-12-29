@@ -18,9 +18,13 @@ const NavBar = () => {
           onClick={() => setProfileModal(false)}
         ></div>
         <div className={style.profileModalContainer}>
-          <div className={style.profileModalNavLink}>
+          <NavLink
+            className={style.profileModalNavLink}
+            onClick={() => setProfileModal(false)}
+            to='/profile'
+          >
             Profile
-          </div>
+          </NavLink>
           <LogoutButton setProfileModal={setProfileModal}/>
         </div>
       </>

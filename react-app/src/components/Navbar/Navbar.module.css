@@ -51,10 +51,12 @@
 
 .username {
     margin: 0 0.25rem;
+    color: rgb(204,204,204);
 }
 
 .profileIcon {
     margin: 0 0.25rem;
+    color: rgb(204,204,204);
 }
 
 .navLogin,
