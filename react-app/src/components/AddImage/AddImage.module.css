@@ -36,6 +36,11 @@
     object-fit: cover;
 }
 
+.addImageError {
+    font-style: italic;
+    color: red;
+}
+
 .addImageInput {
     display: none;
 }
