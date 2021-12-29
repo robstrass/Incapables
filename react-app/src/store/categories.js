@@ -43,8 +43,7 @@ export default function categoriesReducer (state = initialState, action) {
             newState.all = { ...newState.all }
             return newState;
         case GET_CATEGORY:
-            newState.current = action.category
-            console.log('xxxxxx state', newState.current)
+            newState.current = action.category;
             return newState;
         default:
             return newState;

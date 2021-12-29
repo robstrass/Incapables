@@ -13,7 +13,7 @@ export default function SingleCategory() {
 
     useEffect(() => {
         dispatch(categoryActions.oneCategoryThunk(categoryId));
-    }, [dispatch]);
+    }, [dispatch, categoryId]);
 
     return (
         <div className={style.singleCategoryContainer}>

@@ -15,8 +15,7 @@ export default function HomePage() {
     console.log('projects', projects)
 
     const randomProject = () => Math.floor(Math.random() * 4 + 1);
-
-    console.log('random num', randomProject())
+    const randomNum = randomProject()
 
     useEffect(() => {
         dispatch(categoriesActions.allCategoriesThunk());
@@ -26,27 +25,26 @@ export default function HomePage() {
     return (
         <div className={style.homeContainer}>
             <div className={style.homeFeatured}>
-                {() => console.log('image', projects[randomProject()]?.images[0]?.image)}
-                { projects ? projects[randomProject()]?.images[0]?.image ?
+                { projects ? projects[randomNum]?.images[0]?.image ?
                 <div className={style.homeFeatureDiv}>
                     <img
                         className={style.homeFeatureImg}
-                        src={projects[randomProject()]?.images[0]?.image}
+                        src={projects[randomNum]?.images[0]?.image}
                     />
                     <div className={style.homeFeatureContent}>
                         <h1 className={style.homeFeatureTitle}>
-                            {projects[randomProject()]?.title}
+                            {projects[randomNum]?.title}
                         </h1>
                         <h3 className={style.homeFeatureAuthor}>
-                            by {projects[randomProject()]?.author.username}
+                            by {projects[randomNum]?.author.username}
                         </h3>
                         <p className={style.homeFeatureContent}>
-                            {projects[randomProject()]?.content}
+                            {projects[randomNum]?.content}
                         </p>
                     </div>
                 </div>
-                : 'penis'
-                : 'ballsack' }
+                : null
+                : null }
             </div>
             <div className={style.homeInfoContainer}>
                 <div className={style.homeInfoSingleDiv}>
