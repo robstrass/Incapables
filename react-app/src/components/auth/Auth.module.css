@@ -28,7 +28,8 @@
     width: 80%;
 }
 
-.loginErrors {
+.loginErrors,
+.signupErrors {
     font-style: italic;
     color: red;
 }

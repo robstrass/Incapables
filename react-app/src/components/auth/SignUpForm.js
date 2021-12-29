@@ -16,11 +16,16 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    if (username.length < 4) setErrors(['username : Username must be at least 4 characters.'])
+    if (password.length < 8) setErrors(['password : Password must be at least 8 characters.'])
+    if (errors.length > 0) return errors
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(['password : Passwords do not match'])
     }
   };
 
@@ -48,16 +53,22 @@ const SignUpForm = () => {
     <div className={style.signupContainer}>
       <form
         className={style.signupForm}
-        onSubmit={onSignUp}>
-        <div className={style.signupErrors}>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+        onSubmit={onSignUp}
+      >
         <div className={style.signupInputDiv}>
+          <label
+            htmlFor='signupUsername'
+            className={style.signupErrors}
+          >
+            {errors.length > 0 && errors.map(error => (
+              error.includes('username')
+            )) ? errors.map(error => error.includes('username') ?
+              `${error.split(':')[1]}` : null) : null}
+          </label>
           <input
             type='text'
             name='username'
+            id='signupUsername'
             onChange={updateUsername}
             value={username}
             placeholder='Username'
@@ -65,9 +76,19 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className={style.signupInputDiv}>
+          <label
+            htmlFor='signupEmail'
+            className={style.signupErrors}
+          >
+            {errors.length > 0 && errors.map(error => (
+              error.includes('email')
+            )) ? errors.map(error => error.includes('email') ?
+              `${error.split(':')[1]}` : null) : null}
+          </label>
           <input
             type='text'
             name='email'
+            id='signupEmail'
             onChange={updateEmail}
             value={email}
             className={style.signupInput}
@@ -75,6 +96,15 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className={style.signupInputDiv}>
+          <label
+            htmlFor='signupPassword'
+            className={style.signupErrors}
+          >
+            {errors.length > 0 && errors.map(error => (
+              error.includes('password')
+            )) ? errors.map(error => error.includes('password') ?
+              `${error.split(':')[1]}` : null) : null}
+          </label>
           <input
             type='password'
             name='password'
@@ -85,6 +115,15 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className={style.signupInputDiv}>
+          <label
+            htmlFor='signupRepeat'
+            className={style.signupErrors}
+          >
+            {errors.length > 0 && errors.map(error => (
+              error.includes('password')
+            )) ? errors.map(error => error.includes('password') ?
+              `${error.split(':')[1]}` : null) : null}
+          </label>
           <input
             type='password'
             name='repeat_password'
