@@ -14,7 +14,7 @@ export default function HomePage() {
     const projects = Object.values(projectsObject);
     const projectKeys = Object.keys(projectsObject);
 
-    const randomNum = projectKeys[Math.floor(Math.random() * projectKeys.length)];
+    const randomNum = projectKeys[Math.floor(Math.random() * projectKeys.length - 1)];
 
     useEffect(() => {
         dispatch(categoriesActions.allCategoriesThunk());
@@ -32,7 +32,7 @@ export default function HomePage() {
                     />
                     <NavLink
                         className={style.homeFeatureContent}
-                        to={`/projects/${projects[randomNum].id}`}
+                        to={`/projects/${projects[randomNum]?.id}`}
                     >
                         <h1 className={style.homeFeatureTitle}>
                             {projects[randomNum]?.title}
@@ -45,7 +45,26 @@ export default function HomePage() {
                         </p>
                     </NavLink>
                 </div>
-                : null
+                : <div className={style.homeFeatureDiv}>
+                <img
+                    className={style.homeFeatureImg}
+                    src={projects[0]?.images[0]?.image}
+                />
+                <NavLink
+                    className={style.homeFeatureContent}
+                    to={`/projects/${projects[0]?.id}`}
+                >
+                    <h1 className={style.homeFeatureTitle}>
+                        {projects[0]?.title}
+                    </h1>
+                    <h3 className={style.homeFeatureAuthor}>
+                        by {projects[0]?.author.username}
+                    </h3>
+                    <p className={style.homeFeatureContent}>
+                        {projects[0]?.content}
+                    </p>
+                </NavLink>
+            </div>
                 : null }
             </div>
             <div className={style.homeInfoContainer}>
