@@ -10,12 +10,15 @@ export default function HomePage() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     const allCategories = useSelector(state => state.categories.all)
-    const projects = useSelector(state => Object.values(state.projects.all));
+    const projectsObject = useSelector(state => state.projects.all);
+    const projects = Object.values(projectsObject);
+    const projectKeys = Object.keys(projectsObject);
     console.log('categories', allCategories)
-    console.log('projects', projects)
+    console.log('projectsKeys', projectKeys)
 
     const randomProject = () => Math.floor(Math.random() * 4 + 1);
-    const randomNum = randomProject()
+    const randomNum = projectKeys[Math.floor(Math.random() * projectKeys.length)];
+    console.log(randomNum);
 
     useEffect(() => {
         dispatch(categoriesActions.allCategoriesThunk());
