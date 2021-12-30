@@ -84,13 +84,13 @@ const LoginForm = () => {
           Login
         </button>
         <div className={style.loginRedirects}>
-          <p
+          <button
             className={style.loginDemo}
             onClick={(e) => {
               setEmail('demo@aa.io')
               setPassword('password')
             }}
-          >Wanna Demo Our Site?</p>
+          >Wanna Demo Our Site?</button>
           <NavLink
             className={style.loginNavLink}
             to='/signup'

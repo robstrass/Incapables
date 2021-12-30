@@ -17,7 +17,10 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (username.length < 4) setErrors(['username : Username must be at least 4 characters.'])
+    if (username.length > 40) setErrors(['username : Username is too long.'])
     if (password.length < 8) setErrors(['password : Password must be at least 8 characters.'])
+    if (password.length > 255) setErrors(['password : Password is too long.'])
+    if (email.length > 255) setErrors(['email : Email is too long.'])
     if (errors.length > 0) return errors
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));

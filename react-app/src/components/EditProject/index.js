@@ -6,7 +6,7 @@ import header from '../../assets/Instructables-Create-Header.png';
 import { allCategoriesThunk } from '../../store/categories';
 import { editProjectThunk } from '../../store/projects';
 
-export default function EditProject({ setEditModal }) {
+export default function EditProject({ setEditModal, projectId }) {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current);
@@ -51,7 +51,7 @@ export default function EditProject({ setEditModal }) {
 
     useEffect(() => {
         dispatch(allCategoriesThunk());
-    }, [dispatch]);
+    }, [dispatch, projectId]);
 
     return (
         <>

@@ -125,6 +125,9 @@ export default function projectsReducer (state = initialState, action) {
             return newState;
         case EDIT_PROJECT:
             newState.all[action.project.id] = action.project;
+            newState.current = action.project;
+            newState.current = { ...newState.current };
+            newState.all = { ...newState.all };
             return newState;
         case DELETE_PROJECT:
             delete newState.all[action.project.id];

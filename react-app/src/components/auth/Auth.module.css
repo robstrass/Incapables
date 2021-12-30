@@ -76,6 +76,8 @@
 .loginDemo {
     margin: 0.5rem;
     color: white;
+    background: none;
+    border: none;
 }
 
 .loginDemo:hover {

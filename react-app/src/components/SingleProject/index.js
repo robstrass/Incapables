@@ -72,6 +72,7 @@ export default function SingleProject() {
             {editModal && (
                 <EditProject
                     setEditModal={setEditModal}
+                    projectId={projectId}
                 />
             )}
             {deleteModal && deleteProject()}
