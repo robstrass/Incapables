@@ -30,10 +30,34 @@ def seed_projects():
         content='Better than yo mama\'s'
     )
 
+    project5 = Project(
+        user_id=2,
+        category_id=2,
+        title='Planting your Garden',
+        content='The gardening hack your neighbor won\'t show you.'
+    )
+
+    project6 = Project(
+        user_id=2,
+        category_id=4,
+        title='Organizing the Shed',
+        content='Your shed is always cluttered - fix it with these tips!'
+    )
+
+    project7 = Project(
+        user_id=3,
+        category_id=7,
+        title='Legos',
+        content='Fun project to enjoy with your kids'
+    )
+
     db.session.add(project1)
     db.session.add(project2)
     db.session.add(project3)
     db.session.add(project4)
+    db.session.add(project5)
+    db.session.add(project6)
+    db.session.add(project7)
 
     db.session.commit()
 

@@ -92,6 +92,76 @@ def seed_images():
         '''
     )
 
+    img9 = Image(
+        project_id=5,
+        user_id=2,
+        image='https://res.cloudinary.com/depdd11lz/image/upload/v1640901504/small-plants_vifowb.jpg',
+        content='''
+            The first step to any good garden is to make sure
+            the soil has proper nutrients. Once you've determined
+            your soil is good, plant your seeds in rows.
+        '''
+    )
+
+    img10 = Image(
+        project_id=5,
+        user_id=2,
+        image='https://res.cloudinary.com/depdd11lz/image/upload/v1640901499/weed-wacker_x1qcfb.jpg',
+        content='''
+            Once your new plants start to sprout, wait a few weeks
+            until they start growing vertically. Once they're at least
+            6 inches off the ground, take your weed wacker through the
+            rows of plants you made previously.
+        '''
+    )
+
+    img11 = Image(
+        project_id=6,
+        user_id=2,
+        image='https://res.cloudinary.com/depdd11lz/image/upload/v1640901463/clean-shed_kp24me.jpg',
+        content='''
+            There is nothing worse than a cluttered shed. What
+            better way to keep things right where you need them
+            than on shelves along the wall?
+        '''
+    )
+
+    img12 = Image(
+        project_id=6,
+        user_id=2,
+        image='https://res.cloudinary.com/depdd11lz/image/upload/v1640901476/messy-shed_dgsvl4.jpg',
+        content='''
+            The problem with having organized shelves is that
+            stuff is always out of reach. And not to mention,
+            that means lots of clean-up. No thanks, just throw
+            it close to your workstation, like so.
+        '''
+    )
+
+    img13 = Image(
+        project_id=7,
+        user_id=3,
+        image='https://res.cloudinary.com/depdd11lz/image/upload/v1640901462/built-lego_shlz3p.jpg',
+        content='''
+            When looking for something to do with your kid,
+            Legos are often a great choice. You can build
+            almost anything out of them, and boys especially
+            love them.
+        '''
+    )
+
+    img14 = Image(
+        project_id=7,
+        user_id=3,
+        image='https://res.cloudinary.com/depdd11lz/image/upload/v1640901476/lego-cluster_eno66y.jpg',
+        content='''
+            Unfortunately, Legos don't look very good with the
+            colors all mixed together. If you have mix-matched
+            Lego creations, take them and throw them on the floor
+            until they all break apart into a nice pile.
+        '''
+    )
+
     db.session.add(img1)
     db.session.add(img2)
     db.session.add(img3)
@@ -100,6 +170,13 @@ def seed_images():
     db.session.add(img6)
     db.session.add(img7)
     db.session.add(img8)
+    db.session.add(img9)
+    db.session.add(img10)
+    db.session.add(img11)
+    db.session.add(img12)
+    db.session.add(img13)
+    db.session.add(img14)
+
 
     db.session.commit()
 
