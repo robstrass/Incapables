@@ -335,6 +335,10 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
+            <footer className={style.homeFooter}>
+                <img src={'https://i.ibb.co/ZmrdqsC/linkedin.png'}/>
+                <img src={'https://i.ibb.co/b2ZmRL8/github.png'}/>
+            </footer>
         </div>
     )
 }
