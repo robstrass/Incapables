@@ -67,6 +67,7 @@
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
+    background-color: rgb(238,238,238);
 }
 
 .homeCategoriesDiv {
@@ -127,4 +128,23 @@
 
 .homeCategoryTitleP:hover {
     text-decoration: underline;
+}
+
+.homeFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: rgb(85,85,85);
+}
+
+.homeAboutContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
+
+.homeAboutImg {
+    height: 64px;
+    width: auto;
 }

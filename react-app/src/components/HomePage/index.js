@@ -336,8 +336,30 @@ export default function HomePage() {
                 </div>
             </div>
             <footer className={style.homeFooter}>
-                <img src={'https://i.ibb.co/ZmrdqsC/linkedin.png'}/>
-                <img src={'https://i.ibb.co/b2ZmRL8/github.png'}/>
+                <div className={style.homeAboutContainer}>
+                    <a
+                        className={style.homeAboutLink}
+                        href='https://www.linkedin.com/in/robstrasser-'
+                        target='_blank'
+                        rel='noreferrer'
+                    >
+                        <img
+                            src={'https://i.ibb.co/ZmrdqsC/linkedin.png'}
+                            className={style.homeAboutImg}
+                        />
+                    </a>
+                    <a
+                        className={style.homeAboutLink}
+                        href='https://github.com/robstrass'
+                        target='_blank'
+                        rel='noreferrer'
+                    >
+                        <img
+                            src={'https://i.ibb.co/b2ZmRL8/github.png'}
+                            className={style.homeAboutImg}
+                        />
+                    </a>
+                </div>
             </footer>
         </div>
     )
