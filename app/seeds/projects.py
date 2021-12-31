@@ -51,6 +51,53 @@ def seed_projects():
         content='Fun project to enjoy with your kids'
     )
 
+    project8 = Project(
+        user_id=1,
+        category_id=1,
+        title='Olive Oil',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project9 = Project(
+        user_id=1,
+        category_id=5,
+        title='Squirrel Feeder',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project10 = Project(
+        user_id=2,
+        category_id=3,
+        title='Clean those dirty windows with ease',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project11 = Project(
+        user_id=1,
+        category_id=6,
+        title='Pasta Mama',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project12 = Project(
+        user_id=2,
+        category_id=2,
+        title='Planting your Garden',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project6 = Project(
+        user_id=2,
+        category_id=4,
+        title='Organizing the Shed',
+        content='Your shed is always cluttered - fix it with these tips!'
+    )
+
     db.session.add(project1)
     db.session.add(project2)
     db.session.add(project3)

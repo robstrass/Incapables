@@ -59,6 +59,7 @@ export default function AddImage() {
         formData.append('projectId', projectId);
 
         await dispatch(imageActions.postImageThunk(formData));
+        setErrors([]);
         setImageContent('');
         setImageFile('');
         setImagePreview('');
