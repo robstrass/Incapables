@@ -91,11 +91,20 @@ def seed_projects():
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
     )
 
-    project6 = Project(
+    project13 = Project(
         user_id=2,
         category_id=4,
-        title='Organizing the Shed',
-        content='Your shed is always cluttered - fix it with these tips!'
+        title='Unorganized Chaos',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project14 = Project(
+        user_id=3,
+        category_id=7,
+        title='Building Lego Walls',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
     )
 
     db.session.add(project1)
@@ -105,6 +114,13 @@ def seed_projects():
     db.session.add(project5)
     db.session.add(project6)
     db.session.add(project7)
+    db.session.add(project8)
+    db.session.add(project9)
+    db.session.add(project10)
+    db.session.add(project11)
+    db.session.add(project12)
+    db.session.add(project13)
+    db.session.add(project14)
 
     db.session.commit()
 
