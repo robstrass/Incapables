@@ -158,11 +158,11 @@ def edit_image(projectId, imageId):
 
     image = Image.query.get(int(imageId))
 
-    if form.validate_on_submit() and image.user_id == 1: #current_user.id:
+    if form.validate_on_submit() and image.user_id == current_user.id:
         image.image = form.data['image']
         image.content = form.data['content']
         image.project_id = projectId
-        image.user_id = 1 #current_user.id
+        image.user_id = current_user.id
 
         db.session.commit()
         return image.to_dict()
