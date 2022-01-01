@@ -107,6 +107,118 @@ def seed_projects():
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
     )
 
+    project15 = Project(
+        user_id=1,
+        category_id=1,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project16 = Project(
+        user_id=1,
+        category_id=5,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project17 = Project(
+        user_id=2,
+        category_id=3,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project18 = Project(
+        user_id=1,
+        category_id=6,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project19 = Project(
+        user_id=2,
+        category_id=2,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project20 = Project(
+        user_id=2,
+        category_id=4,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project21 = Project(
+        user_id=3,
+        category_id=7,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project22 = Project(
+        user_id=1,
+        category_id=1,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project23 = Project(
+        user_id=1,
+        category_id=5,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project24 = Project(
+        user_id=2,
+        category_id=3,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project25 = Project(
+        user_id=1,
+        category_id=6,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project26 = Project(
+        user_id=2,
+        category_id=2,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project27 = Project(
+        user_id=2,
+        category_id=4,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
+    project28 = Project(
+        user_id=3,
+        category_id=7,
+        title='Sed ut perspiciatis unde omnis iste',
+        content='''Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'''
+    )
+
     db.session.add(project1)
     db.session.add(project2)
     db.session.add(project3)
@@ -121,6 +233,20 @@ def seed_projects():
     db.session.add(project12)
     db.session.add(project13)
     db.session.add(project14)
+    db.session.add(project15)
+    db.session.add(project16)
+    db.session.add(project17)
+    db.session.add(project18)
+    db.session.add(project19)
+    db.session.add(project20)
+    db.session.add(project21)
+    db.session.add(project22)
+    db.session.add(project23)
+    db.session.add(project24)
+    db.session.add(project25)
+    db.session.add(project26)
+    db.session.add(project27)
+    db.session.add(project28)
 
     db.session.commit()
 

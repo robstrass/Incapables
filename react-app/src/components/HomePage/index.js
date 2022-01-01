@@ -115,7 +115,7 @@ export default function HomePage() {
                         Workshop<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[1]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[1]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -150,7 +150,7 @@ export default function HomePage() {
                         Gardening<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[2]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[2]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -185,7 +185,7 @@ export default function HomePage() {
                         Living<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[3]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[3]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -220,7 +220,7 @@ export default function HomePage() {
                         Outside<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[4]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[4]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -255,7 +255,7 @@ export default function HomePage() {
                         Craft<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[5]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[5]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -290,7 +290,7 @@ export default function HomePage() {
                         Cooking<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[6]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[6]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -325,7 +325,7 @@ export default function HomePage() {
                         Miscellaneous<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[7]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[7]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
