@@ -157,18 +157,19 @@ def edit_image(projectId, imageId):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     image = Image.query.get(int(imageId))
+    print('imagexxxxxxx', image)
 
     if "image" not in form.data:
         return {"errors": "image required"}, 400
 
-    image = form.data["image"]
+    imageAWS = form.data["image"]
 
-    if not allowed_file(image.filename):
+    if not allowed_file(imageAWS.filename):
         return {"errors": "file type not permitted"}, 400
 
-    image.filename = get_unique_filename(image.filename)
+    imageAWS.filename = get_unique_filename(imageAWS.filename)
 
-    upload = upload_file_to_s3(image)
+    upload = upload_file_to_s3(imageAWS)
 
     if "url" not in upload:
         return upload, 400

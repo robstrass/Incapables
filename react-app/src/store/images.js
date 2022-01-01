@@ -60,7 +60,9 @@ export const editImageThunk = (image) => async (dispatch) => {
         method: 'PUT',
         body: image
     });
+    console.log('response bitch', response)
     const data = await response.json();
+    console.log('data xxxxxx', data)
     dispatch(editImage(data));
     return data;
 }
