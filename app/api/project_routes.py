@@ -157,12 +157,30 @@ def edit_image(projectId, imageId):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     image = Image.query.get(int(imageId))
+    print('imagexxxxxxx', image)
 
-    if form.validate_on_submit() and image.user_id == 1: #current_user.id:
-        image.image = form.data['image']
+    if "image" not in form.data:
+        return {"errors": "image required"}, 400
+
+    imageAWS = form.data["image"]
+
+    if not allowed_file(imageAWS.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    imageAWS.filename = get_unique_filename(imageAWS.filename)
+
+    upload = upload_file_to_s3(imageAWS)
+
+    if "url" not in upload:
+        return upload, 400
+
+    url = upload["url"]
+
+    if form.validate_on_submit() and image.user_id == current_user.id:
+        image.image = url
         image.content = form.data['content']
         image.project_id = projectId
-        image.user_id = 1 #current_user.id
+        image.user_id = current_user.id
 
         db.session.commit()
         return image.to_dict()

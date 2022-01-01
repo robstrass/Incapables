@@ -2,6 +2,7 @@
 const GET_IMAGES = 'images/GET_IMAGES';
 const POST_IMAGE = 'images/POST_IMAGE';
 const DELETE_IMAGE = 'images/DELETE_IMAGE';
+const EDIT_IMAGE = 'images/EDIT_IMAGE';
 
 // action creators
 const allImages = images => ({
@@ -16,6 +17,11 @@ const postImage = image => ({
 
 const deleteImage = image => ({
     type: DELETE_IMAGE,
+    image
+});
+
+const editImage = image => ({
+    type: EDIT_IMAGE,
     image
 });
 
@@ -47,6 +53,20 @@ export const deleteImageThunk = (imageId) => async (dispatch) => {
     return data;
 }
 
+export const editImageThunk = (image) => async (dispatch) => {
+    const imageId = image.get('imageId');
+    const projectId = image.get('projectId')
+    const response = await fetch(`/api/projects/${projectId}/images/${imageId}`, {
+        method: 'PUT',
+        body: image
+    });
+    console.log('response bitch', response)
+    const data = await response.json();
+    console.log('data xxxxxx', data)
+    dispatch(editImage(data));
+    return data;
+}
+
 const initialState = { all: {}, current: {} }
 
 // Reducah
@@ -70,6 +90,10 @@ export default function imagesReducer (state = initialState, action) {
             delete newState.current[action.image.id];
             newState.all = { ...newState.all }
             return newState
+        case EDIT_IMAGE:
+            newState.all[action.image.id] = action.image;
+            newState.current = action.image;
+            return newState;
         default:
             return newState;
     }

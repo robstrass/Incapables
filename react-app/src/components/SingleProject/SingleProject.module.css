@@ -75,7 +75,13 @@
     text-align: center;
 }
 
-.singleProjDeleteImage {
+.singleProjImageButtons {
+    display: flex;
+    gap: 3rem;
+}
+
+.singleProjDeleteImage,
+.singleProjEditImage {
     margin: 1rem 0;
     padding: 12px 20px;
     color: white;
@@ -85,7 +91,8 @@
     background-color: rgb(251,171,23);
 }
 
-.singleProjDeleteImage:hover {
+.singleProjDeleteImage:hover,
+.singleProjEditImage:hover {
     cursor: pointer;
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
 }
