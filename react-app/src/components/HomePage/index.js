@@ -24,6 +24,7 @@ export default function HomePage() {
     return (
         <div className={style.homeContainer}>
             <div className={style.homeFeatured}>
+                <div className={style.homePageFeatureBlur}></div>
                 { projects ? projects[randomNum]?.images[0]?.image ?
                 <div className={style.homeFeatureDiv}>
                     <img
@@ -40,7 +41,7 @@ export default function HomePage() {
                         <h3 className={style.homeFeatureAuthor}>
                             by {projects[randomNum]?.author.username}
                         </h3>
-                        <p className={style.homeFeatureContent}>
+                        <p className={style.homeFeatureContentP}>
                             {projects[randomNum]?.content}
                         </p>
                     </NavLink>
