@@ -10,12 +10,11 @@ export default function HomePage() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     const allCategories = useSelector(state => state.categories.all)
-    const projects = useSelector(state => Object.values(state.projects.all));
-    console.log('categories', allCategories)
-    console.log('projects', projects)
+    const projectsObject = useSelector(state => state.projects.all);
+    const projects = Object.values(projectsObject);
+    const projectKeys = Object.keys(projectsObject);
 
-    const randomProject = () => Math.floor(Math.random() * 4 + 1);
-    const randomNum = randomProject()
+    const randomNum = projectKeys[Math.floor(Math.random() * projectKeys.length - 1)];
 
     useEffect(() => {
         dispatch(categoriesActions.allCategoriesThunk());
@@ -25,6 +24,7 @@ export default function HomePage() {
     return (
         <div className={style.homeContainer}>
             <div className={style.homeFeatured}>
+                <div className={style.homePageFeatureBlur}></div>
                 { projects ? projects[randomNum]?.images[0]?.image ?
                 <div className={style.homeFeatureDiv}>
                     <img
@@ -33,7 +33,7 @@ export default function HomePage() {
                     />
                     <NavLink
                         className={style.homeFeatureContent}
-                        to={`/projects/${projects[randomNum].id}`}
+                        to={`/projects/${projects[randomNum]?.id}`}
                     >
                         <h1 className={style.homeFeatureTitle}>
                             {projects[randomNum]?.title}
@@ -41,12 +41,31 @@ export default function HomePage() {
                         <h3 className={style.homeFeatureAuthor}>
                             by {projects[randomNum]?.author.username}
                         </h3>
-                        <p className={style.homeFeatureContent}>
+                        <p className={style.homeFeatureContentP}>
                             {projects[randomNum]?.content}
                         </p>
                     </NavLink>
                 </div>
-                : null
+                : <div className={style.homeFeatureDiv}>
+                <img
+                    className={style.homeFeatureImg}
+                    src={projects[0]?.images[0]?.image}
+                />
+                <NavLink
+                    className={style.homeFeatureContent}
+                    to={`/projects/${projects[0]?.id}`}
+                >
+                    <h1 className={style.homeFeatureTitle}>
+                        {projects[0]?.title}
+                    </h1>
+                    <h3 className={style.homeFeatureAuthor}>
+                        by {projects[0]?.author.username}
+                    </h3>
+                    <p className={style.homeFeatureContent}>
+                        {projects[0]?.content}
+                    </p>
+                </NavLink>
+            </div>
                 : null }
             </div>
             <div className={style.homeInfoContainer}>
@@ -97,7 +116,7 @@ export default function HomePage() {
                         Workshop<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[1]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[1]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -132,7 +151,7 @@ export default function HomePage() {
                         Gardening<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[2]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[2]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -167,7 +186,7 @@ export default function HomePage() {
                         Living<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[3]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[3]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -202,7 +221,7 @@ export default function HomePage() {
                         Outside<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[4]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[4]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -237,7 +256,7 @@ export default function HomePage() {
                         Craft<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[5]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[5]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -272,7 +291,7 @@ export default function HomePage() {
                         Cooking<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[6]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[6]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}
@@ -307,7 +326,7 @@ export default function HomePage() {
                         Miscellaneous<span className="material-icons">chevron_right</span>
                     </NavLink>
                     <div className={style.homeCategoryProjectsHolder}>
-                        { allCategories ? (allCategories[7]?.projects.slice(0, 3).map(project => (
+                        { allCategories ? (allCategories[7]?.projects.slice(0, 4).map(project => (
                             <NavLink
                                 key={project.id}
                                 className={style.homeCategorySingleCategoryHolder}

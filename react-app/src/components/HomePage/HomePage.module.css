@@ -8,12 +8,24 @@
     display: flex;
     justify-content: center;
     min-height: 400px;
-    /* background-color: aquamarine; */
+    background: url('https://res.cloudinary.com/depdd11lz/image/upload/v1640135493/crafts-table_jjkmpe.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.homePageFeatureBlur {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.068);
+    backdrop-filter: blur(6px);
+    min-height: 400px;
+    width: 100vw;
 }
 
 .homeFeatureDiv {
+    position: relative;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 80%;
     /* background-color: darkviolet; */
 }
@@ -27,9 +39,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 1rem;
     gap: 1rem;
     text-decoration: none;
     color: black;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .homeFeatureContent:hover {

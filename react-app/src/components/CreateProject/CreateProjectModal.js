@@ -11,7 +11,6 @@ export default function CreateProjectModal({ setCreateProject }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const allCategories = useSelector(state => Object.values(state.categories.all));
-    // console.log('create proj categories', allCategories);
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
