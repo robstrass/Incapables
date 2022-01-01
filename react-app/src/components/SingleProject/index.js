@@ -25,6 +25,7 @@ export default function SingleProject() {
     const [deleteModal, setDeleteModal] = useState(false);
     const [deleteImageModal, setDeleteImageModal] = useState(false);
     const [editImageModal, setEditImageModal] = useState(false);
+    const [imageContent, setImageContent] = useState('');
     const [imageId, setImageId] = useState('');
 
     useEffect(() => {
@@ -90,6 +91,7 @@ export default function SingleProject() {
                     setEditImageModal={setEditImageModal}
                     projectId={projectId}
                     imageId={imageId}
+                    oldImageContent={imageContent}
                 />
             )}
             <div className={style.singleProjContainer}>
@@ -143,6 +145,7 @@ export default function SingleProject() {
                                         onClick={() => {
                                             setEditImageModal(true)
                                             setImageId(image.id)
+                                            setImageContent(image.content)
                                         }}
                                     >
                                         Edit Step

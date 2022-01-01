@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 
 import style from './EditImage.module.css';
-import header from '../../assets/Instructables-Create-Header.png'
+import header from '../../assets/Instructables-Create-Header.png';
+import { editImageThunk } from '../../store/images';
 
-export default function EditImage({ setEditImageModal, projectId, imageId }) {
+export default function EditImage({ setEditImageModal, projectId, imageId, oldImageContent }) {
     const dispatch = useDispatch();
 
     const [imageFile, setImageFile] = useState('');
     const [savedImageFile, setSavedImageFile] = useState('');
     const [imagePreview, setImagePreview] = useState('');
     const [savedImagePreview, setSavedImagePreview] = useState('');
-    const [imageContent, setImageContent] = useState('');
+    const [imageContent, setImageContent] = useState(oldImageContent);
     const [errors, setErrors] = useState('');
 
     const setImage = (e) => {
@@ -54,12 +55,15 @@ export default function EditImage({ setEditImageModal, projectId, imageId }) {
         formData.append('content', imageContent);
         formData.append('image', imageFile);
         formData.append('projectId', projectId);
+        formData.append('imageId', imageId)
 
-        await dispatch(imageActions.postImageThunk(formData));
+        await dispatch(editImageThunk(formData));
         setErrors([]);
         setImageContent('');
         setImageFile('');
         setImagePreview('');
+
+        setEditImageModal(false);
     }
 
     return (
@@ -71,6 +75,7 @@ export default function EditImage({ setEditImageModal, projectId, imageId }) {
             <div className={style.editImageContainer}>
                 <form
                     className={style.editImageForm}
+                    onSubmit={handleSubmit}
                 >
                     <h2 className={style.editImageTitle}>
                         Edit Step
@@ -110,7 +115,7 @@ export default function EditImage({ setEditImageModal, projectId, imageId }) {
                         />
                     </div>
                     <div className={style.editImageInputDiv}>
-                    <div className={style.addImageError}>
+                    <div className={style.editImageError}>
                         {errors.length > 0 &&
                             errors.map((error) => error.includes("content"))
                                 ? errors.map((error) =>
@@ -121,8 +126,7 @@ export default function EditImage({ setEditImageModal, projectId, imageId }) {
                                 : null}
                         </div>
                         <textarea
-                            className={style.addImageTextArea}
-                            placeholder='Add a step...'
+                            className={style.editImageTextArea}
                             value={imageContent}
                             onChange={(e) => setImageContent(e.target.value)}
                         />
