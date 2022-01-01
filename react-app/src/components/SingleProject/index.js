@@ -8,6 +8,7 @@ import * as imageActions from '../../store/images';
 import EditProject from '../EditProject';
 import AddImage from '../AddImage';
 import DeleteImage from '../DeleteImage';
+import EditImage from '../EditImage';
 // import { deleteProjectThunk } from '../../store/projects';
 
 export default function SingleProject() {
@@ -23,6 +24,7 @@ export default function SingleProject() {
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const [deleteImageModal, setDeleteImageModal] = useState(false);
+    const [editImageModal, setEditImageModal] = useState(false);
     const [imageId, setImageId] = useState('');
 
     useEffect(() => {
@@ -83,6 +85,13 @@ export default function SingleProject() {
                     project={project}
                 />
             )}
+            {editImageModal && (
+                <EditImage
+                    setEditImageModal={setEditImageModal}
+                    projectId={projectId}
+                    imageId={imageId}
+                />
+            )}
             <div className={style.singleProjContainer}>
                 <div className={style.singleProjHolder}>
                     <h1 className={style.singleProjTitle}>
@@ -128,15 +137,26 @@ export default function SingleProject() {
                                 {image.content}
                             </p>
                             {user?.id === project.user_id && (
-                                <div
-                                    className={style.singleProjDeleteImage}
-                                    onClick={() => {
-                                        setDeleteImageModal(true)
-                                        setImageId(image.id)
-                                    }
-                                    }
-                                >
-                                    Delete Step
+                                <div className={style.singleProjImageButtons}>
+                                    <div
+                                        className={style.singleProjEditImage}
+                                        onClick={() => {
+                                            setEditImageModal(true)
+                                            setImageId(image.id)
+                                        }}
+                                    >
+                                        Edit Step
+                                    </div>
+                                    <div
+                                        className={style.singleProjDeleteImage}
+                                        onClick={() => {
+                                            setDeleteImageModal(true)
+                                            setImageId(image.id)
+                                        }
+                                        }
+                                    >
+                                        Delete Step
+                                    </div>
                                 </div>
                             )}
                         </div>

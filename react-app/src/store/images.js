@@ -57,7 +57,7 @@ export const editImageThunk = (image) => async (dispatch) => {
     const imageId = image.get('imageId');
     const projectId = image.get('projectId')
     const response = await fetch(`/api/projects/${projectId}/images/${imageId}`, {
-        method: 'POST',
+        method: 'PUT',
         body: image
     });
     const data = await response.json();
@@ -88,6 +88,10 @@ export default function imagesReducer (state = initialState, action) {
             delete newState.current[action.image.id];
             newState.all = { ...newState.all }
             return newState
+        case EDIT_IMAGE:
+            newState.all[action.image.id] = action.image;
+            newState.current = action.image;
+            return newState;
         default:
             return newState;
     }
