@@ -23,7 +23,6 @@ export const getCommentsThunk = (projectId) => async (dispatch) => {
 
 export const postCommentThunk = (comment) => async (dispatch) => {
     const { projectId, content } = comment;
-    console.log('thunk butcher', projectId, content)
     const response = await fetch(`/api/projects/${projectId}/comments`, {
         method: 'POST',
         headers: {
@@ -33,9 +32,7 @@ export const postCommentThunk = (comment) => async (dispatch) => {
             content
         })
     });
-    console.log('response vvvvvvvvvvvv', response)
     const data = await response.json();
-    console.log('data vvvvvvvvvvvv', data)
     dispatch(postComment(data));
     return data;
 }
