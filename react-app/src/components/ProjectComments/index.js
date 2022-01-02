@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import style from './ProfileComments.module.css';
 import CreateComment from "../CreateComment";
+import EditComment from "../EditComment";
 
 import * as commentActions from '../../store/comments';
 
@@ -14,6 +15,7 @@ export default function ProfileComments({ projectId }) {
     console.log('comments bruh', comments);
 
     const [createComment, setCreateComment] = useState(false);
+    const [editComment, setEditComment] = useState(false);
 
     useEffect(() => {
         dispatch(commentActions.getCommentsThunk(projectId));
@@ -25,6 +27,12 @@ export default function ProfileComments({ projectId }) {
                 <CreateComment
                     projectId={projectId}
                     setCreateComment={setCreateComment}
+                />
+            )}
+            { editComment && (
+                <EditComment
+                    projectId={projectId}
+                    setEditComment={setEditComment}
                 />
             )}
             <div className={style.profileCommentsContainer}>
@@ -46,7 +54,10 @@ export default function ProfileComments({ projectId }) {
                             <div className={style.profileCommentsButtons}>
                                 { user?.id === comment.user_id ?
                                     <>
-                                        <div className={style.profileCommentsEdit}>
+                                        <div
+                                            className={style.profileCommentsEdit}
+                                            onClick={() => setEditComment(true)}
+                                        >
                                             Edit
                                         </div>
                                         <div className={style.profileCommentsDelete}>

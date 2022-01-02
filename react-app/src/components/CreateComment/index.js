@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import style from './CreateComment.module.css';
@@ -33,7 +33,7 @@ export default function CreateComment({ projectId, setCreateComment }) {
             projectId,
             content
         }
-        console.log('this bitch', newComment)
+        
         await dispatch(postCommentThunk(newComment));
         setCreateComment(false)
     }
