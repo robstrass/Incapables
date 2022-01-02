@@ -46,8 +46,10 @@ export const postImageThunk = (image) => async (dispatch) => {
 }
 
 export const deleteImageThunk = (imageId) => async (dispatch) => {
-    // console.log('XXXXXXXXXXX', )
-    const response = await fetch(`/api/images/${imageId}`);
+    console.log('XXXXXXXXXXX', imageId)
+    const response = await fetch(`/api/images/${imageId}`, {
+        method: 'DELETE'
+    });
     const data = await response.json();
     dispatch(deleteImage(data));
     return data;
