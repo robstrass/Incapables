@@ -8,7 +8,7 @@ const getComments = comments => ({
 });
 
 // thunks
-export const getImagesThunk = (projectId) => async (dispatch) => {
+export const getCommentsThunk = (projectId) => async (dispatch) => {
     const response = await fetch(`/api/projects/${projectId}/comments`);
     const data = await response.json();
     dispatch(getComments(data.comments));

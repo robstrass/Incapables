@@ -170,7 +170,9 @@ export default function SingleProject() {
             {user?.id === project.user_id && (
                 <AddImage />
             )}
-            <ProfileComments />
+            <ProfileComments
+                projectId={projectId}
+            />
         </>
     )
 }
