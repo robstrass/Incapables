@@ -16,6 +16,7 @@ export default function ProfileComments({ projectId }) {
 
     const [createComment, setCreateComment] = useState(false);
     const [editComment, setEditComment] = useState(false);
+    const [currentComment, setCurrentComment] = useState('');
 
     useEffect(() => {
         dispatch(commentActions.getCommentsThunk(projectId));
@@ -33,6 +34,7 @@ export default function ProfileComments({ projectId }) {
                 <EditComment
                     projectId={projectId}
                     setEditComment={setEditComment}
+                    currentComment={currentComment}
                 />
             )}
             <div className={style.profileCommentsContainer}>
@@ -56,7 +58,10 @@ export default function ProfileComments({ projectId }) {
                                     <>
                                         <div
                                             className={style.profileCommentsEdit}
-                                            onClick={() => setEditComment(true)}
+                                            onClick={() => {
+                                                setEditComment(true)
+                                                setCurrentComment(comment.content)
+                                            }}
                                         >
                                             Edit
                                         </div>
