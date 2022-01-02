@@ -9,6 +9,7 @@ import EditProject from '../EditProject';
 import AddImage from '../AddImage';
 import DeleteImage from '../DeleteImage';
 import EditImage from '../EditImage';
+import ProfileComments from '../ProjectComments';
 // import { deleteProjectThunk } from '../../store/projects';
 
 export default function SingleProject() {
@@ -169,6 +170,7 @@ export default function SingleProject() {
             {user?.id === project.user_id && (
                 <AddImage />
             )}
+            <ProfileComments />
         </>
     )
 }

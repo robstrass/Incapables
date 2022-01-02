@@ -1,0 +1,7 @@
+.profileCommentsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 600px;
+    background-color: aqua;
+}
