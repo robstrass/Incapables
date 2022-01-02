@@ -80,7 +80,7 @@ def all_comments(projectId):
 def add_comment(projectId):
     form = NewCommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print('vvvvvvvvvvvvv', form.data["content"])
     if form.validate_on_submit():
         comment = Comment (
             content = form.data['content'],

@@ -33,7 +33,7 @@ export default function CreateComment({ projectId, setCreateComment }) {
             projectId,
             content
         }
-
+        console.log('this bitch', newComment)
         await dispatch(postCommentThunk(newComment));
         setCreateComment(false)
     }
