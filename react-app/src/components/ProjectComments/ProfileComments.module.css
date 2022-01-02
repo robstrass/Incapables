@@ -5,3 +5,50 @@
     min-height: 600px;
     background-color: aqua;
 }
+
+.profileCommentsHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    background-color: aquamarine;
+}
+
+.profileCommentsTitle {
+
+}
+
+.profileCommentsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 1rem 0;
+    width: 100%;
+    gap: 0.5rem;
+    font-size: 17.5px;
+    background-color: azure;
+}
+
+.profileCommentsButtons {
+    display: flex;
+    /* width: 20%; */
+    gap: 1rem;
+    background-color: chartreuse;
+}
+
+.profileCommentsEdit,
+.profileCommentsDelete {
+    margin: 1rem 0;
+    padding: 6px 10px;
+    color: white;
+    font-size: 17.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(251,171,23);
+}
+
+.profileCommentsEdit:hover,
+.profileCommentsDelete:hover {
+    cursor: pointer;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
+}

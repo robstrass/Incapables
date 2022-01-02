@@ -18,6 +18,9 @@ export default function ProfileComments({ projectId }) {
     return (
         <div className={style.profileCommentsContainer}>
             <div className={style.profileCommentsHolder}>
+                <h2 className={style.profileCommentsTitle}>
+                    { comments ? `${comments.length} Comments` : '0 Comments'}
+                </h2>
                 { comments ? comments?.map(comment => (
                     <div
                         key={comment.id}
@@ -29,6 +32,14 @@ export default function ProfileComments({ projectId }) {
                         <p className={style.profileCommentsContent}>
                             {comment.content}
                         </p>
+                        <div className={style.profileCommentsButtons}>
+                            <div className={style.profileCommentsEdit}>
+                                Edit
+                            </div>
+                            <div className={style.profileCommentsDelete}>
+                                Delete
+                            </div>
+                        </div>
                     </div>
                 )) : null }
             </div>
