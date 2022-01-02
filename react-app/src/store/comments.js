@@ -1,5 +1,6 @@
 // constants
 const GET_COMMENTS = 'comments/GET_COMMENTS';
+const POST_COMMENT = 'comments/POST_COMMENT';
 
 // action creatrors
 const getComments = comments => ({
@@ -7,11 +8,30 @@ const getComments = comments => ({
     comments
 });
 
+const postComment = comment => ({
+    type: POST_COMMENT,
+    comment
+});
+
 // thunks
 export const getCommentsThunk = (projectId) => async (dispatch) => {
     const response = await fetch(`/api/projects/${projectId}/comments`);
     const data = await response.json();
     dispatch(getComments(data.comments));
+    return data;
+}
+
+export const postCommentThunk = (comment) => async (dispatch) => {
+    const { projectId } = comment;
+    const response = await fetch(`/api/projects/${projectId}/coemments`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(comment)
+    });
+    const data = await response.json();
+    dispatch(postComment(data));
     return data;
 }
 
@@ -29,6 +49,9 @@ export default function commentsReducer (state = initialState, action) {
             }
             newState.all = { ...newState.all }
             return newState;
+        case POST_COMMENT:
+            newState.all[action.comment.id] = action.comment;
+            return newState
         default:
             return newState;
     }
