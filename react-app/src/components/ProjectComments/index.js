@@ -11,6 +11,8 @@ export default function ProfileComments({ projectId }) {
     const comments = Object.values(commentsObj);
     console.log('comments bruh', comments);
 
+    const [createComment, setCreateComment] = useState('');
+
     useEffect(() => {
         dispatch(commentActions.getCommentsThunk(projectId));
     }, [dispatch, projectId]);
@@ -33,15 +35,27 @@ export default function ProfileComments({ projectId }) {
                             {comment.content}
                         </p>
                         <div className={style.profileCommentsButtons}>
-                            <div className={style.profileCommentsEdit}>
-                                Edit
-                            </div>
-                            <div className={style.profileCommentsDelete}>
-                                Delete
-                            </div>
+                            { user?.id === comment.user_id ?
+                                <>
+                                    <div className={style.profileCommentsEdit}>
+                                        Edit
+                                    </div>
+                                    <div className={style.profileCommentsDelete}>
+                                        Delete
+                                    </div>
+                                </>
+                            : null}
                         </div>
                     </div>
                 )) : null }
+                { user ?
+                    <div
+                        className={style.profileCommentsCreate}
+                        onClick={() => setCreateComment(true)}
+                    >
+                        Add a Comment
+                    </div>
+                : null}
             </div>
         </div>
     )

@@ -52,3 +52,18 @@
     cursor: pointer;
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
 }
+
+.profileCommentsCreate {
+    margin: 1rem 0;
+    padding: 6px 10px;
+    color: white;
+    font-size: 17.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(251,171,23);
+}
+
+.profileCommentsCreate:hover {
+    cursor: pointer;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
+}
