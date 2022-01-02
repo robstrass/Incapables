@@ -32,6 +32,7 @@ export default function CreateProjectModal({ setCreateProject }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrors([])
 
         const errors = validate();
 

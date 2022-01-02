@@ -14,8 +14,10 @@ def one_image(imageId):
 @image_routes.route('/<int:imageId>', methods=['DELETE'])
 @login_required
 def delete_image(imageId):
+    print('XXXXXXXXXXXXXXXXXXX', imageId)
     image = Image.query.get(int(imageId))
-    if image.user_id == 1: #current_user.id:
+    print('current user', image.user_id, current_user.id)
+    if image.user_id == current_user.id:
         db.session.delete(image)
         db.session.commit()
         return image.to_dict()

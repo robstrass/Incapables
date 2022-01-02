@@ -16,6 +16,7 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    setErrors([]);
     if (username.length < 4) setErrors(['username : Username must be at least 4 characters.'])
     if (username.length > 40) setErrors(['username : Username is too long.'])
     if (password.length < 8) setErrors(['password : Password must be at least 8 characters.'])

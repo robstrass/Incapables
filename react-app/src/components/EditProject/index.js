@@ -28,6 +28,7 @@ export default function EditProject({ setEditModal, projectId }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setErrors([]);
 
         if (user.id === project.user_id) {
             const errors = validate();

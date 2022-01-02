@@ -44,6 +44,7 @@ export default function EditImage({ setEditImageModal, projectId, imageId, oldIm
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrors([]);
 
         const errors = validate();
 
