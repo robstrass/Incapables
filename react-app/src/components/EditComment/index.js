@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import style from './EditComment.module.css';
+import { editCommentThunk } from '../../store/comments';
 
-export default function EditComment({ projectId, setEditComment, currentComment }) {
+export default function EditComment({ projectId, setEditComment, currentComment, currentCommentId }) {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
 
@@ -30,8 +31,12 @@ export default function EditComment({ projectId, setEditComment, currentComment 
         const editedComment = {
             user_id: user.id,
             projectId,
+            commentId: currentCommentId,
             content: editContent,
         }
+
+        await dispatch(editCommentThunk(editedComment));
+        setEditComment(false)
     }
 
     return (
@@ -46,7 +51,7 @@ export default function EditComment({ projectId, setEditComment, currentComment 
                     onSubmit={handleSubmit}
                 >
                     <p className={style.editCommentPolicy}>
-                        We ahve a be nice policy. Please keep your sarcasm civil.
+                        We have a be nice policy. Please keep your sarcasm civil.
                     </p>
                     <label
                         className={style.editCommentLabel}
@@ -63,7 +68,7 @@ export default function EditComment({ projectId, setEditComment, currentComment 
                         className={style.editCommentTextArea}
                         id='editComment'
                         value={editContent}
-                        onChange={(e) => setEditComment(e.target.value)}
+                        onChange={(e) => setEditContent(e.target.value)}
                     />
                     <div className={style.editCommentButtons}>
                         <button className={style.editCommentSubmit}>
