@@ -14,6 +14,7 @@ export default function EditComment({ projectId, setEditComment, currentComment,
     const validate = () => {
         const validation = [];
         if (!editContent) validation.push('Your comment is empty');
+        if (editContent.length > 250) validation.push('Your comment is too long.')
 
         return validation;
     }
