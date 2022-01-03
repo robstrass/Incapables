@@ -8,7 +8,6 @@ import { editImageThunk } from '../../store/images';
 export default function EditImage({ setEditImageModal, projectId, imageId, oldImageContent }) {
     const dispatch = useDispatch();
     const user_id = useSelector(state => state.session.user.id)
-    console.log('useridxxxxxxxxxxxx', user_id)
 
     const [imageFile, setImageFile] = useState('');
     const [savedImageFile, setSavedImageFile] = useState('');
@@ -49,7 +48,6 @@ export default function EditImage({ setEditImageModal, projectId, imageId, oldIm
         const errors = validate();
 
         if (errors && errors.length > 0) {
-            console.log(errors)
             return setErrors(errors);
         }
 
@@ -59,11 +57,6 @@ export default function EditImage({ setEditImageModal, projectId, imageId, oldIm
         formData.append('image', imageFile);
         formData.append('projectId', projectId);
         formData.append('imageId', imageId)
-        // formData.append('user_id', user_id)
-        console.log('content', formData.get('content'))
-        console.log('image', formData.get('image'))
-        console.log('projectId', formData.get('projectId'))
-        console.log('imageId', formData.get('imageId'))
 
         await dispatch(editImageThunk(formData));
         setErrors([]);

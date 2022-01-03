@@ -7,7 +7,6 @@ import * as imageActions from '../../store/images'
 export default function DeleteImage({ setDeleteImageModal, imageId, project }) {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    console.log('imageId xxxxxxx', imageId)
     const handleSubmit = async (e) => {
         if (user.id === project.user_id) {
             await dispatch(imageActions.deleteImageThunk(imageId));

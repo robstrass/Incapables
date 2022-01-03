@@ -8,7 +8,6 @@ import * as imageActions from '../../store/images';
 export default function AddImage() {
     const dispatch = useDispatch();
     const { projectId } = useParams();
-    console.log('projectId', projectId);
 
     const [imageFile, setImageFile] = useState('');
     const [savedImageFile, setSavedImageFile] = useState('');
@@ -48,7 +47,6 @@ export default function AddImage() {
         const errors = validate();
 
         if (errors && errors.length > 0) {
-            console.log(errors)
             return setErrors(errors);
         }
 

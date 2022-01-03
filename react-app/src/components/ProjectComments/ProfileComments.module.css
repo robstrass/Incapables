@@ -2,20 +2,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 600px;
-    background-color: aqua;
+    padding: 2rem 0;
+    /* min-height: 600px; */
+    background-color: rgb(238,238,238);
 }
 
 .profileCommentsHolder {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
-    background-color: aquamarine;
-}
-
-.profileCommentsTitle {
-
+    width: 80%;
+    padding: 2rem 4rem 4rem 4rem;
+    border-radius: 6px;
+    border: 1px solid rgb(221,221,221);
+    background-color: white;
 }
 
 .profileCommentsDiv {
@@ -26,14 +26,12 @@
     width: 100%;
     gap: 0.5rem;
     font-size: 17.5px;
-    background-color: azure;
+    border-bottom: 1px solid rgb(221,221,221);
 }
 
 .profileCommentsButtons {
     display: flex;
-    /* width: 20%; */
     gap: 1rem;
-    background-color: chartreuse;
 }
 
 .profileCommentsEdit,

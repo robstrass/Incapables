@@ -13,7 +13,6 @@ export default function ProfileComments({ projectId }) {
     const user = useSelector(state => state.session.user);
     const commentsObj = useSelector(state => state.comments.all);
     const comments = Object.values(commentsObj);
-    console.log('comments bruh', comments);
 
     const [createComment, setCreateComment] = useState(false);
     const [editComment, setEditComment] = useState(false);
