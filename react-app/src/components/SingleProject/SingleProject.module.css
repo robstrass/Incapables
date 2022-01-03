@@ -17,6 +17,18 @@
     background-color: rgb(238,238,238);
 }
 
+.singleProjTitle {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+}
+
+.singleProjContent {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+}
+
 .singleProjOwnerButtons {
     display: flex;
     justify-content: space-between;
@@ -73,6 +85,9 @@
 
 .singleProjStepContent {
     text-align: center;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
 }
 
 .singleProjImageButtons {
