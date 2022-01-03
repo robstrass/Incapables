@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from './ProfileComments.module.css';
 import CreateComment from "../CreateComment";
 import EditComment from "../EditComment";
+import DeleteComment from "../DeleteComment";
 
 import * as commentActions from '../../store/comments';
 
@@ -16,6 +17,7 @@ export default function ProfileComments({ projectId }) {
 
     const [createComment, setCreateComment] = useState(false);
     const [editComment, setEditComment] = useState(false);
+    const [deleteComment, setDeleteComment] = useState(false);
     const [currentComment, setCurrentComment] = useState('');
     const [currentCommentId, setCurrentCommentId] = useState('');
 
@@ -35,6 +37,13 @@ export default function ProfileComments({ projectId }) {
                 <EditComment
                     projectId={projectId}
                     setEditComment={setEditComment}
+                    currentCommentId={currentCommentId}
+                    currentComment={currentComment}
+                />
+            )}
+            { deleteComment && (
+                <DeleteComment
+                    setDeleteComment={setDeleteComment}
                     currentComment={currentComment}
                     currentCommentId={currentCommentId}
                 />
@@ -68,7 +77,13 @@ export default function ProfileComments({ projectId }) {
                                         >
                                             Edit
                                         </div>
-                                        <div className={style.profileCommentsDelete}>
+                                        <div
+                                            className={style.profileCommentsDelete}
+                                            onClick={() => {
+                                                setCurrentCommentId(comment.id)
+                                                setDeleteComment(true)
+                                            }}
+                                        >
                                             Delete
                                         </div>
                                     </>

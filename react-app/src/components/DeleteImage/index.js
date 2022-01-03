@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import style from './DeleteImage.module.css';
@@ -24,7 +24,7 @@ export default function DeleteImage({ setDeleteImageModal, imageId, project }) {
             </div>
             <div className={style.deleteImageContainer}>
                 <h3 className={style.deleteImageTitle}>
-                    Are you sure?
+                    Permanently delete?
                 </h3>
                 <div className={style.deleteImageButtons}>
                     <div
