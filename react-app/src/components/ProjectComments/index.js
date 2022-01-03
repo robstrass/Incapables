@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 
-import style from './ProfileComments.module.css';
+import style from './ProjectComments.module.css';
 import CreateComment from "../CreateComment";
 import EditComment from "../EditComment";
 import DeleteComment from "../DeleteComment";
@@ -47,27 +47,27 @@ export default function ProfileComments({ projectId }) {
                     currentCommentId={currentCommentId}
                 />
             )}
-            <div className={style.profileCommentsContainer}>
-                <div className={style.profileCommentsHolder}>
-                    <h2 className={style.profileCommentsTitle}>
+            <div className={style.projectCommentsContainer}>
+                <div className={style.projectCommentsHolder}>
+                    <h2 className={style.projectCommentsTitle}>
                         { comments ? `${comments.length} Comments` : '0 Comments'}
                     </h2>
                     { comments ? comments?.map(comment => (
                         <div
                             key={comment.id}
-                            className={style.profileCommentsDiv}
+                            className={style.projectCommentsDiv}
                         >
-                            <h4 className={style.profileCommentsAuthor}>
+                            <h4 className={style.projectCommentsAuthor}>
                                 {comment.author?.username} says:
                             </h4>
-                            <p className={style.profileCommentsContent}>
+                            <p className={style.projectCommentsContent}>
                                 {comment.content}
                             </p>
-                            <div className={style.profileCommentsButtons}>
+                            <div className={style.projectCommentsButtons}>
                                 { user?.id === comment.user_id ?
                                     <>
                                         <div
-                                            className={style.profileCommentsEdit}
+                                            className={style.projectCommentsEdit}
                                             onClick={() => {
                                                 setEditComment(true)
                                                 setCurrentComment(comment.content)
@@ -77,7 +77,7 @@ export default function ProfileComments({ projectId }) {
                                             Edit
                                         </div>
                                         <div
-                                            className={style.profileCommentsDelete}
+                                            className={style.projectCommentsDelete}
                                             onClick={() => {
                                                 setCurrentCommentId(comment.id)
                                                 setDeleteComment(true)
@@ -93,7 +93,7 @@ export default function ProfileComments({ projectId }) {
                     )) : null }
                     { user ?
                         <div
-                            className={style.profileCommentsCreate}
+                            className={style.projectCommentsCreate}
                             onClick={() => setCreateComment(true)}
                         >
                             Add a Comment
