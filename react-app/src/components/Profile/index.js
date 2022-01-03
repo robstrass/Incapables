@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 import style from './Profile.module.css';
 import { userProjectThunk } from '../../store/projects';
@@ -13,6 +13,10 @@ export default function Profile() {
     useEffect(() => {
         dispatch(userProjectThunk(user.id))
     }, [dispatch]);
+
+    if (!user) {
+        return <Redirect to='/login' />
+    }
 
     return (
         <div className={style.profileContainer}>
