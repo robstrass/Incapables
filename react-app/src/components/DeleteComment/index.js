@@ -2,14 +2,20 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import style from './DeleteComment.module.css';
+import { deleteCommentThunk } from '../../store/comments';
 
 export default function DeleteComment({ setDeleteComment, currentCommentId, currentComment }) {
+    console.log('function', currentComment)
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
 
     const handleSubmit = async (e) => {
+        console.log('currentComment', currentComment)
         if (user.id === currentComment.user_id) {
-
+            console.log('xxxxxxxxxxx penis')
+            const commentId = currentCommentId
+            await dispatch(deleteCommentThunk(commentId));
+            setDeleteComment(false);
         }
     }
 

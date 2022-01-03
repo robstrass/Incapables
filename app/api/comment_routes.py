@@ -12,6 +12,7 @@ def all_comments(commentId):
 
     return comment.to_dict()
 
+# Delete Comment
 @comment_routes.route('/<int:commentId>', methods=['DELETE'])
 @login_required
 def delete_comment(commentId):

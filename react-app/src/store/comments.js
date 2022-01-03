@@ -2,6 +2,7 @@
 const GET_COMMENTS = 'comments/GET_COMMENTS';
 const POST_COMMENT = 'comments/POST_COMMENT';
 const EDIT_COMMENT = 'comments/EDIT_COMMENT';
+const DELETE_COMMENT = 'comments/DELETE_COMMENT';
 
 // action creatrors
 const getComments = comments => ({
@@ -16,6 +17,11 @@ const postComment = comment => ({
 
 const editComment = comment => ({
     type: EDIT_COMMENT,
+    comment
+});
+
+const deleteComment = comment => ({
+    type: DELETE_COMMENT,
     comment
 });
 
@@ -59,6 +65,15 @@ export const editCommentThunk = (comment) => async (dispatch) => {
     return data;
 }
 
+export const deleteCommentThunk = (commentId) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${commentId}`, {
+        method: 'DELETE'
+    });
+    const data = await response.json();
+    dispatch(deleteComment(data));
+    return data;
+}
+
 const initialState = { all: {}, current: {} };
 
 // reducah
@@ -80,6 +95,11 @@ export default function commentsReducer (state = initialState, action) {
             newState.all[action.comment.id] = action.comment;
             newState.current = action.comment;
             return newState;
+        case DELETE_COMMENT:
+            delete newState.all[action.comment.id];
+            delete newState.current;
+            newState.all = { ...newState.all }
+            return newState
         default:
             return newState;
     }

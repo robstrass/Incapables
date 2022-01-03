@@ -82,6 +82,7 @@ export default function ProfileComments({ projectId }) {
                                             onClick={() => {
                                                 setCurrentCommentId(comment.id)
                                                 setDeleteComment(true)
+                                                setCurrentComment(comment)
                                             }}
                                         >
                                             Delete
