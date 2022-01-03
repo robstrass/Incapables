@@ -24,7 +24,6 @@ export const allCategoriesThunk = () => async (dispatch) => {
 export const oneCategoryThunk = (categoryId) => async (dispatch) => {
     const response = await fetch(`/api/categories/${categoryId}`);
     const data = await response.json();
-    console.log('XXXXXXX datat', data)
     dispatch(oneCategory(data));
     return data;
 }

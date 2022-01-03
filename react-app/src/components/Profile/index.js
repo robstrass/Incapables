@@ -9,7 +9,6 @@ export default function Profile() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const projects = useSelector(state => Object.values(state.projects.userProjects));
-    console.log('project', projects)
 
     useEffect(() => {
         dispatch(userProjectThunk(user.id))

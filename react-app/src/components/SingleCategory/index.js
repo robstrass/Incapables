@@ -9,7 +9,6 @@ export default function SingleCategory() {
     const dispatch = useDispatch();
     const { categoryId } = useParams();
     const category = useSelector(state => state.categories.current);
-    console.log('category', category)
 
     useEffect(() => {
         dispatch(categoryActions.oneCategoryThunk(categoryId));

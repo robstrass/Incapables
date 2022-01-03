@@ -139,7 +139,6 @@ export default function projectsReducer (state = initialState, action) {
                 newState.current = {}
                 newState.userProjects[project.id] = project
             }
-            console.log('xxxxxxx', newState)
             return newState;
         default:
             return newState;

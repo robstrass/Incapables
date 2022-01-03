@@ -9,6 +9,7 @@ import EditProject from '../EditProject';
 import AddImage from '../AddImage';
 import DeleteImage from '../DeleteImage';
 import EditImage from '../EditImage';
+import ProfileComments from '../ProjectComments';
 // import { deleteProjectThunk } from '../../store/projects';
 
 export default function SingleProject() {
@@ -18,8 +19,6 @@ export default function SingleProject() {
     const user = useSelector(state => state.session.user);
     const project = useSelector(state => state.projects.current)
     const images = useSelector(state => Object.values(state.images.all));
-    console.log('singleproject', project, user);
-    console.log('images', images);
 
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
@@ -169,6 +168,9 @@ export default function SingleProject() {
             {user?.id === project.user_id && (
                 <AddImage />
             )}
+            <ProfileComments
+                projectId={projectId}
+            />
         </>
     )
 }

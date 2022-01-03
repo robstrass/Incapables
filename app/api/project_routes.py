@@ -67,13 +67,19 @@ def delete_project(projectId):
         return project.to_dict()
     return {'errors': 'You cannot delete someone else\'s projects'}
 
+# All Comments
+@project_routes.route('/<int:projectId>/comments')
+def all_comments(projectId):
+    comments = Comment.query.filter(projectId == Comment.project_id)
+
+    return { 'comments': [comment.to_dict() for comment in comments] }
+
 # Add Comment
 @project_routes.route('/<int:projectId>/comments', methods=['POST'])
 @login_required
 def add_comment(projectId):
     form = NewCommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
     if form.validate_on_submit():
         comment = Comment (
             content = form.data['content'],

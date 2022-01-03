@@ -32,9 +32,7 @@ export default function EditProject({ setEditModal, projectId }) {
 
         if (user.id === project.user_id) {
             const errors = validate();
-            console.log('inside submit')
             if (errors && errors.length > 0) {
-                console.log('errors')
                 return setErrors(errors);
             }
 

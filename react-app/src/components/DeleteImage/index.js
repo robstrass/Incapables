@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import style from './DeleteImage.module.css';
@@ -7,7 +7,6 @@ import * as imageActions from '../../store/images'
 export default function DeleteImage({ setDeleteImageModal, imageId, project }) {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    console.log('imageId xxxxxxx', imageId)
     const handleSubmit = async (e) => {
         if (user.id === project.user_id) {
             await dispatch(imageActions.deleteImageThunk(imageId));
@@ -24,7 +23,7 @@ export default function DeleteImage({ setDeleteImageModal, imageId, project }) {
             </div>
             <div className={style.deleteImageContainer}>
                 <h3 className={style.deleteImageTitle}>
-                    Are you sure?
+                    Permanently delete?
                 </h3>
                 <div className={style.deleteImageButtons}>
                     <div

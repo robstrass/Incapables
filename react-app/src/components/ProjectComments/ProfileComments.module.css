@@ -1,0 +1,67 @@
+.profileCommentsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    /* min-height: 600px; */
+    background-color: rgb(238,238,238);
+}
+
+.profileCommentsHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding: 2rem 4rem 4rem 4rem;
+    border-radius: 6px;
+    border: 1px solid rgb(221,221,221);
+    background-color: white;
+}
+
+.profileCommentsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 1rem 0;
+    width: 100%;
+    gap: 0.5rem;
+    font-size: 17.5px;
+    border-bottom: 1px solid rgb(221,221,221);
+}
+
+.profileCommentsButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.profileCommentsEdit,
+.profileCommentsDelete {
+    margin: 1rem 0;
+    padding: 6px 10px;
+    color: white;
+    font-size: 17.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(251,171,23);
+}
+
+.profileCommentsEdit:hover,
+.profileCommentsDelete:hover {
+    cursor: pointer;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
+}
+
+.profileCommentsCreate {
+    margin: 1rem 0;
+    padding: 6px 10px;
+    color: white;
+    font-size: 17.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(251,171,23);
+}
+
+.profileCommentsCreate:hover {
+    cursor: pointer;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
+}

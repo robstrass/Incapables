@@ -20,6 +20,7 @@ export default function CreateProjectModal({ setCreateProject }) {
     const validate = () => {
         const validation = [];
         if (!title) validation.push('Please name your project.');
+        if (title.length > 255) validation.push('Your project title is too long!')
         if (!content) validation.push('Please provide a description.');
         if (!categoryId) validation.push('Please choose a category.');
 

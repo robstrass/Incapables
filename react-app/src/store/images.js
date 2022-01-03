@@ -29,7 +29,6 @@ const editImage = image => ({
 export const allImagesThunk = (projectId) => async (dispatch) => {
     const response = await fetch(`/api/projects/${projectId}/images`);
     const data = await response.json();
-    console.log('response', data);
     dispatch(allImages(data.images));
     return data;
 }
@@ -46,7 +45,6 @@ export const postImageThunk = (image) => async (dispatch) => {
 }
 
 export const deleteImageThunk = (imageId) => async (dispatch) => {
-    console.log('XXXXXXXXXXX', imageId)
     const response = await fetch(`/api/images/${imageId}`, {
         method: 'DELETE'
     });
@@ -62,9 +60,7 @@ export const editImageThunk = (image) => async (dispatch) => {
         method: 'PUT',
         body: image
     });
-    console.log('response bitch', response)
     const data = await response.json();
-    console.log('data xxxxxx', data)
     dispatch(editImage(data));
     return data;
 }
@@ -76,7 +72,6 @@ export default function imagesReducer (state = initialState, action) {
     const newState = { ...state };
     switch (action.type) {
         case GET_IMAGES:
-            console.log('reducer', action.images)
             newState.all = {}
             for (let image of action.images) {
                 newState.current = {}

@@ -8,7 +8,6 @@ import * as projectsActions from '../../store/projects';
 export default function Projects() {
     const dispatch = useDispatch();
     const allProjects = useSelector(state => Object.values(state.projects.all));
-    console.log('projects', allProjects);
 
     useEffect(() => {
         dispatch(projectsActions.allProjectsThunk())
