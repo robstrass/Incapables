@@ -29,6 +29,12 @@
     border-bottom: 1px solid rgb(221,221,221);
 }
 
+.profileCommentsContent {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+}
+
 .profileCommentsButtons {
     display: flex;
     gap: 1rem;
