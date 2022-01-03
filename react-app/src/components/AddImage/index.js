@@ -37,6 +37,7 @@ export default function AddImage() {
 
         if (!imageFile) validateErrors.push('image : Please select an image.');
         if (!imageContent) validateErrors.push('content : Please explain your step.');
+        if (imageContent.length > 250) validateErrors.push('content : Your description is too long.');
 
         return validateErrors;
     }

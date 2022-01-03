@@ -13,7 +13,8 @@ export default function CreateComment({ projectId, setCreateComment }) {
 
     const validate = () => {
         const validation = [];
-        if (!content) validation.push('Your comment is empty.')
+        if (!content) validation.push('Your comment is empty.');
+        if (content.length > 250) validation.push('Your comment is too long.')
 
         return validation;
     }
@@ -33,7 +34,7 @@ export default function CreateComment({ projectId, setCreateComment }) {
             projectId,
             content
         }
-        
+
         await dispatch(postCommentThunk(newComment));
         setCreateComment(false)
     }
