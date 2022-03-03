@@ -70,6 +70,7 @@ const LoginForm = () => {
           </label>
           <input
             className={style.loginInput}
+            id='loginPassword'
             name='password'
             type='password'
             placeholder='Password'
@@ -93,7 +94,7 @@ const LoginForm = () => {
           >Wanna Demo Our Site?</button>
           <NavLink
             className={style.loginNavLink}
-            to='/signup'
+            to='/sign-up'
           >
             New to Incapables? Sign Up
           </NavLink>
