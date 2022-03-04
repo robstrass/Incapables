@@ -112,6 +112,7 @@ const SignUpForm = () => {
           <input
             type='password'
             name='password'
+            id='signupPassword'
             onChange={updatePassword}
             value={password}
             className={style.signupInput}
@@ -131,6 +132,7 @@ const SignUpForm = () => {
           <input
             type='password'
             name='repeat_password'
+            id='signupRepeat'
             onChange={updateRepeatPassword}
             value={repeatPassword}
             className={style.signupInput}

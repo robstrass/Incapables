@@ -11,8 +11,6 @@ import SingleProject from './components/SingleProject';
 import CreateProject from './components/CreateProject';
 import SingleCategory from './components/SingleCategory';
 import Profile from './components/Profile';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
 
 function App() {
