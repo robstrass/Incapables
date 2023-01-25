@@ -355,6 +355,55 @@ export default function HomePage() {
                 </div>
             </div>
             <footer className={style.homeFooter}>
+                <div>
+                    <div>
+                        Categories
+                    </div>
+                    <div>
+                        <NavLink
+                            className={style.footerCategories}
+                            to={'/categories/1'}
+                        >
+                            Workshop
+                        </NavLink>
+                        <NavLink
+                            className={style.footerCategories}
+                            to={'/categories/2'}
+                        >
+                            Gardening
+                        </NavLink>
+                        <NavLink
+                            className={style.footerCategories}
+                            to={'/categories/3'}
+                        >
+                            Living
+                        </NavLink>
+                        <NavLink
+                            className={style.footerCategories}
+                            to={'/categories/4'}
+                        >
+                            Outside
+                        </NavLink>
+                        <NavLink
+                            className={style.footerCategories}
+                            to={'/categories/5'}
+                        >
+                            Craft
+                        </NavLink>
+                        <NavLink
+                            className={style.footerCategories}
+                            to={'/categories/6'}
+                        >
+                            Cooking
+                        </NavLink>
+                        <NavLink
+                            className={style.footerCategories}
+                            to={'/categories/7'}
+                        >
+                            Miscellaneous
+                        </NavLink>
+                    </div>
+                </div>
                 <div className={style.homeAboutContainer}>
                     <a
                         className={style.homeAboutLink}
