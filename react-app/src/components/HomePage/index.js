@@ -363,45 +363,31 @@ export default function HomePage() {
                         <NavLink
                             className={style.footerCategories}
                             to={'/categories/1'}
-                        >
-                            Workshop
-                        </NavLink>
+                        >Workshop</NavLink>
                         <NavLink
                             className={style.footerCategories}
                             to={'/categories/2'}
-                        >
-                            Gardening
-                        </NavLink>
+                        >Gardening</NavLink>
                         <NavLink
                             className={style.footerCategories}
                             to={'/categories/3'}
-                        >
-                            Living
-                        </NavLink>
+                        >Living</NavLink>
                         <NavLink
                             className={style.footerCategories}
                             to={'/categories/4'}
-                        >
-                            Outside
-                        </NavLink>
+                        >Outside</NavLink>
                         <NavLink
                             className={style.footerCategories}
                             to={'/categories/5'}
-                        >
-                            Craft
-                        </NavLink>
+                        >Craft</NavLink>
                         <NavLink
                             className={style.footerCategories}
                             to={'/categories/6'}
-                        >
-                            Cooking
-                        </NavLink>
+                        >Cooking</NavLink>
                         <NavLink
                             className={style.footerCategories}
                             to={'/categories/7'}
-                        >
-                            Miscellaneous
-                        </NavLink>
+                        >Miscellaneous</NavLink>
                     </div>
                 </div>
                 <div className={style.homeAboutContainer}>
