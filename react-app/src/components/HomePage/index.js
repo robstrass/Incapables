@@ -396,28 +396,35 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={style.homeAboutContainer}>
-                    <a
-                        className={style.homeAboutLink}
-                        href='https://www.linkedin.com/in/robstrasser-'
-                        target='_blank'
-                        rel='noreferrer'
-                    >
-                        <img
-                            src={'https://i.ibb.co/ZmrdqsC/linkedin.png'}
-                            className={style.homeAboutImg}
-                        />
-                    </a>
-                    <a
-                        className={style.homeAboutLink}
-                        href='https://github.com/robstrass'
-                        target='_blank'
-                        rel='noreferrer'
-                    >
-                        <img
-                            src={'https://i.ibb.co/b2ZmRL8/github.png'}
-                            className={style.homeAboutImg}
-                        />
-                    </a>
+                    <div className={style.footerFindUs}>
+                        <div className={style.footerFindUsTitle}>
+                            Find Us
+                        </div>
+                        <div className={style.footerFindUsContainer}>
+                            <a
+                                className={style.homeAboutLink}
+                                href='https://www.linkedin.com/in/robstrasser-'
+                                target='_blank'
+                                rel='noreferrer'
+                            >
+                                <img
+                                    src={'https://i.ibb.co/ZmrdqsC/linkedin.png'}
+                                    className={style.homeAboutImg}
+                                />
+                            </a>
+                            <a
+                                className={style.homeAboutLink}
+                                href='https://github.com/robstrass'
+                                target='_blank'
+                                rel='noreferrer'
+                            >
+                                <img
+                                    src={'https://i.ibb.co/b2ZmRL8/github.png'}
+                                    className={style.homeAboutImg}
+                                />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </footer>
         </div>
