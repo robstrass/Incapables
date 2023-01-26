@@ -396,6 +396,20 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={style.homeAboutContainer}>
+                    <div className={style.footerAboutUs}>
+                        <div>About Us</div>
+                        <div className={style.footerAboutUsContainer}>
+                            <div>Who we are</div>
+                            <div>Why Publish?</div>
+                        </div>
+                    </div>
+                    <div className={style.footerResources}>
+                        <div>Resources</div>
+                        <div className={style.footerResourcesContainer}>
+                            <div>Help</div>
+                            <div>Contact</div>
+                        </div>
+                    </div>
                     <div className={style.footerFindUs}>
                         <div className={style.footerFindUsTitle}>
                             Find Us
