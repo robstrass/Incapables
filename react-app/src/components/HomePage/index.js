@@ -361,60 +361,74 @@ export default function HomePage() {
                         <img src={logo} className={style.footerRobotLogo} />
                     </div>
                     <div className={style.footerCategoriesWrapper}>
-                        <div>
+                        <h3>
                             Categories
-                        </div>
-                        <div className={style.footerCategories}>
-                            <NavLink
-                                className={style.footerCategoryOptions}
-                                to={'/categories/1'}
-                            >Workshop</NavLink>
-                            <NavLink
-                                className={style.footerCategoryOptions}
-                                to={'/categories/2'}
-                            >Gardening</NavLink>
-                            <NavLink
-                                className={style.footerCategoryOptions}
-                                to={'/categories/3'}
-                            >Living</NavLink>
-                            <NavLink
-                                className={style.footerCategoryOptions}
-                                to={'/categories/4'}
-                            >Outside</NavLink>
-                            <NavLink
-                                className={style.footerCategoryOptions}
-                                to={'/categories/5'}
-                            >Craft</NavLink>
-                            <NavLink
-                                className={style.footerCategoryOptions}
-                                to={'/categories/6'}
-                            >Cooking</NavLink>
-                            <NavLink
-                                className={style.footerCategoryOptions}
-                                to={'/categories/7'}
-                            >Miscellaneous</NavLink>
-                        </div>
+                        </h3>
+                        <ul className={style.footerCategories}>
+                            <li>
+                                <NavLink
+                                    className={style.footerCategoryOptions}
+                                    to={'/categories/1'}
+                                >Workshop</NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className={style.footerCategoryOptions}
+                                    to={'/categories/2'}
+                                >Gardening</NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className={style.footerCategoryOptions}
+                                    to={'/categories/3'}
+                                >Living</NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className={style.footerCategoryOptions}
+                                    to={'/categories/4'}
+                                >Outside</NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className={style.footerCategoryOptions}
+                                    to={'/categories/5'}
+                                >Craft</NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className={style.footerCategoryOptions}
+                                    to={'/categories/6'}
+                                >Cooking</NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className={style.footerCategoryOptions}
+                                    to={'/categories/7'}
+                                >Miscellaneous</NavLink>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div className={style.homeAboutContainer}>
                     <div className={style.footerAboutUs}>
-                        <div>About Us</div>
+                        <h3>About Us</h3>
                         <div className={style.footerAboutUsContainer}>
                             <div>Who we are</div>
                             <div>Why Publish?</div>
                         </div>
                     </div>
                     <div className={style.footerResources}>
-                        <div>Resources</div>
+                        <h3>Resources</h3>
                         <div className={style.footerResourcesContainer}>
                             <div>Help</div>
                             <div>Contact</div>
                         </div>
                     </div>
                     <div className={style.footerFindUs}>
-                        <div className={style.footerFindUsTitle}>
+                        <h3 className={style.footerFindUsTitle}>
                             Find Us
-                        </div>
+                        </h3>
                         <div className={style.footerFindUsContainer}>
                             <a
                                 className={style.homeAboutLink}
