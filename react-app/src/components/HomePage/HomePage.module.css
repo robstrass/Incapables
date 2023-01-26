@@ -158,8 +158,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: fit-content;
     background-color: rgb(85,85,85);
+}
+
+.footerCategoriesContainer {
+    background-color: violet;
+    display: flex;
+    height: inherit;
+}
+
+.footerRobot {
+    background-color: aqua;
+    height: 100%;
+}
+
+.footerRobotLogo {
+    height: 8em;
+    width: auto;
 }
 
 .homeAboutContainer {

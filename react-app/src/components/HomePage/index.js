@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import style from './HomePage.module.css';
+import logo from '../../assets/headless-robo-tr.png';
 import * as categoriesActions from '../../store/categories';
 import * as projectActions from '../../store/projects';
 
@@ -357,7 +358,7 @@ export default function HomePage() {
             <footer className={style.homeFooter}>
                 <div className={style.footerCategoriesContainer}>
                     <div className={style.footerRobot}>
-                        Robot placeholder
+                        <img src={logo} className={style.footerRobotLogo} />
                     </div>
                     <div className={style.footerCategoriesWrapper}>
                         <div>
