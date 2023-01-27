@@ -163,9 +163,9 @@
 }
 
 .footerCategoriesContainer {
-    background-color: violet;
+    /* background-color: violet; */
     display: flex;
-    height: inherit;
+    gap: 1.25rem;
 }
 
 .footerRobot {
@@ -179,9 +179,14 @@
 }
 
 .footerCategoriesWrapper {
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     display: flex;
     flex-direction: column;
+}
+
+.footerHeaders {
+    margin-bottom: .5rem;
+    color: #ffffff;
 }
 
 .footerCategories {

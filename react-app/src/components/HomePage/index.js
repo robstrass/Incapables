@@ -361,7 +361,7 @@ export default function HomePage() {
                         <img src={logo} className={style.footerRobotLogo} />
                     </div>
                     <div className={style.footerCategoriesWrapper}>
-                        <h3>
+                        <h3 className={style.footerHeaders}>
                             Categories
                         </h3>
                         <ul className={style.footerCategories}>
@@ -412,21 +412,21 @@ export default function HomePage() {
                 </div>
                 <div className={style.homeAboutContainer}>
                     <div className={style.footerAboutUs}>
-                        <h3>About Us</h3>
+                        <h3 className={style.footerHeaders}>About Us</h3>
                         <div className={style.footerAboutUsContainer}>
                             <div>Who we are</div>
                             <div>Why Publish?</div>
                         </div>
                     </div>
                     <div className={style.footerResources}>
-                        <h3>Resources</h3>
+                        <h3 className={style.footerHeaders}>Resources</h3>
                         <div className={style.footerResourcesContainer}>
                             <div>Help</div>
                             <div>Contact</div>
                         </div>
                     </div>
                     <div className={style.footerFindUs}>
-                        <h3 className={style.footerFindUsTitle}>
+                        <h3 className={style.footerHeaders}>
                             Find Us
                         </h3>
                         <div className={style.footerFindUsContainer}>
