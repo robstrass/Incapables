@@ -431,25 +431,25 @@ export default function HomePage() {
                         </h3>
                         <div className={style.footerFindUsContainer}>
                             <a
-                                className={style.homeAboutLink}
+                                className={style.footerFindUsLink}
                                 href='https://www.linkedin.com/in/robstrasser-'
                                 target='_blank'
                                 rel='noreferrer'
                             >
                                 <img
                                     src={'https://i.ibb.co/ZmrdqsC/linkedin.png'}
-                                    className={style.homeAboutImg}
+                                    className={style.footerFindUsImg}
                                 />
                             </a>
                             <a
-                                className={style.homeAboutLink}
+                                className={style.footerFindUsLink}
                                 href='https://github.com/robstrass'
                                 target='_blank'
                                 rel='noreferrer'
                             >
                                 <img
                                     src={'https://i.ibb.co/b2ZmRL8/github.png'}
-                                    className={style.homeAboutImg}
+                                    className={style.footerFindUsImg}
                                 />
                             </a>
                         </div>
