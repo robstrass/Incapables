@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import HomePage from './components/HomePage';
+import AboutUs from './components/HomePage/AboutUs'
 import NavBar from './components/Navbar';
 import SubNav from './components/SubNav';
 import Projects from './components/Projects';
@@ -56,6 +57,9 @@ function App() {
         </Route>
         <Route path='/profile'>
           <Profile />
+        </Route>
+        <Route path='/about'>
+          <AboutUs />
         </Route>
         <Route>
           <Redirect to='/' />

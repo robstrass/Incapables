@@ -414,7 +414,10 @@ export default function HomePage() {
                     <div className={style.footerAboutUs}>
                         <h3 className={style.footerHeaders}>About Us</h3>
                         <div className={style.footerAboutUsContainer}>
-                            <div>Who we are</div>
+                            <NavLink
+                                className={style.footerAboutUs}
+                                to={'/about'}
+                            >Who We Are</NavLink>
                             <div>Why Publish?</div>
                         </div>
                     </div>
