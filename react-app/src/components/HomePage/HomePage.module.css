@@ -184,6 +184,23 @@
     flex-direction: column;
 }
 
+.footerCategories {
+    columns: 2;
+}
+
+.footerCategories > li {
+    list-style-type: none;
+}
+
+.footerCategoryOptions {
+    text-decoration: none;
+    color: #bbbbbb;
+}
+
+.footerCategoryOptions:hover {
+    color: #ffffff;
+}
+
 .homeAboutContainer {
     display: flex;
     justify-content: space-between;
