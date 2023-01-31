@@ -19,19 +19,20 @@ export default function AboutUs() {
                     </div>
                 </div>
                 <div className={style.aboutUsStoryWrapper}>
-                    <h3>Our Story</h3>
+                    <h3 className={style.aboutUsStoryTitle}>Our Story</h3>
                     <p className={style.aboutUsStoryParagraph}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim nec enim
-                        sit amet feugiat. Integer commodo aliquam tempor. Suspendisse mattis rhoncus fringilla.
-                        Proin quis magna sit amet massa rhoncus maximus eget nec purus. Pellentesque accumsan
-                        elementum tortor vitae aliquam. Quisque accumsan, massa sit amet imperdiet egestas,
-                        purus libero imperdiet ante, a efficitur leo dui ac tellus. Praesent ac maximus risus,
-                        vitae gravida nibh. Sed ullamcorper, nunc vel viverra ultrices, nibh tortor cursus massa,
-                        at elementum nibh nulla sit amet risus. Nam fermentum magna et imperdiet viverra. Duis
-                        blandit posuere quam, quis tincidunt sem viverra ac. Donec euismod, nisl ac euismod
-                        scelerisque, nunc lacus dictum enim, ac faucibus dolor nulla quis est. Pellentesque
-                        maximus felis et fringilla mattis. Morbi aliquet dolor justo, quis convallis lectus
-                        placerat in. Aliquam erat volutpat.
+                        Incapables was created by Rob Strasser as a spinoff of the popular DIY website
+                        Instructables, where users can create step by step guides for activities, crafts,
+                        hobbies, etc. Instead of making a direct clone, Rob wanted to key into his sarcastic
+                        sense of humor and make this the opposite -- instead of helpful DIY guides,
+                        Incapables serves as an anti guide, purposely, sometimes even hyperbolically,
+                        incorrect instructions for said activities.
+
+                        Incapables served as Rob's capstone project, marking the completion of his 6-month immersive
+                        web development bootcamp. In this fullstack project, Rob utilized all the skills and knowledge
+                        he picked up, both from working on other solo projects, and collaborating with colleagues.
+                        This project utilizes a React and JavaScript front end, with Redux for state storage, and a
+                        backend written in Python, with Flask, SQLAlchemy, and Amazon's S3 buckets for image storage. 
                     </p>
                 </div>
             </div>
