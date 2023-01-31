@@ -219,3 +219,20 @@
     height: 3rem;
     width: auto;
 }
+
+.aboutUsContainer {
+    background-color: purple;
+    display: flex;
+    justify-content: center;
+}
+
+.aboutUsWrapper {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.aboutUsTitle {
+    
+}
