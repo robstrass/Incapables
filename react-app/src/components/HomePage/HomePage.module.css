@@ -154,7 +154,7 @@
     text-decoration: underline;
 }
 
-.homeFooter {
+/* .homeFooter {
     display: flex;
     justify-content: space-evenly;
     height: fit-content;
@@ -218,7 +218,7 @@
 .footerFindUsImg {
     height: 3rem;
     width: auto;
-}
+} */
 
 .aboutUsContainer {
     /* background-color: purple; */

@@ -1,0 +1,65 @@
+.homeFooter {
+    display: flex;
+    justify-content: space-evenly;
+    height: fit-content;
+    background-color: rgb(85,85,85);
+    padding-top: 1rem;
+}
+
+.footerCategoriesContainer {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footerRobot {
+    height: 100%;
+}
+
+.footerRobotLogo {
+    height: 8em;
+    width: auto;
+}
+
+.footerCategoriesWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerHeaders {
+    margin-bottom: .5rem;
+    color: #ffffff;
+}
+
+.footerCategories {
+    columns: 2;
+}
+
+.footerCategories > li {
+    list-style-type: none;
+}
+
+.footerCategoryOptions {
+    text-decoration: none;
+    color: #bbbbbb;
+}
+
+.footerCategoryOptions:hover {
+    color: #ffffff;
+}
+
+.homeAboutContainer {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    gap: 1rem;
+}
+
+.footerFindUsContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.footerFindUsImg {
+    height: 3rem;
+    width: auto;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import logo from '../../assets/headless-robo-tr.png';
+import style from './Footer.module.css';
 
 export default function Footer () {
     return (
