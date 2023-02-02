@@ -61,12 +61,12 @@ export default function Footer () {
                     </ul>
                 </div>
             </div>
-            <div className={style.homeAboutContainer}>
+            <div className={style.footerAboutContainer}>
                 <div className={style.footerAboutUs}>
                     <h3 className={style.footerHeaders}>About Us</h3>
                     <div className={style.footerAboutUsContainer}>
                         <NavLink
-                            className={style.footerAboutUs}
+                            className={style.footerAboutUsLinks}
                             to={'/about'}
                         >Who We Are</NavLink>
                         <div>Why Publish?</div>

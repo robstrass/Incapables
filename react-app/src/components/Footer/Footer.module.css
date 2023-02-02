@@ -3,7 +3,7 @@
     justify-content: space-evenly;
     height: fit-content;
     background-color: rgb(85,85,85);
-    padding-top: 1rem;
+    padding: 1rem 0;
 }
 
 .footerCategoriesContainer {
@@ -38,16 +38,18 @@
     list-style-type: none;
 }
 
-.footerCategoryOptions {
+.footerCategoryOptions,
+.footerAboutUsLinks {
     text-decoration: none;
     color: #bbbbbb;
 }
 
-.footerCategoryOptions:hover {
+.footerCategoryOptions:hover,
+.footerAboutUsLinks:hover {
     color: #ffffff;
 }
 
-.homeAboutContainer {
+.footerAboutContainer {
     display: flex;
     justify-content: space-between;
     width: fit-content;
