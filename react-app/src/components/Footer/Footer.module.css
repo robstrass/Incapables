@@ -56,6 +56,11 @@
     gap: 1rem;
 }
 
+.footerAboutUsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .footerFindUsContainer {
     display: flex;
     gap: 1rem;

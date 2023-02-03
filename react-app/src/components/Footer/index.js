@@ -1,10 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import logo from '../../assets/headless-robo-tr.png';
 import style from './Footer.module.css';
 
 export default function Footer () {
+    const user = useSelector(state => state.session.user);
+
     return (
         <footer className={style.homeFooter}>
             <div className={style.footerCategoriesContainer}>
@@ -69,7 +72,17 @@ export default function Footer () {
                             className={style.footerAboutUsLinks}
                             to={'/about'}
                         >Who We Are</NavLink>
-                        <div>Why Publish?</div>
+                        {user ?
+                            <NavLink
+                                className={style.footerAboutUsLinks}
+                                to={'/create'}
+                            >Why Publish?</NavLink>
+                            :
+                            <NavLink
+                                className={style.footerAboutUsLinks}
+                                to={'/login'}
+                            >Why Publish?</NavLink>
+                        }
                     </div>
                 </div>
                 <div className={style.footerResources}>
