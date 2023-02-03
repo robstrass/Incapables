@@ -53,7 +53,7 @@
     display: flex;
     justify-content: space-between;
     width: fit-content;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .footerAboutUsContainer {
