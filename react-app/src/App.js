@@ -6,6 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import HomePage from './components/HomePage';
 import AboutUs from './components/HomePage/AboutUs';
 import Help from './components/HomePage/Help';
+import ContactUs from './components/HomePage/ContactUs';
 import NavBar from './components/Navbar';
 import SubNav from './components/SubNav';
 import Projects from './components/Projects';
@@ -64,6 +65,9 @@ function App() {
         </Route>
         <Route path='/help'>
             <Help />
+        </Route>
+        <Route path='/contact'>
+            <ContactUs />
         </Route>
         <Route>
           <Redirect to='/' />

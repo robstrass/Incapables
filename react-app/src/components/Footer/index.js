@@ -92,7 +92,10 @@ export default function Footer () {
                             className={style.footerAboutUsLinks}
                             to={'/help'}
                         >Help</NavLink>
-                        <div>Contact</div>
+                        <NavLink
+                            className={style.footerAboutUsLinks}
+                            to={'/contact'}
+                        >Contact</NavLink>
                     </div>
                 </div>
                 <div className={style.footerFindUs}>

@@ -61,6 +61,11 @@
     flex-direction: column;
 }
 
+.footerResourcesContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .footerFindUsContainer {
     display: flex;
     gap: 1rem;
