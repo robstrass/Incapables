@@ -34,7 +34,20 @@ export default function Help() {
                             If you aren't already a member, feel free to sign up and join the
                             community. It's 100% free to join!
                         </p>
-                        <p className={style.y}></p>
+                        <p className={style.y}>
+                            Once you begin your Incapable, the first step is to name it. You'll
+                            want your name to be simple, clear, and descriptive so others
+                            will be able to identify exactly what your Incapable is about.<br></br>
+
+                            Next, you'll want to give your incapable a brief description so
+                            community members can see what your project is about. This will
+                            help others get an idea of what your incapable does.<br></br>
+
+                            Finally, you'll want to select a topic category for your incapable.
+                            Categories help other members of the community find incapables that
+                            they're interested in. Each project can only have one category,
+                            so choose the category that best fits your incapable.
+                        </p>
                     </div>
                 </div>
             </div>
