@@ -89,6 +89,10 @@ export default function Footer () {
                     <h3 className={style.footerHeaders}>Resources</h3>
                     <div className={style.footerResourcesContainer}>
                         <div>Help</div>
+                        <NavLink
+                            className={style.footerAboutUsLinks}
+                            to={'/help'}
+                        >Help</NavLink>
                         <div>Contact</div>
                     </div>
                 </div>
