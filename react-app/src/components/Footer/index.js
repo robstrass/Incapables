@@ -88,7 +88,6 @@ export default function Footer () {
                 <div className={style.footerResources}>
                     <h3 className={style.footerHeaders}>Resources</h3>
                     <div className={style.footerResourcesContainer}>
-                        <div>Help</div>
                         <NavLink
                             className={style.footerAboutUsLinks}
                             to={'/help'}
