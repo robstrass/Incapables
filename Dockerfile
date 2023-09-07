@@ -17,6 +17,10 @@ ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
 
+RUN flask db upgrade
+
+RUN flask seed all
+
 EXPOSE 8000
 
 WORKDIR /var/www
