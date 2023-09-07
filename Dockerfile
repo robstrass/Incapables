@@ -17,10 +17,6 @@ ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
 
-RUN flask db upgrade
-
-RUN flask seed all
-
 EXPOSE 8000
 
 WORKDIR /var/www
@@ -30,6 +26,9 @@ COPY --from=build-stage /react-app/build/* app/static/
 # Install Python Dependencies
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
+
+RUN flask db upgrade
+RUN flask seed all
 
 # Run flask environment
 CMD gunicorn app:app
