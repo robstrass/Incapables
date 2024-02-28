@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import style from './HomePage.module.css';
 
+import FeaturedProject from './FeaturedProject';
 import Footer from '../Footer';
 
 import * as categoriesActions from '../../store/categories';
@@ -11,13 +12,10 @@ import * as projectActions from '../../store/projects';
 
 export default function HomePage() {
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.user)
     const allCategories = useSelector(state => state.categories.all)
     const projectsObject = useSelector(state => state.projects.all);
     const projects = Object.values(projectsObject);
     const projectKeys = Object.keys(projectsObject);
-
-    const randomNum = projectKeys[Math.floor(Math.random() * projectKeys.length - 1)];
 
     useEffect(() => {
         dispatch(categoriesActions.allCategoriesThunk());
@@ -28,48 +26,7 @@ export default function HomePage() {
         <div className={style.homeContainer}>
             <div className={style.homeFeatured}>
                 <div className={style.homePageFeatureBlur}></div>
-                { projects ? projects[randomNum]?.images[0]?.image ?
-                <div className={style.homeFeatureDiv}>
-                    <img
-                        className={style.homeFeatureImg}
-                        src={projects[randomNum]?.images[0]?.image}
-                    />
-                    <NavLink
-                        className={style.homeFeatureContent}
-                        to={`/projects/${projects[randomNum]?.id}`}
-                    >
-                        <h1 className={style.homeFeatureTitle}>
-                            {projects[randomNum]?.title}
-                        </h1>
-                        <h3 className={style.homeFeatureAuthor}>
-                            by {projects[randomNum]?.author.username}
-                        </h3>
-                        <p className={style.homeFeatureContentP}>
-                            {projects[randomNum]?.content}
-                        </p>
-                    </NavLink>
-                </div>
-                : <div className={style.homeFeatureDiv}>
-                <img
-                    className={style.homeFeatureImg}
-                    src={projects[0]?.images[0]?.image}
-                />
-                <NavLink
-                    className={style.homeFeatureContent}
-                    to={`/projects/${projects[0]?.id}`}
-                >
-                    <h1 className={style.homeFeatureTitle}>
-                        {projects[0]?.title}
-                    </h1>
-                    <h3 className={style.homeFeatureAuthor}>
-                        by {projects[0]?.author.username}
-                    </h3>
-                    <p className={style.homeFeatureContent}>
-                        {projects[0]?.content}
-                    </p>
-                </NavLink>
-            </div>
-                : null }
+                <FeaturedProject projects={projects} projectKeys={projectKeys} />
             </div>
             <div className={style.homeInfoContainer}>
                 <div className={style.homeInfoSingleDiv}>
