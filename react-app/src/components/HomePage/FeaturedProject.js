@@ -1,6 +1,6 @@
 import style from "./HomePage.module.css";
 
-import ProjectFeature from "../../helpers/ProjectFeature";
+import ProjectFeature from "../../shared/ProjectFeature";
 
 export default function FeaturedProject({ projects, projectKeys }) {
   const randomNum =
