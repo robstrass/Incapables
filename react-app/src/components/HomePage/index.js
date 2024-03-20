@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import style from "./HomePage.module.css";
 
 import FeaturedProject from "./FeaturedProject";
+import HomePageInfo from "./HomePageInfo";
 import Footer from "../Footer";
 import { COPY } from "../../shared/copyConstants";
 
@@ -30,18 +31,7 @@ export default function HomePage() {
         <FeaturedProject projects={projects} projectKeys={projectKeys} />
       </div>
       <div className={style.homeInfoContainer}>
-        <div className={style.homeInfoSingleDiv}>
-          <h2 className={style.homeInfoTitle}>{COPY.STEP_BY_STEP}</h2>
-          <p className={style.homeInfoContent}>{COPY.HOMEPAGE_1}</p>
-        </div>
-        <div className={style.homeInfoSingleDiv}>
-          <h2 className={style.homeInfoTitle}>{COPY.CURATED_BY_YOUR_PEERS}</h2>
-          <p className={style.homeInfoContent}>{COPY.HOMEPAGE_2}</p>
-        </div>
-        <div className={style.homeInfoSingleDiv}>
-          <h2 className={style.homeInfoTitle}>{COPY.FAMILY_FRIENDLY}</h2>
-          <p className={style.homeInfoContent}>{COPY.HOMEPAGE_3}</p>
-        </div>
+        <HomePageInfo />
       </div>
       <div className={style.homeCategoriesContainer}>
         <h2 className={style.homeCategoriesTitle}>{COPY.EXPLORE_PROJECTS}</h2>
