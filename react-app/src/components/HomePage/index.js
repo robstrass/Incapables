@@ -6,6 +6,7 @@ import style from "./HomePage.module.css";
 
 import FeaturedProject from "./FeaturedProject";
 import HomePageInfo from "./HomePageInfo";
+import ProjectSection from "./ProjectSection";
 import Footer from "../Footer";
 import { COPY } from "../../shared/copyConstants";
 
@@ -23,6 +24,8 @@ export default function HomePage() {
     dispatch(categoriesActions.allCategoriesThunk());
     dispatch(projectActions.allProjectsThunk());
   }, [dispatch]);
+
+  console.log("allCategories: ", allCategories);
 
   return (
     <div className={style.homeContainer}>
@@ -43,37 +46,9 @@ export default function HomePage() {
             Workshop<span className="material-icons">chevron_right</span>
           </NavLink>
           <div className={style.homeCategoryProjectsHolder}>
-            {allCategories
-              ? allCategories[1]?.projects.slice(0, 4).map(project => (
-                  <NavLink
-                    key={project.id}
-                    className={style.homeCategorySingleCategoryHolder}
-                    to={`/projects/${project.id}`}
-                  >
-                    {project.images[0]?.image ? (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={project.images[0]?.image}
-                      />
-                    ) : (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={
-                          "https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png"
-                        }
-                      />
-                    )}
-                    <div className={style.homeCategorySingleCategoryInfo}>
-                      <p className={style.homeCategoryTitleP}>
-                        {project.title}{" "}
-                        <span className={style.homeCategoryAuthor}>
-                          by {project.author?.username}
-                        </span>
-                      </p>
-                    </div>
-                  </NavLink>
-                ))
-              : null}
+            {allCategories ? (
+              <ProjectSection projects={allCategories[1]?.projects} />
+            ) : null}
           </div>
         </div>
         <div className={style.homeCategoriesDiv}>
@@ -84,37 +59,9 @@ export default function HomePage() {
             Gardening<span className="material-icons">chevron_right</span>
           </NavLink>
           <div className={style.homeCategoryProjectsHolder}>
-            {allCategories
-              ? allCategories[2]?.projects.slice(0, 4).map(project => (
-                  <NavLink
-                    key={project.id}
-                    className={style.homeCategorySingleCategoryHolder}
-                    to={`/projects/${project.id}`}
-                  >
-                    {project.images[0]?.image ? (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={project.images[0]?.image}
-                      />
-                    ) : (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={
-                          "https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png"
-                        }
-                      />
-                    )}
-                    <div className={style.homeCategorySingleCategoryInfo}>
-                      <p className={style.homeCategoryTitleP}>
-                        {project.title}{" "}
-                        <span className={style.homeCategoryAuthor}>
-                          by {project.author?.username}
-                        </span>
-                      </p>
-                    </div>
-                  </NavLink>
-                ))
-              : null}
+            {allCategories ? (
+              <ProjectSection projects={allCategories[2]?.projects} />
+            ) : null}
           </div>
         </div>
         <div className={style.homeCategoriesDiv}>
@@ -126,35 +73,7 @@ export default function HomePage() {
           </NavLink>
           <div className={style.homeCategoryProjectsHolder}>
             {allCategories
-              ? allCategories[3]?.projects.slice(0, 4).map(project => (
-                  <NavLink
-                    key={project.id}
-                    className={style.homeCategorySingleCategoryHolder}
-                    to={`/projects/${project.id}`}
-                  >
-                    {project.images[0]?.image ? (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={project.images[0]?.image}
-                      />
-                    ) : (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={
-                          "https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png"
-                        }
-                      />
-                    )}
-                    <div className={style.homeCategorySingleCategoryInfo}>
-                      <p className={style.homeCategoryTitleP}>
-                        {project.title}{" "}
-                        <span className={style.homeCategoryAuthor}>
-                          by {project.author?.username}
-                        </span>
-                      </p>
-                    </div>
-                  </NavLink>
-                ))
+              ? <ProjectSection projects={allCategories[3]?.projects} />
               : null}
           </div>
         </div>
@@ -167,35 +86,7 @@ export default function HomePage() {
           </NavLink>
           <div className={style.homeCategoryProjectsHolder}>
             {allCategories
-              ? allCategories[4]?.projects.slice(0, 4).map(project => (
-                  <NavLink
-                    key={project.id}
-                    className={style.homeCategorySingleCategoryHolder}
-                    to={`/projects/${project.id}`}
-                  >
-                    {project.images[0]?.image ? (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={project.images[0]?.image}
-                      />
-                    ) : (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={
-                          "https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png"
-                        }
-                      />
-                    )}
-                    <div className={style.homeCategorySingleCategoryInfo}>
-                      <p className={style.homeCategoryTitleP}>
-                        {project.title}{" "}
-                        <span className={style.homeCategoryAuthor}>
-                          by {project.author?.username}
-                        </span>
-                      </p>
-                    </div>
-                  </NavLink>
-                ))
+              ? <ProjectSection projects={allCategories[4]?.projects} />
               : null}
           </div>
         </div>
@@ -208,35 +99,7 @@ export default function HomePage() {
           </NavLink>
           <div className={style.homeCategoryProjectsHolder}>
             {allCategories
-              ? allCategories[5]?.projects.slice(0, 4).map(project => (
-                  <NavLink
-                    key={project.id}
-                    className={style.homeCategorySingleCategoryHolder}
-                    to={`/projects/${project.id}`}
-                  >
-                    {project.images[0]?.image ? (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={project.images[0]?.image}
-                      />
-                    ) : (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={
-                          "https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png"
-                        }
-                      />
-                    )}
-                    <div className={style.homeCategorySingleCategoryInfo}>
-                      <p className={style.homeCategoryTitleP}>
-                        {project.title}{" "}
-                        <span className={style.homeCategoryAuthor}>
-                          by {project.author?.username}
-                        </span>
-                      </p>
-                    </div>
-                  </NavLink>
-                ))
+              ? <ProjectSection projects={allCategories[5]?.projects} />
               : null}
           </div>
         </div>
@@ -249,35 +112,7 @@ export default function HomePage() {
           </NavLink>
           <div className={style.homeCategoryProjectsHolder}>
             {allCategories
-              ? allCategories[6]?.projects.slice(0, 4).map(project => (
-                  <NavLink
-                    key={project.id}
-                    className={style.homeCategorySingleCategoryHolder}
-                    to={`/projects/${project.id}`}
-                  >
-                    {project.images[0]?.image ? (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={project.images[0]?.image}
-                      />
-                    ) : (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={
-                          "https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png"
-                        }
-                      />
-                    )}
-                    <div className={style.homeCategorySingleCategoryInfo}>
-                      <p className={style.homeCategoryTitleP}>
-                        {project.title}{" "}
-                        <span className={style.homeCategoryAuthor}>
-                          by {project.author?.username}
-                        </span>
-                      </p>
-                    </div>
-                  </NavLink>
-                ))
+              ? <ProjectSection projects={allCategories[6]?.projects} />
               : null}
           </div>
         </div>
@@ -290,35 +125,7 @@ export default function HomePage() {
           </NavLink>
           <div className={style.homeCategoryProjectsHolder}>
             {allCategories
-              ? allCategories[7]?.projects.slice(0, 4).map(project => (
-                  <NavLink
-                    key={project.id}
-                    className={style.homeCategorySingleCategoryHolder}
-                    to={`/projects/${project.id}`}
-                  >
-                    {project.images[0]?.image ? (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={project.images[0]?.image}
-                      />
-                    ) : (
-                      <img
-                        className={style.homeCategorySingleCategoryImg}
-                        src={
-                          "https://res.cloudinary.com/depdd11lz/image/upload/v1640226348/No_image.svg_alrhuo.png"
-                        }
-                      />
-                    )}
-                    <div className={style.homeCategorySingleCategoryInfo}>
-                      <p className={style.homeCategoryTitleP}>
-                        {project.title}{" "}
-                        <span className={style.homeCategoryAuthor}>
-                          by {project.author?.username}
-                        </span>
-                      </p>
-                    </div>
-                  </NavLink>
-                ))
+              ? <ProjectSection projects={allCategories[7]?.projects} />
               : null}
           </div>
         </div>
