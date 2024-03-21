@@ -11,8 +11,8 @@ export default function HomePageInfo() {
 
   return (
     <>
-      {homeInfo.map(info => (
-        <div className={style.homeInfoSingleDiv}>
+      {homeInfo.map((info, idx) => (
+        <div className={style.homeInfoSingleDiv} key={idx}>
           <h2 className={style.homeInfoTitle}>{info[0]}</h2>
           <p className={style.homeInfoContent}>{info[1]}</p>
         </div>

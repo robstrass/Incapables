@@ -82,7 +82,6 @@ def add_image(projectId):
 export default function AddImage() {
     const dispatch = useDispatch();
     const { projectId } = useParams();
-    console.log('projectId', projectId);
 
     const [imageFile, setImageFile] = useState('');
     const [savedImageFile, setSavedImageFile] = useState('');
@@ -122,7 +121,6 @@ export default function AddImage() {
         const errors = validate();
 
         if (errors && errors.length > 0) {
-            console.log(errors)
             return setErrors(errors);
         }
 
@@ -213,4 +211,4 @@ export default function AddImage() {
 ## Conclusion
 On a personal note, Incapables was a super fun project to build. I'm an extremely sarcastic person, so being able to build a project around sarcasm was a great way to bring in my own personal flare.
 
-I fell in love with Javascript as I began learning it, but I really wanted to challenge myself on this project. Python was a difficult shift for me coming from Javascript, so I wanted to build out the backend for Incapables in Python to better understand what Python was capable of. 
+I fell in love with Javascript as I began learning it, but I really wanted to challenge myself on this project. Python was a difficult shift for me coming from Javascript, so I wanted to build out the backend for Incapables in Python to better understand what Python was capable of.
