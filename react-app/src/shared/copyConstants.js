@@ -38,7 +38,8 @@ export const COPY = {
   Incapable", and you'll be well on your way to creating your first
   Incapable! Congratulations, and welcome to the Incapables
   community.`,
-  ABOUT_US: "INCAPABLES IS A PLACE THAT LETS YOU EXPLORE, DOCUMENT, AND SHARE YOUR CREATIONS.",
+  ABOUT_US:
+    "INCAPABLES IS A PLACE THAT LETS YOU EXPLORE, DOCUMENT, AND SHARE YOUR CREATIONS.",
   OUR_STORY: "Our Story",
   OUR_STORY_PARAGRAPH: `Incapables was created by Rob Strasser as a spinoff of the popular DIY website
   Instructables, where users can create step by step guides for activities, crafts,
@@ -51,5 +52,14 @@ export const COPY = {
   web development bootcamp. In this fullstack project, Rob utilized all the skills and knowledge
   he picked up, both from working on other solo projects, and collaborating with colleagues.
   This project utilizes a React and JavaScript front end, with Redux for state storage, and a
-  backend written in Python, with Flask, SQLAlchemy, and Amazon's S3 buckets for image storage.`
+  backend written in Python, with Flask, SQLAlchemy, and Amazon's S3 buckets for image storage.`,
+  CONTACT_US: "Contact Us",
+  BUSINESS_HOURS: "Business Hours",
+  HOURS: "Monday Through Friday 9am-5pm PST",
+  WORK: "I'm located in the Bay Area however, I have experience working in distributed teams across the country and the globe. I'm flexible in my work hours to help meet the needs of the team.",
+  GENERAL_INQUIRIES: "General Inquiries",
+  EMAIL: "robstrasserdev@gmail.com",
+  TRADEMARK: "Trademark and Copyright Claims",
+  TRADEMARK_PARAGRAPH:
+    "This project was made as a hobby project to showcase skills. While mostly architected during my time in a coding bootcamp, I've spent some time fixing some of the code since then. This project in no way intends to infringe upon any copyrights held my Instructables.",
 };

@@ -200,3 +200,32 @@
 .aboutUsStoryParagraph {
     columns: 2;
 }
+
+.contactContainer {
+  color: #fff;
+  background: url("../../assets/robot-papercraft.jpg") no-repeat center;
+  background-size: cover;
+  width: 100%;
+}
+
+.contactWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding-left: 2rem;
+  gap: 1rem;
+}
+
+.contactHeader {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.contactMiniHeader {
+  padding-top: .25rem;
+  padding-bottom: .5rem;
+}
+
+.contactParagraph {
+  padding-bottom: .5rem;
+}
